@@ -96,6 +96,7 @@ nav ul li {
     justify-content: center;
     gap: 2.5rem;
     max-width: 68.75rem;
+    height: 90vh;
     margin: auto;
 }
 
@@ -104,83 +105,62 @@ nav ul li {
     width: 37.5rem;
 }
 
-.bio {
-    width: 25rem;
-    padding: 0.625rem;
-    border-radius: 6px;
-    box-shadow: 0px 2px 15px 2px var(--primary-shadow);
-}
-
-.bio h1 {
-    margin-bottom: var(--bottom-margin);
-}
-
-.bio p {
-    line-height: var(--line-height);
-    padding: 0.3rem 0;
-}
-
-.more-about {
-    background-color: var(--bg-color);
-    padding: 1rem 6rem;
-}
-
-.more-about h2 {
-    margin-bottom: var(--bottom-margin);
+.projects-title {
     text-align: center;
-}
-
-.more-about p {
-    line-height: var(--line-height);
-    padding: 0.4rem;
+    margin-bottom: 1rem;
 }
 
 .projects {
-    background-color: var(--bg-color);
     padding: 32px 0;
     margin-top: 2rem;
-}
-
-.project-pic {
-    width: 65%;
-    height: 60%;
 }
 
 .projects-container {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.projects-title {
-    text-align: center;
-    margin-bottom: 1rem;
+    padding: 0 100px;
 }
 
 .project-container {
-    text-align: center;
-    width: 21.875rem;
+    max-width: 1680px;
+    min-height: 555px;
     padding: 1rem;
 }
 
-.project-container p {
-    padding: 0.4rem;
+.project-card {
+    background-color: #8bf6da;
+    border-radius: 28px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.project-icon {
+    width: 70px;
+    height: 70px;
 }
 
 .project-title {
-    margin-bottom: var(--bottom-margin);
+    padding-left: 0.8rem;
 }
 
 .project-details {
-    margin-bottom: var(--bottom-margin);
+    padding-top: 0.8rem;
+    margin-bottom: 1rem;
+    max-width: 50%;
 }
 
-.project-card {
+.project-link {
+    color: #000;
+    border-radius: 28px;
+    padding: 0.5rem;
     background-color: #fff;
-    border-radius: 11px;
-    box-shadow: 0 3px 10px var(--primary-shadow);
-    padding: 20px;
-    margin: 10px;
 }
 
 .contact {
@@ -293,30 +273,16 @@ footer {
         width: 30rem;
     }
 
-    .bio {
-        margin-top: -7rem;
-        width: 20.5rem;
-    }
-
-    .more-about {
-        margin-top: 2rem;
-        padding: 1rem 3.5rem;
-    }
-
-    .more-about h2 {
-        text-align: center;
-    }
-
-    .more-about p {
-        text-align: justify;
-    }
-
     .projects-container {
         flex-direction: column;
     }
 
     .project-container {
-        width: 20.875rem;
+        width: 372px;
+        height: 680px;
+    }
+    .project-details {
+        max-width: 100%;
     }
 
     .contact-form-container {
@@ -335,7 +301,8 @@ footer {
     }
 
     .project-container {
-        width: 17.875rem;
+        width: 304px;
+        height: 562px;
     }
 
     .contact-form-container {
