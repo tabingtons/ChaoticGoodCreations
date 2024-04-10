@@ -159,7 +159,7 @@ nav ul li {
 .project-link {
     color: #000;
     border-radius: 28px;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     background-color: #fff;
 }
 
@@ -180,6 +180,17 @@ nav ul li {
 .about-title {
     text-align: center;
     margin-bottom: 1rem;
+}
+
+.about-details {
+    margin-bottom: 1rem;
+}
+
+.about-link {
+    color: #fff;
+    border-radius: 28px;
+    padding: 0.5rem 1rem;
+    background-color: #f91585;
 }
 
 .contact {
