@@ -2,6 +2,9 @@
 
 /* Variables */
 :root {
+    --header-font-family: garamond-premier-pro-display, serif;
+    --header-font-style: normal;
+    --header-font-weight: 300;
     --font-family: "Roboto", sans-serf;
     --normal-font: 400;
     --bold-font: 700;
@@ -46,6 +49,13 @@ body {
     font-family: var(--font-family);
 }
 
+h1 {
+    font-family: var(--header-font-family);
+    font-style: var(--header-font-style);
+    font-weight: var(--header-font-weight);
+    font-size: 5rem;
+}
+
 nav {
     position: sticky;
     top: 0;
@@ -88,6 +98,48 @@ nav ul li {
     background-color: transparent;
     cursor: pointer;
     display: none;
+}
+
+.parallax {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 1px;
+    perspective: 1px;
+}
+
+.parallax__layer--back {
+    -webkit-transform: translateZ(-1px) scale(2);
+    transform: translateZ(-1px) scale(2);
+    background-image: url(../images/memphisShapes.svg);
+    background-position: center top;
+    background-size: contain;
+    width: 200vw;
+    height: 100%;
+}
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.parallax::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.grid {
+    -webkit-transform: translateZ(0px) scale(1);
+    transform: translateZ(0px) scale(1);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/grid.svg);
+    background-position: center top;
+    background-size: contain;
+    z-index: -20;
 }
 
 .hero {
@@ -269,7 +321,7 @@ footer {
     }
 
     nav ul {
-        position: fixed;
+        position: absolute;
         background-color: var(--bg-color);
         flex-direction: column;
         top: 86px;

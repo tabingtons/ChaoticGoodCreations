@@ -30,135 +30,150 @@
     </head>
 
     <body>
-        <!-- Navbar TODO: Need to build this better -->
-        <nav>
-            <h1>Chaotic Good Creations</h1>
-            <ul class="navigation">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="burger-menu" id="burger-menu">
-                <ion-icon class="bars" name="menu-outline"></ion-icon>
-            </button>
-        </nav>
+        <div class="grid"></div>
+        <div class="parallax">
+            <!-- Navbar TODO: Need to build this better -->
+            <nav>
+                <p>Chaotic Good Creations</p>
+                <ul class="navigation">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="burger-menu" id="burger-menu">
+                    <ion-icon class="bars" name="menu-outline"></ion-icon>
+                </button>
+            </nav>
 
-        <!-- Hero Section -->
-        <section class="hero" id="about">
-            <img
-                src="assets/images/wfh_1.svg"
-                alt="jane-doe"
-                loading="lazy"
-                class="hero-img"
-            />
-        </section>
+            <div class="parallax__layer parallax__layer--back"></div>
 
-        <!-- Projects section -->
-        <section class="projects" id="projects">
-            <!-- TODO: Headers in CSS -->
-            <h2 class="projects-title">
-                BREAK THE RULES<br />BUILD GREAT THINGS
-            </h2>
-            <div class="projects-container">
-                <div class="project-container project-card">
-                    <div class="project-header">
-                        <img
-                            src="assets/images/digDeeper.png"
-                            alt="expense-tracker"
-                            loading="lazy"
-                            class="project-icon"
-                        />
-                        <h3 class="project-title">Dig Deeper</h3>
+            <div class="parallax__layer parallax__layer--base">
+                <!-- Hero Section -->
+                <section class="hero" id="about">
+                    <img
+                        src="assets/images/wfh_1.svg"
+                        alt="jane-doe"
+                        loading="lazy"
+                        class="hero-img"
+                    />
+                </section>
+
+                <!-- Projects section -->
+                <section class="projects" id="projects">
+                    <!-- TODO: Headers in CSS -->
+                    <h1 class="projects-title">
+                        BREAK THE RULES<br />BUILD GREAT THINGS
+                    </h1>
+                    <div class="projects-container">
+                        <div class="project-container project-card">
+                            <div class="project-header">
+                                <img
+                                    src="assets/images/digDeeper.png"
+                                    alt="expense-tracker"
+                                    loading="lazy"
+                                    class="project-icon"
+                                />
+                                <h3 class="project-title">Dig Deeper</h3>
+                            </div>
+                            <p class="project-details">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Quas ratione vel inventore
+                                labore commodi modi quos culpa aut saepe! Alias!
+                            </p>
+                            <a href="#" target="_blank" class="project-link">
+                                Check it Out
+                            </a>
+                        </div>
                     </div>
-                    <p class="project-details">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Quas ratione vel inventore labore commodi modi
-                        quos culpa aut saepe! Alias!
+                </section>
+
+                <!-- About section -->
+                <section class="about" id="about">
+                    <div class="about-width">
+                        <h1 class="about-title">
+                            RULE BREAKERS AND NORM CHANGERS
+                        </h1>
+                        <p class="about-details">
+                            Chaotic Good Creations help humans do amazing things
+                            using technology. We believe that technology can
+                            make a positive impact on our world. That&#8217;s
+                            why we are the rule breakers and norm changers. Bold
+                            enough to do things a little different and use
+                            technology for good.
+                        </p>
+                        <a href="#" target="_blank" class="about-link">
+                            Learn More
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Contact section -->
+                <section class="contact" id="contact">
+                    <h1>Get In Touch With Me</h1>
+                    <div class="contact-form-container">
+                        <div class="contact-form">
+                            <form
+                                action="https://formspree.io/f/xyylngw"
+                                method="POST"
+                            >
+                                <div class="form-control">
+                                    <label for="name">Name</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="sender-name"
+                                        placeholder="Enter Your Name"
+                                        class="input-field"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-control">
+                                    <label for="email">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="sender-email"
+                                        placeholder="Enter Your Email"
+                                        class="input-field"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-control">
+                                    <label for="message">Message</label>
+                                    <textarea
+                                        id="message"
+                                        cols="60"
+                                        rows="10"
+                                        placeholder="Enter Your Message"
+                                        name="message"
+                                        class="input-field"
+                                        required
+                                    ></textarea>
+                                </div>
+                                <input
+                                    type="submit"
+                                    value="Submit"
+                                    id="submit-btn"
+                                    class="submit-btn"
+                                />
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer section TODO: Add socials -->
+                <footer>
+                    <p class="copy">&copy; Copyright 2024</p>
+                    <p class="copy">
+                        Built with &#x2661; by
+                        <a href="https://twitter.com/tabingtons" target="_blank"
+                            >Harry Brown</a
+                        >
                     </p>
-                    <a href="#" target="_blank" class="project-link">
-                        Check it Out
-                    </a>
-                </div>
+                </footer>
             </div>
-        </section>
-
-        <!-- About section -->
-        <section class="about" id="about">
-            <div class="about-width">
-                <h2 class="about-title">RULE BREAKERS AND NORM CHANGERS</h2>
-                <p class="about-details">
-                    Chaotic Good Creations help humans do amazing things using
-                    technology. We believe that technology can make a positive
-                    impact on our world. That&#8217;s why we are the rule
-                    breakers and norm changers. Bold enough to do things a
-                    little different and use technology for good.
-                </p>
-                <a href="#" target="_blank" class="about-link"> Learn More </a>
-            </div>
-        </section>
-
-        <!-- Contact section -->
-        <section class="contact" id="contact">
-            <h2>Get In Touch With Me</h2>
-            <div class="contact-form-container">
-                <div class="contact-form">
-                    <form action="https://formspree.io/f/xyylngw" method="POST">
-                        <div class="form-control">
-                            <label for="name">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="sender-name"
-                                placeholder="Enter Your Name"
-                                class="input-field"
-                                required
-                            />
-                        </div>
-                        <div class="form-control">
-                            <label for="email">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="sender-email"
-                                placeholder="Enter Your Email"
-                                class="input-field"
-                                required
-                            />
-                        </div>
-                        <div class="form-control">
-                            <label for="message">Message</label>
-                            <textarea
-                                id="message"
-                                cols="60"
-                                rows="10"
-                                placeholder="Enter Your Message"
-                                name="message"
-                                class="input-field"
-                                required
-                            ></textarea>
-                        </div>
-                        <input
-                            type="submit"
-                            value="Submit"
-                            id="submit-btn"
-                            class="submit-btn"
-                        />
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer section TODO: Add socials -->
-        <footer>
-            <p class="copy">&copy; Copyright 2024</p>
-            <p class="copy">
-                Built with &#x2661; by
-                <a href="https://twitter.com/tabingtons" target="_blank"
-                    >Harry Brown</a
-                >
-            </p>
-        </footer>
+        </div>
 
         <!-- Website scripts -->
         <script src="assets/js/app.js"></script>
