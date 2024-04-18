@@ -34,16 +34,28 @@
         <div class="parallax">
             <!-- Navbar TODO: Need to build this better -->
             <nav>
-                <p>Chaotic Good Creations</p>
-                <ul class="navigation">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <button class="burger-menu" id="burger-menu">
-                    <ion-icon class="bars" name="menu-outline"></ion-icon>
-                </button>
+                <div class="nav-box">
+                    <ul class="navigation">
+                        <li><a href="#about" class="nav-link">about</a></li>
+                        <li><a href="#skills" class="nav-link">skills</a></li>
+                    </ul>
+                    <a href="index.html" class="nav-logo">
+                        <img
+                            src="./assets/images/smallLogo.png"
+                            alt="Circle and triangle overlay with the letters CG over top"
+                            class="small-logo"
+                        />
+                    </a>
+                    <ul class="navigation">
+                        <li>
+                            <a href="#projects" class="nav-link">projects</a>
+                        </li>
+                        <li><a href="#contact" class="nav-link">contact</a></li>
+                    </ul>
+                    <button class="burger-menu" id="burger-menu">
+                        <ion-icon class="bars" name="menu-outline"></ion-icon>
+                    </button>
+                </div>
             </nav>
 
             <div class="parallax__layer parallax__layer--back"></div>
@@ -52,8 +64,8 @@
                 <!-- Hero Section -->
                 <section class="hero" id="about">
                     <img
-                        src="assets/images/wfh_1.svg"
-                        alt="jane-doe"
+                        src="./assets/images/largeLogo.png"
+                        alt="Stylised Chaotic Good Creations logo"
                         loading="lazy"
                         class="hero-img"
                     />
@@ -62,9 +74,7 @@
                 <!-- Projects section -->
                 <section class="projects" id="projects">
                     <!-- TODO: Headers in CSS -->
-                    <h1 class="projects-title">
-                        BREAK THE RULES.<br />BUILD GREAT THINGS.
-                    </h1>
+                    <h1>BREAK THE RULES.<br />BUILD GREAT THINGS.</h1>
                     <div class="projects-container">
                         <div class="project-container project-card">
                             <div class="project-header">
@@ -91,9 +101,7 @@
                 <!-- About section -->
                 <section class="about" id="about">
                     <div class="about-width">
-                        <h1 class="about-title">
-                            RULE BREAKERS &<br />NORM CHANGERS.
-                        </h1>
+                        <h1>RULE BREAKERS &<br />NORM CHANGERS.</h1>
                         <p class="about-details">
                             Chaotic Good Creations help humans do amazing things
                             using technology. We believe that technology can
@@ -103,7 +111,7 @@
                             technology for good.
                         </p>
                         <a href="#" target="_blank" class="about-link">
-                            Learn More
+                            Learn more
                         </a>
                     </div>
                 </section>
