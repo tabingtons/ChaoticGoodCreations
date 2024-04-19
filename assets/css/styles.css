@@ -65,6 +65,7 @@ h1 {
     line-height: 150%;
     text-shadow: var(--big-text-glow);
     text-align: center;
+    margin-top: 5rem;
     margin-bottom: 3rem;
 }
 
@@ -177,12 +178,12 @@ nav ul li {
     justify-content: center;
     gap: 2.5rem;
     max-width: 68.75rem;
-    height: 85vh;
+    height: 77.5vh;
     margin: auto;
 }
 
 .hero img {
-    width: 37.5rem;
+    width: 90%;
 }
 
 .projects {
@@ -197,17 +198,20 @@ nav ul li {
     padding: 0 100px;
 }
 
-.project-container {
+.project-card {
     max-width: 1000px;
     min-height: 555px;
-    padding: 1rem;
-}
-
-.project-card {
-    background-color: #8bf6da;
+    color: white;
+    background-color: var(--yellow);
     border-radius: 28px;
     padding: 20px;
     margin: 10px;
+}
+
+.project-card.dig-deeper {
+    background-image: url(../images/digDeeper/desktopCard.jpg);
+    background-position: bottom right;
+    background-size: cover;
 }
 
 .project-header {
@@ -227,7 +231,7 @@ nav ul li {
 
 .project-details {
     padding-top: 0.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     max-width: 50%;
 }
 
@@ -235,6 +239,11 @@ nav ul li {
     color: #000;
     border-radius: 28px;
     padding: 0.5rem 1rem;
+    background-color: #f7f7f7;
+}
+
+.project-link:hover {
+    color: #242424;
     background-color: #fff;
 }
 
@@ -265,7 +274,6 @@ nav ul li {
     cursor: pointer;
     display: inline-block;
     font-weight: 600;
-    font-size: 18px;
     padding: 0 18px;
     line-height: 50px;
     text-align: center;
@@ -398,6 +406,7 @@ footer {
     .hero {
         flex-direction: column;
         gap: 0;
+        height: 66vh;
     }
 
     .hero img {
@@ -408,9 +417,14 @@ footer {
         flex-direction: column;
     }
 
-    .project-container {
+    .project-card {
         width: 372px;
         height: 658px;
+        background-color: var(--yellow);
+    }
+
+    .project-card.dig-deeper {
+        background-image: url(../images/digDeeper/mobileCard.jpg);
     }
 
     .project-details {
@@ -436,7 +450,7 @@ footer {
         width: 23rem;
     }
 
-    .project-container {
+    .project-card {
         width: 304px;
         height: 562px;
     }
