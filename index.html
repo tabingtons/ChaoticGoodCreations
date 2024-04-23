@@ -32,12 +32,19 @@
     <body>
         <div class="grid"></div>
         <div class="parallax">
+            <div class="parallax__layer parallax__layer--back"></div>
             <!-- Navbar TODO: Need to build this better -->
             <nav>
                 <div class="nav-box">
                     <ul class="navigation">
-                        <li><a href="#about" class="nav-link">about</a></li>
-                        <li><a href="#skills" class="nav-link">skills</a></li>
+                        <li>
+                            <a href="./html/about.html" class="nav-link"
+                                >about</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#skills" class="nav-link">skills</a>
+                        </li>
                     </ul>
                     <a href="index.html" class="nav-logo">
                         <img
@@ -50,16 +57,15 @@
                         <li>
                             <a href="#projects" class="nav-link">projects</a>
                         </li>
-                        <li><a href="#contact" class="nav-link">contact</a></li>
+                        <li>
+                            <a href="#contact" class="nav-link">contact</a>
+                        </li>
                     </ul>
                     <button class="burger-menu" id="burger-menu">
                         <ion-icon class="bars" name="menu-outline"></ion-icon>
                     </button>
                 </div>
             </nav>
-
-            <div class="parallax__layer parallax__layer--back"></div>
-
             <div class="parallax__layer parallax__layer--base">
                 <!-- Hero Section -->
                 <section class="hero">
@@ -116,7 +122,7 @@
                             to do things a little different and use technology
                             for good.
                         </p>
-                        <a href="./site/about.html" class="about-link">
+                        <a href="./html/about.html" class="about-link">
                             Learn more
                         </a>
                     </div>
@@ -179,9 +185,11 @@
                 <!-- Footer section TODO: Add socials -->
                 <footer>
                     <div class="footer-block">
-                        <a href="#" class="footer-link">About</a>
+                        <a href="./html/about.html" class="footer-link"
+                            >About</a
+                        >
                         <a
-                            href="./site/privacy/dig-deeper.html"
+                            href="./html/privacy/dig-deeper.html"
                             target="_blank"
                             class="footer-link"
                         >

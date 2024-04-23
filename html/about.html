@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!--CSS Styles -->
+        <link rel="stylesheet" href="../assets/css/styles.css" />
+
+        <!-- Favicons -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/icons/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../assets/icons/favicon-32x32.png"
+        />
+
+        <!-- Animate CSS CDN -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <title>Chaotic Good Creations</title>
+    </head>
+
+    <body>
+        <div class="grid"></div>
+        <div class="parallax">
+            <!-- Navbar TODO: Need to build this better -->
+            <nav>
+                <div class="nav-box">
+                    <ul class="navigation">
+                        <li>
+                            <a href="./about.html" class="nav-link">about</a>
+                        </li>
+                        <li>
+                            <a href="#skills" class="nav-link">skills</a>
+                        </li>
+                    </ul>
+                    <a href="../index.html" class="nav-logo">
+                        <img
+                            src="../assets/images/smallLogo.png"
+                            alt="Circle and triangle overlay with the letters CG over top"
+                            class="small-logo"
+                        />
+                    </a>
+                    <ul class="navigation">
+                        <li>
+                            <a href="#projects" class="nav-link">projects</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="nav-link">contact</a>
+                        </li>
+                    </ul>
+                    <button class="burger-menu" id="burger-menu">
+                        <ion-icon class="bars" name="menu-outline"></ion-icon>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="parallax__layer parallax__layer--base">
+                <!-- Main Section -->
+                <section class="about">
+                    <div class="paragraph">
+                        <h1>Hello, World</h1>
+                        <div>
+                            <img
+                                src="../assets/images/personalPortrait.jpg"
+                                alt="Stylised Chaotic Good Creations logo"
+                                loading="lazy"
+                                class="paragraph-img"
+                            />
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error
+                                sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae
+                                ab illo inventore veritatis et quasi architecto
+                                beatae vitae dicta sunt explicabo. Nemo enim
+                                ipsam voluptatem quia voluptas sit aspernatur
+                                aut odit aut fugit, sed quia consequuntur magni
+                                dolores eos qui ratione voluptatem sequi
+                                nesciunt. Neque porro quisquam est, qui dolorem
+                                ipsum quia dolor sit amet, consectetur, adipisci
+                                velit, sed quia non numquam eius modi tempora
+                                incidunt ut labore et dolore magnam aliquam
+                                quaerat voluptatem. Ut enim ad minima veniam,
+                                quis nostrum exercitationem ullam corporis
+                                suscipit laboriosam, nisi ut aliquid ex ea
+                                commodi consequatur? Quis autem vel eum iure
+                                reprehenderit qui in ea voluptate velit esse
+                                quam nihil molestiae consequatur, vel illum qui
+                                dolorem eum fugiat quo voluptas nulla pariatur?
+                                Sed ut perspiciatis unde omnis iste natus error
+                                sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae
+                                ab illo inventore veritatis et quasi architecto
+                                beatae vitae dicta sunt explicabo. Nemo enim
+                                ipsam voluptatem quia voluptas sit aspernatur
+                                aut odit aut fugit, sed quia consequuntur magni
+                                dolores eos qui ratione voluptatem sequi
+                                nesciunt. Neque porro quisquam est, qui dolorem
+                                ipsum quia dolor sit amet, consectetur, adipisci
+                                velit, sed quia non numquam eius modi tempora
+                                incidunt ut labore et dolore magnam aliquam
+                                quaerat voluptatem. Ut enim ad minima veniam,
+                                quis nostrum exercitationem ullam corporis
+                                suscipit laboriosam, nisi ut aliquid ex ea
+                                commodi consequatur? Quis autem vel eum iure
+                                reprehenderit qui in ea voluptate velit esse
+                                quam nihil molestiae consequatur, vel illum qui
+                                dolorem eum fugiat quo voluptas nulla pariatur?
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact section -->
+                <section class="contact" id="contact">
+                    <h1>Get In Touch</h1>
+                    <div class="contact-form-container">
+                        <div class="contact-form">
+                            <form
+                                action="https://formspree.io/f/xyylngw"
+                                method="POST"
+                            >
+                                <div class="form-control">
+                                    <label for="name">Name</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="sender-name"
+                                        placeholder="Enter Your Name"
+                                        class="input-field"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-control">
+                                    <label for="email">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="sender-email"
+                                        placeholder="Enter Your Email"
+                                        class="input-field"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-control">
+                                    <label for="message">Message</label>
+                                    <textarea
+                                        id="message"
+                                        cols="60"
+                                        rows="10"
+                                        placeholder="Enter Your Message"
+                                        name="message"
+                                        class="input-field"
+                                        required
+                                    ></textarea>
+                                </div>
+                                <input
+                                    type="submit"
+                                    value="Send message"
+                                    id="submit-btn"
+                                    class="submit-btn"
+                                />
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer section TODO: Add socials -->
+                <footer>
+                    <div class="footer-block">
+                        <a href="./html/about.html" class="footer-link"
+                            >About</a
+                        >
+                        <a
+                            href="./html/privacy/dig-deeper.html"
+                            target="_blank"
+                            class="footer-link"
+                        >
+                            Privacy Policies
+                        </a>
+                    </div>
+                    <div class="footer-block right-block">
+                        <a href="#" target="_blank" class="footer-social">
+                            <img src="../assets/icons/threads.svg" />
+                        </a>
+                        <a href="#" target="_blank" class="footer-social">
+                            <img src="../assets/icons/x.svg" />
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Website scripts -->
+        <script src="assets/js/app.js"></script>
+
+        <!-- Ion icons scripts -->
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+            nomodule
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+        ></script>
+    </body>
+</html>
