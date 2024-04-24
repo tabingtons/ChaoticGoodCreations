@@ -25,6 +25,9 @@
         0px 0px 120px white, 0px 0px 40px white, 0px 0px 40px white,
         0px 0px 1200px white, 0px 0px 120px white, 0px 0px 120px white,
         0px 0px 60px white, 0px 0px 60px white, 0px 0px 60px white;
+    --nav-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 /* Variables end */
 
@@ -95,9 +98,7 @@ nav {
     padding: 0.5rem 3.5rem;
     border-radius: 50rem;
     background-color: var(--bg-color);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: var(--nav-shadow);
 }
 
 nav a {
@@ -111,12 +112,18 @@ nav a:hover {
     border-bottom: 2px solid var(--pink);
 }
 
+.nav-logo-mobile {
+    display: none;
+}
+
 .nav-logo:hover {
     border-bottom: 0;
 }
 
 nav ul {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 1.9rem;
 }
 
@@ -126,7 +133,6 @@ nav ul li {
 
 .small-logo {
     height: 4rem;
-    padding: 0 1.9rem;
 }
 
 .burger-menu {
@@ -438,29 +444,58 @@ footer {
     }
 
     .nav-box {
-        min-width: 66.66vw;
+        width: 66.66vw;
+        align-items: center;
         justify-content: space-between;
-        padding: 0.5rem 3.5rem;
+        padding: 0.5rem 1.5rem;
+    }
+
+    .nav-logo-mobile {
+        display: block;
+    }
+
+    .nav-logo-desktop {
+        display: none;
     }
 
     .small-logo {
         padding: 0;
+        height: 3rem;
     }
 
     nav ul {
         position: absolute;
         background-color: var(--bg-color);
         flex-direction: column;
-        top: 86px;
-        left: 10%;
-        width: 80%;
+        padding: 25px;
+        top: 100px;
+        left: 16.7%;
+        width: 66.66%;
         text-align: center;
-        transform: translateX(120%);
-        transition: transform 0.5s ease-in;
+        transform: translateY(-300%);
+        transition: transform 0s ease-in;
+        border-radius: 50px;
+        box-shadow: var(--nav-shadow);
     }
 
     nav ul li {
         margin: 8px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu.show {
+        display: block;
+    }
+
+    .cross {
+        display: none;
+    }
+
+    .cross.show {
+        display: block;
     }
 
     .burger-menu {

@@ -35,20 +35,10 @@
         <div class="grid"></div>
         <div class="parallax">
             <div class="parallax__layer parallax__layer--back"></div>
-            <!-- Navbar TODO: Need to build this better -->
+            <!-- Navbar -->
             <nav>
                 <div class="nav-box">
-                    <ul class="navigation">
-                        <li>
-                            <a href="./html/about.html" class="nav-link"
-                                >about</a
-                            >
-                        </li>
-                        <li>
-                            <a href="#skills" class="nav-link">skills</a>
-                        </li>
-                    </ul>
-                    <a href="index.html" class="nav-logo">
+                    <a href="index.html" class="nav-logo nav-logo-mobile">
                         <img
                             src="./assets/images/smallLogo.png"
                             alt="Circle and triangle overlay with the letters CG over top"
@@ -57,14 +47,40 @@
                     </a>
                     <ul class="navigation">
                         <li>
+                            <a href="./html/about.html" class="nav-link"
+                                >about</a
+                            >
+                        </li>
+                        <li>
                             <a href="#projects" class="nav-link">projects</a>
                         </li>
+                        <a href="index.html" class="nav-logo nav-logo-desktop">
+                            <img
+                                src="./assets/images/smallLogo.png"
+                                alt="Circle and triangle overlay with the letters CG over top"
+                                class="small-logo"
+                            />
+                        </a>
                         <li>
                             <a href="#contact" class="nav-link">contact</a>
                         </li>
+                        <li>
+                            <a href="/html/media.html" class="nav-link"
+                                >media</a
+                            >
+                        </li>
                     </ul>
                     <button class="burger-menu" id="burger-menu">
-                        <ion-icon class="bars" name="menu-outline"></ion-icon>
+                        <ion-icon
+                            class="menu show"
+                            id="menu"
+                            name="menu-outline"
+                        ></ion-icon>
+                        <ion-icon
+                            class="cross"
+                            id="cross"
+                            name="close-outline"
+                        ></ion-icon>
                     </button>
                 </div>
             </nav>
