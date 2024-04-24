@@ -20,5 +20,7 @@ const navLink = document.querySelectorAll(".nav-link");
 navLink.forEach((link) =>
     link.addEventListener("click", () => {
         ul.classList.remove("show");
+        menu.classList.toggle("show");
+        cross.classList.toggle("show");
     })
 );

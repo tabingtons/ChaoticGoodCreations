@@ -33,195 +33,191 @@
 
     <body>
         <div class="grid"></div>
-        <div class="parallax">
-            <!-- Navbar -->
-            <nav>
-                <div class="nav-box">
-                    <a href="../index.html" class="nav-logo nav-logo-mobile">
+        <!-- Navbar -->
+        <nav>
+            <div class="nav-box">
+                <a href="../index.html" class="nav-logo nav-logo-mobile">
+                    <img
+                        src="../assets/images/smallLogo.png"
+                        alt="Circle and triangle overlay with the letters CG over top"
+                        class="small-logo"
+                    />
+                </a>
+                <ul class="navigation">
+                    <li>
+                        <a href="../html/about.html" class="nav-link">about</a>
+                    </li>
+                    <li>
+                        <a href="../index.html#projects" class="nav-link"
+                            >projects</a
+                        >
+                    </li>
+                    <a href="../index.html" class="nav-logo nav-logo-desktop">
                         <img
                             src="../assets/images/smallLogo.png"
                             alt="Circle and triangle overlay with the letters CG over top"
                             class="small-logo"
                         />
                     </a>
-                    <ul class="navigation">
-                        <li>
-                            <a href="../html/about.html" class="nav-link"
-                                >about</a
-                            >
-                        </li>
-                        <li>
-                            <a href="../index.html#projects" class="nav-link"
-                                >projects</a
-                            >
-                        </li>
-                        <a
-                            href="../index.html"
-                            class="nav-logo nav-logo-desktop"
+                    <li>
+                        <a href="../index.html#contact" class="nav-link"
+                            >contact</a
                         >
-                            <img
-                                src="../assets/images/smallLogo.png"
-                                alt="Circle and triangle overlay with the letters CG over top"
-                                class="small-logo"
-                            />
-                        </a>
-                        <li>
-                            <a href="../index.html#contact" class="nav-link"
-                                >contact</a
-                            >
-                        </li>
-                        <li>
-                            <a href="./media.html" class="nav-link">media</a>
-                        </li>
-                    </ul>
-                    <button class="burger-menu" id="burger-menu">
-                        <ion-icon
-                            class="menu show"
-                            id="menu"
-                            name="menu-outline"
-                        ></ion-icon>
-                        <ion-icon
-                            class="cross"
-                            id="cross"
-                            name="close-outline"
-                        ></ion-icon>
-                    </button>
-                </div>
-            </nav>
-            <div class="parallax__layer parallax__layer--base">
-                <!-- Main Section -->
-                <section class="about">
-                    <div class="paragraph">
-                        <h1>Hello, World</h1>
-                        <div>
-                            <img
-                                src="../assets/images/personalPortrait.jpg"
-                                alt="Stylised Chaotic Good Creations logo"
-                                loading="lazy"
-                                class="paragraph-img"
-                            />
-                            <p>
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae
-                                ab illo inventore veritatis et quasi architecto
-                                beatae vitae dicta sunt explicabo. Nemo enim
-                                ipsam voluptatem quia voluptas sit aspernatur
-                                aut odit aut fugit, sed quia consequuntur magni
-                                dolores eos qui ratione voluptatem sequi
-                                nesciunt. Neque porro quisquam est, qui dolorem
-                                ipsum quia dolor sit amet, consectetur, adipisci
-                                velit, sed quia non numquam eius modi tempora
-                                incidunt ut labore et dolore magnam aliquam
-                                quaerat voluptatem. Ut enim ad minima veniam,
-                                quis nostrum exercitationem ullam corporis
-                                suscipit laboriosam, nisi ut aliquid ex ea
-                                commodi consequatur? Quis autem vel eum iure
-                                reprehenderit qui in ea voluptate velit esse
-                                quam nihil molestiae consequatur, vel illum qui
-                                dolorem eum fugiat quo voluptas nulla pariatur?
-                                Sed ut perspiciatis unde omnis iste natus error
-                                sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae
-                                ab illo inventore veritatis et quasi architecto
-                                beatae vitae dicta sunt explicabo. Nemo enim
-                                ipsam voluptatem quia voluptas sit aspernatur
-                                aut odit aut fugit, sed quia consequuntur magni
-                                dolores eos qui ratione voluptatem sequi
-                                nesciunt. Neque porro quisquam est, qui dolorem
-                                ipsum quia dolor sit amet, consectetur, adipisci
-                                velit, sed quia non numquam eius modi tempora
-                                incidunt ut labore et dolore magnam aliquam
-                                quaerat voluptatem. Ut enim ad minima veniam,
-                                quis nostrum exercitationem ullam corporis
-                                suscipit laboriosam, nisi ut aliquid ex ea
-                                commodi consequatur? Quis autem vel eum iure
-                                reprehenderit qui in ea voluptate velit esse
-                                quam nihil molestiae consequatur, vel illum qui
-                                dolorem eum fugiat quo voluptas nulla pariatur?
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contact section -->
-                <section class="contact" id="contact">
-                    <h1>Get In Touch</h1>
-                    <div class="contact-form-container">
-                        <div class="contact-form">
-                            <form
-                                action="https://formspree.io/f/xyylngw"
-                                method="POST"
-                            >
-                                <div class="form-control">
-                                    <label for="name">Name</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="sender-name"
-                                        placeholder="Enter Your Name"
-                                        class="input-field"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-control">
-                                    <label for="email">Email</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="sender-email"
-                                        placeholder="Enter Your Email"
-                                        class="input-field"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-control">
-                                    <label for="message">Message</label>
-                                    <textarea
-                                        id="message"
-                                        cols="60"
-                                        rows="10"
-                                        placeholder="Enter Your Message"
-                                        name="message"
-                                        class="input-field"
-                                        required
-                                    ></textarea>
-                                </div>
-                                <input
-                                    type="submit"
-                                    value="Send message"
-                                    id="submit-btn"
-                                    class="submit-btn"
-                                />
-                            </form>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Footer section TODO: Add socials -->
-                <footer>
-                    <div class="footer-block">
-                        <a href="./html/about.html" class="footer-link"
-                            >About</a
-                        >
-                        <a
-                            href="./privacy/dig-deeper-privacy.html"
-                            target="_blank"
-                            class="footer-link"
-                        >
-                            Privacy Policies
-                        </a>
-                    </div>
-                    <div class="footer-block right-block">
-                        <a href="#" target="_blank" class="footer-social">
-                            <img src="../assets/icons/threads.svg" />
-                        </a>
-                        <a href="#" target="_blank" class="footer-social">
-                            <img src="../assets/icons/x.svg" />
-                        </a>
-                    </div>
-                </footer>
+                    </li>
+                    <li>
+                        <a href="./media.html" class="nav-link">media</a>
+                    </li>
+                </ul>
+                <button class="burger-menu" id="burger-menu">
+                    <ion-icon
+                        class="menu show"
+                        id="menu"
+                        name="menu-outline"
+                    ></ion-icon>
+                    <ion-icon
+                        class="cross"
+                        id="cross"
+                        name="close-outline"
+                    ></ion-icon>
+                </button>
             </div>
+        </nav>
+        <div class="parallax__layer parallax__layer--base">
+            <!-- Main Section -->
+            <section class="about">
+                <div class="paragraph">
+                    <h1>Hello, World</h1>
+                    <div>
+                        <img
+                            src="../assets/images/personalPortrait.jpg"
+                            alt="Stylised Chaotic Good Creations logo"
+                            loading="lazy"
+                            class="paragraph-img"
+                        />
+                        <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam
+                            rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia
+                            voluptas sit aspernatur aut odit aut fugit, sed quia
+                            consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi
+                            tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem. Ut enim ad minima veniam, quis
+                            nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi
+                            consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae
+                            consequatur, vel illum qui dolorem eum fugiat quo
+                            voluptas nulla pariatur? Sed ut perspiciatis unde
+                            omnis iste natus error sit voluptatem accusantium
+                            doloremque laudantium, totam rem aperiam, eaque ipsa
+                            quae ab illo inventore veritatis et quasi architecto
+                            beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                            voluptatem quia voluptas sit aspernatur aut odit aut
+                            fugit, sed quia consequuntur magni dolores eos qui
+                            ratione voluptatem sequi nesciunt. Neque porro
+                            quisquam est, qui dolorem ipsum quia dolor sit amet,
+                            consectetur, adipisci velit, sed quia non numquam
+                            eius modi tempora incidunt ut labore et dolore
+                            magnam aliquam quaerat voluptatem. Ut enim ad minima
+                            veniam, quis nostrum exercitationem ullam corporis
+                            suscipit laboriosam, nisi ut aliquid ex ea commodi
+                            consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae
+                            consequatur, vel illum qui dolorem eum fugiat quo
+                            voluptas nulla pariatur?
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact section -->
+            <section class="contact" id="contact">
+                <h1>Get In Touch</h1>
+                <div class="contact-form-container">
+                    <div class="contact-form">
+                        <form
+                            action="https://formspree.io/f/xyylngw"
+                            method="POST"
+                        >
+                            <div class="form-control">
+                                <label for="name">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="sender-name"
+                                    placeholder="Enter Your Name"
+                                    class="input-field"
+                                    required
+                                />
+                            </div>
+                            <div class="form-control">
+                                <label for="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="sender-email"
+                                    placeholder="Enter Your Email"
+                                    class="input-field"
+                                    required
+                                />
+                            </div>
+                            <div class="form-control">
+                                <label for="message">Message</label>
+                                <textarea
+                                    id="message"
+                                    cols="60"
+                                    rows="10"
+                                    placeholder="Enter Your Message"
+                                    name="message"
+                                    class="input-field"
+                                    required
+                                ></textarea>
+                            </div>
+                            <input
+                                type="submit"
+                                value="Send message"
+                                id="submit-btn"
+                                class="submit-btn"
+                            />
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer section -->
+            <footer>
+                <div class="footer-block">
+                    <a href="./about.html" class="footer-link">About</a>
+                    <a
+                        href="./privacy/dig-deeper-privacy.html"
+                        target="_blank"
+                        class="footer-link"
+                    >
+                        Privacy Policies
+                    </a>
+                </div>
+                <div class="footer-block right-block">
+                    <a
+                        href="https://www.threads.net/@chaoticgoodapps"
+                        target="_blank"
+                        class="footer-social"
+                    >
+                        <img src="../assets/icons/threads.svg" alt="threads" />
+                    </a>
+                    <a
+                        href="https://x.com/chaoticgoodapps"
+                        target="_blank"
+                        class="footer-social"
+                    >
+                        <img src="../assets/icons/x.svg" alt="twitter aka X" />
+                    </a>
+                </div>
+            </footer>
         </div>
 
         <!-- Website scripts -->
