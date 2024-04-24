@@ -57,6 +57,14 @@ body {
     font-size: 1.4rem;
 }
 
+.center-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 h1 {
     font-family: var(--header-font-family);
     font-style: var(--header-font-style);
@@ -417,6 +425,12 @@ footer {
     text-align: left;
 }
 
+.full-page-text {
+    max-width: 1200px;
+    text-align: left;
+    padding: 0 0.5rem;
+}
+
 @media screen and (max-width: 720px) {
     /*changes reflects on screen with a width of 720px and below*/
     nav {
@@ -508,6 +522,10 @@ footer {
 
     .paragraph-img {
         float: none;
+    }
+
+    .privacy {
+        max-width: 1200px;
     }
 
     footer {
