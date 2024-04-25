@@ -68,6 +68,16 @@ body {
     justify-content: center;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 1em;
+}
+
 h1 {
     font-family: var(--header-font-family);
     font-style: var(--header-font-style);
@@ -78,10 +88,6 @@ h1 {
     text-align: center;
     margin-top: 5rem;
     margin-bottom: 3rem;
-}
-
-p {
-    margin-top: 1em;
 }
 
 nav {
@@ -434,6 +440,7 @@ footer {
 .paragraph {
     max-width: 1200px;
     text-align: left;
+    padding: 5px;
 }
 
 .full-page-text {
@@ -558,10 +565,12 @@ footer {
 
     .paragraph {
         text-align: center;
+        justify-content: center;
     }
 
     .paragraph-img {
         float: none;
+        width: 80%;
     }
 
     .privacy {
@@ -584,6 +593,10 @@ footer {
 }
 
 @media screen and (max-width: 420px) {
+    body {
+        font-size: 1rem;
+    }
+
     .hero img {
         width: 23rem;
     }
@@ -591,6 +604,10 @@ footer {
     .project-card {
         width: 304px;
         height: 562px;
+    }
+
+    .project-card p {
+        font-size: 1rem;
     }
 
     .contact-form-container {
