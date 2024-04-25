@@ -33,191 +33,225 @@
 
     <body>
         <div class="grid"></div>
-        <!-- Navbar -->
-        <nav>
-            <div class="nav-box">
-                <a href="../index.html" class="nav-logo nav-logo-mobile">
-                    <img
-                        src="../assets/images/smallLogo.png"
-                        alt="Circle and triangle overlay with the letters CG over top"
-                        class="small-logo"
-                    />
-                </a>
-                <ul class="navigation">
-                    <li>
-                        <a href="../html/about.html" class="nav-link">about</a>
-                    </li>
-                    <li>
-                        <a href="../index.html#projects" class="nav-link"
-                            >projects</a
-                        >
-                    </li>
-                    <a href="../index.html" class="nav-logo nav-logo-desktop">
+        <div class="parallax">
+            <!-- Navbar -->
+            <nav>
+                <div class="nav-box">
+                    <a href="../index.html" class="nav-logo nav-logo-mobile">
                         <img
                             src="../assets/images/smallLogo.png"
                             alt="Circle and triangle overlay with the letters CG over top"
                             class="small-logo"
                         />
                     </a>
-                    <li>
-                        <a href="../index.html#contact" class="nav-link"
-                            >contact</a
+                    <ul class="navigation">
+                        <li>
+                            <a href="../html/about.html" class="nav-link"
+                                >about</a
+                            >
+                        </li>
+                        <li>
+                            <a href="../index.html#projects" class="nav-link"
+                                >projects</a
+                            >
+                        </li>
+                        <a
+                            href="../index.html"
+                            class="nav-logo nav-logo-desktop"
                         >
-                    </li>
-                    <li>
-                        <a href="./media.html" class="nav-link">media</a>
-                    </li>
-                </ul>
-                <button class="burger-menu" id="burger-menu">
-                    <ion-icon
-                        class="menu show"
-                        id="menu"
-                        name="menu-outline"
-                    ></ion-icon>
-                    <ion-icon
-                        class="cross"
-                        id="cross"
-                        name="close-outline"
-                    ></ion-icon>
-                </button>
-            </div>
-        </nav>
-        <div class="parallax__layer parallax__layer--base">
-            <!-- Main Section -->
-            <section class="about">
-                <div class="paragraph">
-                    <h1>Hello, World</h1>
-                    <div>
-                        <img
-                            src="../assets/images/personalPortrait.jpg"
-                            alt="Stylised Chaotic Good Creations logo"
-                            loading="lazy"
-                            class="paragraph-img"
-                        />
-                        <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit
-                            voluptatem accusantium doloremque laudantium, totam
-                            rem aperiam, eaque ipsa quae ab illo inventore
-                            veritatis et quasi architecto beatae vitae dicta
-                            sunt explicabo. Nemo enim ipsam voluptatem quia
-                            voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni dolores eos qui ratione
-                            voluptatem sequi nesciunt. Neque porro quisquam est,
-                            qui dolorem ipsum quia dolor sit amet, consectetur,
-                            adipisci velit, sed quia non numquam eius modi
-                            tempora incidunt ut labore et dolore magnam aliquam
-                            quaerat voluptatem. Ut enim ad minima veniam, quis
-                            nostrum exercitationem ullam corporis suscipit
-                            laboriosam, nisi ut aliquid ex ea commodi
-                            consequatur? Quis autem vel eum iure reprehenderit
-                            qui in ea voluptate velit esse quam nihil molestiae
-                            consequatur, vel illum qui dolorem eum fugiat quo
-                            voluptas nulla pariatur? Sed ut perspiciatis unde
-                            omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa
-                            quae ab illo inventore veritatis et quasi architecto
-                            beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                            voluptatem quia voluptas sit aspernatur aut odit aut
-                            fugit, sed quia consequuntur magni dolores eos qui
-                            ratione voluptatem sequi nesciunt. Neque porro
-                            quisquam est, qui dolorem ipsum quia dolor sit amet,
-                            consectetur, adipisci velit, sed quia non numquam
-                            eius modi tempora incidunt ut labore et dolore
-                            magnam aliquam quaerat voluptatem. Ut enim ad minima
-                            veniam, quis nostrum exercitationem ullam corporis
-                            suscipit laboriosam, nisi ut aliquid ex ea commodi
-                            consequatur? Quis autem vel eum iure reprehenderit
-                            qui in ea voluptate velit esse quam nihil molestiae
-                            consequatur, vel illum qui dolorem eum fugiat quo
-                            voluptas nulla pariatur?
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact section -->
-            <section class="contact" id="contact">
-                <h1>Get In Touch</h1>
-                <div class="contact-form-container">
-                    <div class="contact-form">
-                        <form
-                            action="https://formspree.io/f/xyylngw"
-                            method="POST"
-                        >
-                            <div class="form-control">
-                                <label for="name">Name</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="sender-name"
-                                    placeholder="Enter Your Name"
-                                    class="input-field"
-                                    required
-                                />
-                            </div>
-                            <div class="form-control">
-                                <label for="email">Email</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="sender-email"
-                                    placeholder="Enter Your Email"
-                                    class="input-field"
-                                    required
-                                />
-                            </div>
-                            <div class="form-control">
-                                <label for="message">Message</label>
-                                <textarea
-                                    id="message"
-                                    cols="60"
-                                    rows="10"
-                                    placeholder="Enter Your Message"
-                                    name="message"
-                                    class="input-field"
-                                    required
-                                ></textarea>
-                            </div>
-                            <input
-                                type="submit"
-                                value="Send message"
-                                id="submit-btn"
-                                class="submit-btn"
+                            <img
+                                src="../assets/images/smallLogo.png"
+                                alt="Circle and triangle overlay with the letters CG over top"
+                                class="small-logo"
                             />
-                        </form>
-                    </div>
+                        </a>
+                        <li>
+                            <a href="../index.html#contact" class="nav-link"
+                                >contact</a
+                            >
+                        </li>
+                        <li>
+                            <a href="./media.html" class="nav-link">media</a>
+                        </li>
+                    </ul>
+                    <button class="burger-menu" id="burger-menu">
+                        <ion-icon
+                            class="menu show"
+                            id="menu"
+                            name="menu-outline"
+                        ></ion-icon>
+                        <ion-icon
+                            class="cross"
+                            id="cross"
+                            name="close-outline"
+                        ></ion-icon>
+                    </button>
                 </div>
-            </section>
+            </nav>
+            <div class="parallax__layer parallax__layer--base">
+                <!-- Main Section -->
+                <section class="about">
+                    <div class="paragraph">
+                        <h1>Nau mai ki t&amacr;ku pae tukutuku</h1>
+                        <div>
+                            <img
+                                src="../assets/images/personalPortrait.jpg"
+                                alt="Stylised Chaotic Good Creations logo"
+                                loading="lazy"
+                                class="paragraph-img"
+                            />
+                            <p>
+                                Kia ora, I&apos;m Harry - the person behind
+                                Chaotic Good Creations.
+                            </p>
 
-            <!-- Footer section -->
-            <footer>
-                <div class="footer-block">
-                    <a href="./about.html" class="footer-link">About</a>
-                    <a
-                        href="./privacy/dig-deeper-privacy.html"
-                        target="_blank"
-                        class="footer-link"
-                    >
-                        Privacy Policies
-                    </a>
-                </div>
-                <div class="footer-block right-block">
-                    <a
-                        href="https://www.threads.net/@chaoticgoodapps"
-                        target="_blank"
-                        class="footer-social"
-                    >
-                        <img src="../assets/icons/threads.svg" alt="threads" />
-                    </a>
-                    <a
-                        href="https://x.com/chaoticgoodapps"
-                        target="_blank"
-                        class="footer-social"
-                    >
-                        <img src="../assets/icons/x.svg" alt="twitter aka X" />
-                    </a>
-                </div>
-            </footer>
+                            <p>
+                                I have always wanted to build. Starting an
+                                apprenticeship in carpentry right after school,
+                                life threw me a curveball with an injury forcing
+                                me to leave the trade. I wandered, searching for
+                                where my yearning to create and build can be
+                                satisfied.
+                            </p>
+
+                            <p>
+                                Like all modern fairytales, my software
+                                development story begins with Covid. Just before
+                                the pandemic hit, my wife and I were putting the
+                                finishing touches on a business we had created
+                                together. Dream Day provided online tools to
+                                couples planning their wedding, and a
+                                marketplace for vendors to advertise.
+                            </p>
+
+                            <p>
+                                Dream Day launched at the same time as Covid-19
+                                and unfortunately, the wedding industry took a
+                                hit for a few years. Dream Day didn&apos;t make
+                                it. But, we had built the web app using no-code
+                                tools and I&apos;d had a glimpse at something
+                                that could finally satisfy my cravings.
+                            </p>
+
+                            <p>
+                                I jumped straight into study, gaining a Diploma
+                                in Web Development and Design. I&apos;ve always
+                                had a love for Apple products so I expanded
+                                further by completing 100 Days of SwiftUI.
+                            </p>
+
+                            <p>
+                                Chaotic Good Creations is where I can let it all
+                                out. I pour my passion into my mahi and build
+                                with my heart. Developing for both web and iOS,
+                                Chaotic Good Creations makes its own sites and
+                                apps as well as working with others to catch
+                                hold of their dream and turn it into reality.
+                            </p>
+
+                            <p>
+                                Currently based in T&amacr;maki Makaurau,
+                                Aotearoa New Zealand but bound by no time-zone.
+                                I have 2 young children and of the many things
+                                they&apos;ve taught me, one is how to function
+                                well at any time of the day. If you want to work
+                                together, know more about me, or just
+                                k&omacr;rero, please <a href="#contact">get in touch</a>!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact section -->
+                <section class="contact" id="contact">
+                    <h1>Get In Touch</h1>
+                    <div class="contact-form-container">
+                        <div class="contact-form">
+                            <form
+                                action="https://formspree.io/f/xyylngw"
+                                method="POST"
+                            >
+                                <div class="form-control">
+                                    <label for="name">Name</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="sender-name"
+                                        placeholder="Enter Your Name"
+                                        class="input-field"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-control">
+                                    <label for="email">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="sender-email"
+                                        placeholder="Enter Your Email"
+                                        class="input-field"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-control">
+                                    <label for="message">Message</label>
+                                    <textarea
+                                        id="message"
+                                        cols="60"
+                                        rows="10"
+                                        placeholder="Enter Your Message"
+                                        name="message"
+                                        class="input-field"
+                                        required
+                                    ></textarea>
+                                </div>
+                                <input
+                                    type="submit"
+                                    value="Send message"
+                                    id="submit-btn"
+                                    class="submit-btn"
+                                />
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer section -->
+                <footer>
+                    <div class="footer-block">
+                        <a href="./about.html" class="footer-link">About</a>
+                        <a
+                            href="./privacy/dig-deeper-privacy.html"
+                            target="_blank"
+                            class="footer-link"
+                        >
+                            Privacy Policies
+                        </a>
+                    </div>
+                    <div class="footer-block right-block">
+                        <a
+                            href="https://www.threads.net/@chaoticgoodapps"
+                            target="_blank"
+                            class="footer-social"
+                        >
+                            <img
+                                src="../assets/icons/threads.svg"
+                                alt="threads"
+                            />
+                        </a>
+                        <a
+                            href="https://x.com/chaoticgoodapps"
+                            target="_blank"
+                            class="footer-social"
+                        >
+                            <img
+                                src="../assets/icons/x.svg"
+                                alt="twitter aka X"
+                            />
+                        </a>
+                    </div>
+                </footer>
+            </div>
         </div>
 
         <!-- Website scripts -->

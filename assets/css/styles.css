@@ -80,6 +80,10 @@ h1 {
     margin-bottom: 3rem;
 }
 
+p {
+    margin-top: 1em;
+}
+
 nav {
     position: sticky;
     top: 0;
@@ -161,6 +165,7 @@ nav ul li {
     width: 200vw;
     height: 100%;
 }
+
 .parallax__layer {
     position: absolute;
     top: 0;
