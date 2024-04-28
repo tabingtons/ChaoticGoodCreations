@@ -456,7 +456,7 @@ footer {
     }
 
     .nav-box {
-        width: 66.66vw;
+        width: 80vw;
         align-items: center;
         justify-content: space-between;
         padding: 0.5rem 1.5rem;
@@ -481,8 +481,8 @@ footer {
         flex-direction: column;
         padding: 25px;
         top: 100px;
-        left: 16.7%;
-        width: 66.66%;
+        left: 10%;
+        width: 80%;
         text-align: center;
         transform: translateY(-300%);
         transition: transform 0s ease-in;
