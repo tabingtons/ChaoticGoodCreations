@@ -24,3 +24,6 @@ navLink.forEach((link) =>
         cross.classList.toggle("show");
     })
 );
+
+// Hover replicate for mobile
+$("body").on("touchstart", function () {});
