@@ -24,11 +24,3 @@ navLink.forEach((link) =>
         cross.classList.toggle("show");
     })
 );
-
-// Hover replicate for mobile
-$(document).ready(function () {
-    $(".hover").on("touchstart touchend", function (e) {
-        e.preventDefault();
-        $(this).toggleClass("hover_effect");
-    });
-});

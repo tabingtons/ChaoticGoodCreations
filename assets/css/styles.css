@@ -120,16 +120,7 @@ h1 {
     right: 0px;
 }
 
-.kupu:hover,
-.kupu:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-
-.kupu:hover .tooltip,
-.kupu:active .tooltip {
+.kupu:hover .tooltip {
     visibility: visible;
 }
 
@@ -563,6 +554,12 @@ footer {
 
     h1 {
         font-size: 3rem;
+    }
+
+    .kupu {
+        background-color: rgba(0, 0, 0, 0);
+        padding: 0;
+        border-radius: 0;
     }
 
     .hero {
