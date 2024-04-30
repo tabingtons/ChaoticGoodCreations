@@ -9,12 +9,12 @@
     --normal-font: 400;
     --bold-font: 700;
     --bolder-font: 900;
-    --bg-color: #fcfcfc;
-    --yellow: #fcdd0c;
-    --pink: #f91585;
-    --blue: #2db9e6;
-    --purple: #7100b4;
-    --red: #fa0027;
+    --bg-color: rgb(252, 252, 252);
+    --yellow: rgb(252, 221, 12);
+    --pink: rgb(249, 21, 133);
+    --blue: rgb(45, 185, 230);
+    --purple: rgb(113, 0, 180);
+    --red: rgb(250, 0, 39);
     --primary-shadow: #8b8eaf;
     --secondary-shadow: #a17a69;
     --bottom-margin: 0.5rem;
@@ -47,12 +47,11 @@ ul {
 }
 
 a {
-    text-decoration: none;
-    color: var(--blue);
+    color: var(--pink);
 }
 
 a:hover {
-    color: var(--pink);
+    color: var(--yellow);
 }
 
 body {
@@ -90,6 +89,36 @@ h1 {
     margin-bottom: 3rem;
 }
 
+.kupu {
+    position: relative;
+    display: inline-block;
+    background-color: rgba(45, 185, 230, 0.25);
+    cursor: pointer;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+.kupu .tooltip {
+    visibility: hidden;
+    background-color: var(--yellow);
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    min-width: 100%;
+    bottom: 100%;
+    left: 0px;
+    right: 0px;
+}
+
+.kupu:hover .tooltip {
+    visibility: visible;
+}
+
 nav {
     position: sticky;
     top: 0;
@@ -112,6 +141,7 @@ nav {
 }
 
 nav a {
+    text-decoration: none;
     color: black;
     transition: var(--transition);
     font-family: var(--header-font-family);
