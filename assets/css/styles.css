@@ -252,13 +252,6 @@ nav ul li {
     margin-top: 2rem;
 }
 
-.projects-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 100px;
-}
-
 .project-card {
     max-width: 1000px;
     min-height: 555px;
@@ -271,6 +264,12 @@ nav ul li {
 
 .project-card.dig-deeper {
     background-image: url(../images/digDeeper/desktopCard.jpg);
+    background-position: bottom right;
+    background-size: cover;
+}
+
+.project-card.per-100 {
+    background-image: url(../images/per100/desktopCard.jpg);
     background-position: bottom right;
     background-size: cover;
 }
@@ -584,6 +583,10 @@ footer {
 
     .project-card.dig-deeper {
         background-image: url(../images/digDeeper/mobileCard.jpg);
+    }
+
+    .project-card.per-100 {
+        background-image: url(../images/per100/mobileCard.jpg);
     }
 
     .project-details {

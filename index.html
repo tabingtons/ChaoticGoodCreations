@@ -32,6 +32,7 @@
 
         <!-- CSS Styles -->
         <link rel="stylesheet" href="assets/css/styles.css" />
+        <link rel="stylesheet" href="assets/css/flickity.css" media="screen" />
 
         <!-- Favicons -->
         <link
@@ -119,31 +120,59 @@
                 <!-- Projects section -->
                 <section class="projects" id="projects">
                     <h1>BREAK THE RULES.<br />BUILD GREAT THINGS.</h1>
-                    <div class="projects-container">
-                        <div class="project-card dig-deeper">
-                            <div class="project-header">
-                                <img
-                                    src="assets/images/digDeeper/appIcon.png"
-                                    alt="App Icon white heart with green gradient"
-                                    loading="lazy"
-                                    class="project-icon"
-                                />
-                                <h3 class="project-title">Dig Deeper</h3>
+                    <!-- Flickity Carousel -->
+                    <div class="gallery js-flickity">
+                        <div class="gallery-cell">
+                            <div class="project-card dig-deeper">
+                                <div class="project-header">
+                                    <img
+                                        src="assets/images/digDeeper/appIcon.png"
+                                        alt="App Icon white heart with green gradient"
+                                        loading="lazy"
+                                        class="project-icon"
+                                    />
+                                    <h3 class="project-title">Dig Deeper</h3>
+                                </div>
+                                <p class="project-details">
+                                    Learn to be more present with yourself and
+                                    take control of your mental state. Use the
+                                    feelings wheel to identify and record your
+                                    emotions.
+                                </p>
+                                <a
+                                    href="https://apps.apple.com/app/dig-deeper/id6472387394"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+                                    Download
+                                </a>
                             </div>
-                            <p class="project-details">
-                                Learn to be more present with yourself.
-                                Identifying your emotions is a fundamental skill
-                                to learn toward taking control of your mental
-                                state. Dig Deeper uses the feelings wheel to
-                                expand your vocabulary.
-                            </p>
-                            <a
-                                href="https://apps.apple.com/app/dig-deeper/id6472387394"
-                                target="_blank"
-                                class="project-link"
-                            >
-                                Check it Out
-                            </a>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="project-card per-100">
+                                <div class="project-header">
+                                    <img
+                                        src="assets/images/per100/appIcon.png"
+                                        alt="App Icon /100 in white with purple gradient background"
+                                        loading="lazy"
+                                        class="project-icon"
+                                    />
+                                    <h3 class="project-title">Per 100</h3>
+                                </div>
+                                <p class="project-details">
+                                    Quickly calculate the cost of something to
+                                    help make a quick decision in your weekly
+                                    shop, or set up a Comparison and start
+                                    researching.
+                                </p>
+                                <a
+                                    href="https://apple.co/3ZtBe0t"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+                                    Download
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -260,6 +289,7 @@
 
         <!-- Website scripts -->
         <script src="./assets/js/app.js"></script>
+        <script src="./assets/js/flickity.pkgd.min.js"></script>
 
         <!-- Ion icons scripts -->
         <script
