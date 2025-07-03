@@ -5,7 +5,7 @@
     --header-font-family: "Playfair Display", serif;
     --header-font-style: normal;
     --header-font-weight: 400;
-    --font-family: "Poppins", sans-serf;
+    --font-family: "Poppins", sans-serif;
     --normal-font: 400;
     --bold-font: 700;
     --bolder-font: 900;
@@ -195,6 +195,13 @@ nav ul li {
     -webkit-perspective: 1px;
     perspective: 1px;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax {
+    perspective: none;
+  }
+}
+
 
 .parallax__layer--back {
     -webkit-transform: translateZ(-1px) scale(2);
