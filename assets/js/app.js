@@ -24,3 +24,11 @@ navLink.forEach((link) =>
         cross.classList.toggle("show");
     })
 );
+
+// Memphis parallax background
+const memphis = document.getElementById("memphis");
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.pageYOffset;
+  memphis.style.transform = `translateY(${scrollTop * 0.5}px)`; // Adjust speed here
+});
