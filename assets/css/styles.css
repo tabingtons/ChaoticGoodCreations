@@ -21,10 +21,21 @@
     --bottom-margin-2: 1rem;
     --line-height: 1.7rem;
     --transition: 0.2s;
-    --big-text-glow: 0px 0px 1200px white, 0px 0px 120px white,
-        0px 0px 120px white, 0px 0px 40px white, 0px 0px 40px white,
-        0px 0px 1200px white, 0px 0px 120px white, 0px 0px 120px white,
-        0px 0px 60px white, 0px 0px 60px white, 0px 0px 60px white;
+    --big-text-glow: 0 0 24px rgba(255, 255, 255, 1),
+  0 0 64px rgba(255, 255, 255, 0.95),
+  0 0 128px rgba(255, 255, 255, 0.9),
+  0 0 200px rgba(255, 255, 255, 0.7),
+  0 0 400px rgba(255, 255, 255, 0.4),
+  0 0 700px rgba(255, 255, 255, 0.2);
+  --small-text-glow:
+0 0 5px rgba(255, 255, 255, 1),
+0 0 16px rgba(255, 255, 255, 1),
+0 0 24px rgba(255, 255, 255, 1),
+0 0 48px rgba(255, 255, 255, 0.95),
+  0 0 96px rgba(255, 255, 255, 0.9),
+  0 0 240px rgba(255, 255, 255, 0.7),
+  0 0 480px rgba(255, 255, 255, 0.5),
+  0 0 960px rgba(255, 255, 255, 0.3);
     --nav-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
         rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
         rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -188,54 +199,40 @@ nav ul li {
     display: none;
 }
 
-.parallax {
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-perspective: 1px;
-    perspective: 1px;
+/* Fixed full-screen grid background */
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/grid.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -3;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .parallax {
-    perspective: none;
-  }
+/* Parallax scrolling memphis layer */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 200%;
+  background-image: url('../images/memphisShapes.webp');
+  background-repeat: repeat;
+  background-size: 750px auto;
+  background-position: center top;
+  z-index: -2;
+  pointer-events: none;
 }
 
-
-.parallax__layer--back {
-    -webkit-transform: translateZ(-1px) scale(2);
-    transform: translateZ(-1px) scale(2);
-    background-image: url(../images/memphisShapes.svg);
-    background-position: center top;
-    background-size: contain;
-    width: 200vw;
-    height: 100%;
-}
-
-.parallax__layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.parallax::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-}
-
-.grid {
-    -webkit-transform: translateZ(0px) scale(1);
-    transform: translateZ(0px) scale(1);
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-image: url(../images/grid.svg);
-    background-position: center top;
-    background-size: contain;
-    z-index: -20;
+/* Main content layer */
+.content-layer {
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
@@ -329,6 +326,7 @@ nav ul li {
 }
 
 .about-details {
+    text-shadow: var(--small-text-glow);
     margin-bottom: 3rem;
 }
 

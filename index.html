@@ -58,9 +58,14 @@
     </head>
 
     <body>
-        <div class="grid"></div>
-        <div class="parallax">
-            <div class="parallax__layer parallax__layer--back"></div>
+        <!-- Fixed grid background layer -->
+        <div class="background-layer"></div>
+
+        <!-- Parallax scrolling layer -->
+        <div class="parallax-layer" id="memphis"></div>
+
+        <!-- Content layer -->
+        <div class="content-layer">
             <!-- Navbar -->
             <nav>
                 <div class="nav-box">
@@ -106,185 +111,183 @@
                     </button>
                 </div>
             </nav>
-            <div class="parallax__layer parallax__layer--base">
-                <!-- Hero Section -->
-                <section class="hero">
-                    <img
-                        src="./assets/images/largeLogo.png"
-                        alt="Stylised Chaotic Good Creations logo"
-                        loading="lazy"
-                        class="hero-img"
-                    />
-                </section>
+            <!-- Hero Section -->
+            <section class="hero">
+                <img
+                    src="./assets/images/largeLogo.png"
+                    alt="Stylised Chaotic Good Creations logo"
+                    loading="lazy"
+                    class="hero-img"
+                />
+            </section>
 
-                <!-- Projects section -->
-                <section class="projects" id="projects">
-                    <h1>BREAK THE RULES.<br />BUILD GREAT THINGS.</h1>
-                    <!-- Flickity Carousel -->
-                    <div class="gallery js-flickity">
-                        <div class="gallery-cell">
-                            <div class="project-card dig-deeper">
-                                <div class="project-header">
-                                    <img
-                                        src="assets/images/digDeeper/appIcon.png"
-                                        alt="App Icon white heart with green gradient"
-                                        loading="lazy"
-                                        class="project-icon"
-                                    />
-                                    <h3 class="project-title">Dig Deeper</h3>
-                                </div>
-                                <p class="project-details">
-                                    Learn to be more present with yourself and
-                                    take control of your mental state. Use the
-                                    feelings wheel to identify and record your
-                                    emotions.
-                                </p>
-                                <a
-                                    href="https://apps.apple.com/app/dig-deeper/id6472387394"
-                                    target="_blank"
-                                    class="project-link"
-                                >
-                                    Download
-                                </a>
-                            </div>
-                        </div>
-                        <div class="gallery-cell">
-                            <div class="project-card per-100">
-                                <div class="project-header">
-                                    <img
-                                        src="assets/images/per100/appIcon.png"
-                                        alt="App Icon /100 in white with purple gradient background"
-                                        loading="lazy"
-                                        class="project-icon"
-                                    />
-                                    <h3 class="project-title">Per 100</h3>
-                                </div>
-                                <p class="project-details">
-                                    Quickly calculate the cost of something to
-                                    help make a quick decision in your weekly
-                                    shop, or set up a Comparison and start
-                                    researching.
-                                </p>
-                                <a
-                                    href="https://apple.co/3ZtBe0t"
-                                    target="_blank"
-                                    class="project-link"
-                                >
-                                    Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- About section -->
-                <section class="about" id="about">
-                    <div class="about-width">
-                        <h1>RULE BREAKERS &<br />NORM CHANGERS.</h1>
-                        <p class="about-details">
-                            Chaotic Good Creations helps humans do amazing
-                            things using technology. We believe technology can
-                            make a positive impact in our world. That&apos;s why
-                            we are the rule breakers and norm changers; bold
-                            enough to do things a little differently and use
-                            technology for good.
-                        </p>
-                        <a href="./about.html" class="about-link">
-                            Learn more
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Contact section -->
-                <section class="contact" id="contact">
-                    <h1>Get In Touch</h1>
-                    <div class="contact-form-container">
-                        <div class="contact-form">
-                            <form
-                                action="https://formspree.io/f/mqkrwjvw"
-                                method="POST"
-                            >
-                                <div class="form-control">
-                                    <label for="name">Name</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="sender-name"
-                                        placeholder="Enter Your Name"
-                                        class="input-field"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-control">
-                                    <label for="email">Email</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="sender-email"
-                                        placeholder="Enter Your Email"
-                                        class="input-field"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-control">
-                                    <label for="message">Message</label>
-                                    <textarea
-                                        id="message"
-                                        cols="60"
-                                        rows="10"
-                                        placeholder="Enter Your Message"
-                                        name="message"
-                                        class="input-field"
-                                        required
-                                    ></textarea>
-                                </div>
-                                <input
-                                    type="submit"
-                                    value="Send message"
-                                    id="submit-btn"
-                                    class="submit-btn"
+            <!-- Projects section -->
+            <section class="projects" id="projects">
+                <h1>BREAK THE RULES.<br />BUILD GREAT THINGS.</h1>
+                <!-- Flickity Carousel -->
+                <div class="gallery js-flickity">
+                    <div class="gallery-cell">
+                        <div class="project-card dig-deeper">
+                            <div class="project-header">
+                                <img
+                                    src="assets/images/digDeeper/appIcon.png"
+                                    alt="App Icon white heart with green gradient"
+                                    loading="lazy"
+                                    class="project-icon"
                                 />
-                            </form>
+                                <h3 class="project-title">Dig Deeper</h3>
+                            </div>
+                            <p class="project-details">
+                                Learn to be more present with yourself and
+                                take control of your mental state. Use the
+                                feelings wheel to identify and record your
+                                emotions.
+                            </p>
+                            <a
+                                href="https://apps.apple.com/app/dig-deeper/id6472387394"
+                                target="_blank"
+                                class="project-link"
+                            >
+                                Download
+                            </a>
                         </div>
                     </div>
-                </section>
+                    <div class="gallery-cell">
+                        <div class="project-card per-100">
+                            <div class="project-header">
+                                <img
+                                    src="assets/images/per100/appIcon.png"
+                                    alt="App Icon /100 in white with purple gradient background"
+                                    loading="lazy"
+                                    class="project-icon"
+                                />
+                                <h3 class="project-title">Per 100</h3>
+                            </div>
+                            <p class="project-details">
+                                Quickly calculate the cost of something to
+                                help make a quick decision in your weekly
+                                shop, or set up a Comparison and start
+                                researching.
+                            </p>
+                            <a
+                                href="https://apple.co/3ZtBe0t"
+                                target="_blank"
+                                class="project-link"
+                            >
+                                Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                <!-- Footer section -->
-                <footer>
-                    <div class="footer-block">
-                        <a href="./about.html" class="footer-link">About</a>
-                        <a
-                            href="./privacy/dig-deeper-privacy.html"
-                            target="_blank"
-                            class="footer-link"
+            <!-- About section -->
+            <section class="about" id="about">
+                <div class="about-width">
+                    <h1>RULE BREAKERS &<br />NORM CHANGERS.</h1>
+                    <p class="about-details">
+                        Chaotic Good Creations helps humans do amazing
+                        things using technology. We believe technology can
+                        make a positive impact in our world. That&apos;s why
+                        we are the rule breakers and norm changers; bold
+                        enough to do things a little differently and use
+                        technology for good.
+                    </p>
+                    <a href="./about.html" class="about-link">
+                        Learn more
+                    </a>
+                </div>
+            </section>
+
+            <!-- Contact section -->
+            <section class="contact" id="contact">
+                <h1>Get In Touch</h1>
+                <div class="contact-form-container">
+                    <div class="contact-form">
+                        <form
+                            action="https://formspree.io/f/mqkrwjvw"
+                            method="POST"
                         >
-                            Privacy Policies
-                        </a>
-                    </div>
-                    <div class="footer-block right-block">
-                        <a
-                            href="https://www.threads.net/@chaoticgoodapps"
-                            target="_blank"
-                            class="footer-social"
-                        >
-                            <img
-                                src="./assets/icons/threads.svg"
-                                alt="threads"
+                            <div class="form-control">
+                                <label for="name">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="sender-name"
+                                    placeholder="Enter Your Name"
+                                    class="input-field"
+                                    required
+                                />
+                            </div>
+                            <div class="form-control">
+                                <label for="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="sender-email"
+                                    placeholder="Enter Your Email"
+                                    class="input-field"
+                                    required
+                                />
+                            </div>
+                            <div class="form-control">
+                                <label for="message">Message</label>
+                                <textarea
+                                    id="message"
+                                    cols="60"
+                                    rows="10"
+                                    placeholder="Enter Your Message"
+                                    name="message"
+                                    class="input-field"
+                                    required
+                                ></textarea>
+                            </div>
+                            <input
+                                type="submit"
+                                value="Send message"
+                                id="submit-btn"
+                                class="submit-btn"
                             />
-                        </a>
-                        <a
-                            href="https://x.com/chaoticgoodapps"
-                            target="_blank"
-                            class="footer-social"
-                        >
-                            <img
-                                src="./assets/icons/x.svg"
-                                alt="twitter aka X"
-                            />
-                        </a>
+                        </form>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </section>
+
+            <!-- Footer section -->
+            <footer>
+                <div class="footer-block">
+                    <a href="./about.html" class="footer-link">About</a>
+                    <a
+                        href="./privacy/dig-deeper-privacy.html"
+                        target="_blank"
+                        class="footer-link"
+                    >
+                        Privacy Policies
+                    </a>
+                </div>
+                <div class="footer-block right-block">
+                    <a
+                        href="https://www.threads.net/@chaoticgoodapps"
+                        target="_blank"
+                        class="footer-social"
+                    >
+                        <img
+                            src="./assets/icons/threads.svg"
+                            alt="threads"
+                        />
+                    </a>
+                    <a
+                        href="https://x.com/chaoticgoodapps"
+                        target="_blank"
+                        class="footer-social"
+                    >
+                        <img
+                            src="./assets/icons/x.svg"
+                            alt="twitter aka X"
+                        />
+                    </a>
+                </div>
+            </footer>
         </div>
 
         <!-- Website scripts -->
