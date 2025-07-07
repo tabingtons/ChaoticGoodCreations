@@ -210,23 +210,24 @@ nav ul li {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  pointer-events: none;
   z-index: -3;
 }
 
 /* Parallax scrolling memphis layer */
 .parallax-layer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
-  height: 200%;
+  height: 100%;
   background-image: url('../images/memphisShapes.webp');
   background-repeat: repeat;
   background-size: 750px auto;
-  background-position: center top;
+  background-position: top center;
   z-index: -2;
   pointer-events: none;
+  will-change: background-position;
 }
 
 /* Main content layer */
@@ -573,7 +574,7 @@ footer {
     }
 
     .hero img {
-        width: 30rem;
+        max-width: 30rem;
     }
 
     .projects-container {
@@ -646,7 +647,7 @@ footer {
     }
 
     .hero img {
-        width: 23rem;
+        max-width: 23rem;
     }
 
     .project-card {
