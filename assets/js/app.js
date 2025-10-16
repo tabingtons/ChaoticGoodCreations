@@ -1,5 +1,4 @@
-// Nav hamburgerburger selections
-
+// Nav hamburger selections
 const burger = document.querySelector("#burger-menu");
 const menu = document.querySelector("#menu");
 const cross = document.querySelector("#cross");
@@ -13,7 +12,6 @@ burger.addEventListener("click", () => {
 });
 
 // Close hamburger menu when a link is clicked
-
 // Select nav links
 const navLink = document.querySelectorAll(".nav-link");
 
@@ -25,19 +23,30 @@ navLink.forEach((link) =>
     })
 );
 
-// Parallax background effect
+// Optimized Parallax background effect
+// Uses transform instead of background-position for better mobile performance
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!prefersReducedMotion) {
+  const parallaxLayer = document.querySelector('.parallax-layer');
+  
+  // Use passive event listener for better scroll performance on mobile
   let ticking = false;
+  let lastScrollY = 0;
+  
   window.addEventListener('scroll', () => {
+    lastScrollY = window.scrollY;
+    
     if (!ticking) {
       window.requestAnimationFrame(() => {
-        const offset = window.scrollY * -0.25;
-        document.querySelector('.parallax-layer').style.backgroundPosition = `center ${offset}px`;
+        // Use transform instead of background-position for GPU acceleration
+        // Negative value moves background UP (opposite direction), slower than scroll
+        // This creates the parallax effect where background moves slower than content
+        const offset = lastScrollY * -0.25;
+        parallaxLayer.style.transform = `translateY(${offset}px)`;
         ticking = false;
       });
       ticking = true;
     }
-  });
+  }, { passive: true }); // Passive listener improves scroll performance
 }
