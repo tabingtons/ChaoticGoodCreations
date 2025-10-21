@@ -65,7 +65,7 @@
         async function loadAppRating(appSlug, elementId) {
             try {
                 // Adjust path based on your site structure - may need '../data/app-ratings.json' or '/data/app-ratings.json'
-                const response = await fetch('./data/app-ratings.json');
+                const response = await fetch('../data/app-ratings.json');
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
