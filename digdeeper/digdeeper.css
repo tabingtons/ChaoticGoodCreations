@@ -1,0 +1,179 @@
+/* --- Base Styles --- */
+:root {
+  --bg: #EDFDFA;
+  --text: #0A1B2E;
+  --muted: #5c5c5c;
+  --accent: #00c8b3; /* Dig Deeper’s primary accent tone */
+  --radius: 12px;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  margin: 0;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+img.screenshot {
+  max-height: 1000px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* --- HEADER / NAV --- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: white;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.site-header a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-header nav a {
+  margin-left: 1.5rem;
+}
+
+.header-icon {
+  width: 40px;
+  border-radius: 15%;
+  margin-right: 0.5rem;
+}
+
+/* --- Sections --- */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+section.white-bg {
+  background: white;
+}
+
+.section-header {
+  max-width: 900px;
+  text-align: center;
+}
+
+.left-text {
+  max-width: 900px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.right-text {
+  max-width: 900px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* --- Hero --- */
+.app-icon {
+  width: 100px;
+  border-radius: 20%;
+  margin-bottom: 1rem;
+}
+
+.appstore-btn img {
+  height: 45px;
+  cursor: pointer;
+}
+
+/* --- CTA --- */
+.cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: var(--accent);
+  color: white;
+  border-radius: var(--radius);
+  max-width: 700px;
+}
+
+.cta p {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta .appstore-btn img {
+  height: 50px;
+}
+
+/* --- Footer --- */
+.site-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 2rem 0;
+  background: #f1f2f3;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .left-text, .right-text {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+.hero {
+  flex-direction: column;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  justify-content: center;
+  align-items: center; /* <-- This centres everything horizontally */
+}
+
+.hero img {
+  margin: 0 auto; /* <-- Ensures individual images also centre if block-level */
+}
+}
