@@ -17,9 +17,12 @@ const apps = [
   }
 ];
 
-function fetchAppRating(appId) {
+// Country codes for major regions
+const regions = ['us', 'gb', 'ca', 'au', 'de', 'nz'];
+
+function fetchAppRating(appId, countryCode) {
   return new Promise((resolve, reject) => {
-    const url = `https://itunes.apple.com/lookup?id=${appId}`;
+    const url = `https://itunes.apple.com/${countryCode}/lookup?id=${appId}`;
     
     https.get(url, (res) => {
       let data = '';
@@ -34,12 +37,18 @@ function fetchAppRating(appId) {
           if (json.results && json.results.length > 0) {
             const app = json.results[0];
             resolve({
+              country: countryCode.toUpperCase(),
               rating: app.averageUserRating || 0,
               ratingCount: app.userRatingCount || 0,
               version: app.version || 'Unknown'
             });
           } else {
-            reject(new Error('No results found'));
+            resolve({
+              country: countryCode.toUpperCase(),
+              rating: 0,
+              ratingCount: 0,
+              version: 'Unknown'
+            });
           }
         } catch (err) {
           reject(err);
@@ -51,28 +60,71 @@ function fetchAppRating(appId) {
   });
 }
 
+// Calculate weighted average rating
+function calculateCombinedRating(regionalData) {
+  let totalRatings = 0;
+  let weightedSum = 0;
+  
+  regionalData.forEach(region => {
+    if (region.ratingCount > 0) {
+      totalRatings += region.ratingCount;
+      weightedSum += region.rating * region.ratingCount;
+    }
+  });
+  
+  if (totalRatings === 0) {
+    return { rating: 0, ratingCount: 0 };
+  }
+  
+  return {
+    rating: weightedSum / totalRatings,
+    ratingCount: totalRatings
+  };
+}
+
 async function updateRatings() {
   const ratings = {};
   const timestamp = new Date().toISOString();
   
-  console.log('Fetching app ratings...');
+  console.log('Fetching app ratings from multiple regions...\n');
   
   for (const app of apps) {
     try {
-      console.log(`Fetching rating for ${app.name}...`);
-      const data = await fetchAppRating(app.id);
+      console.log(`Fetching ratings for ${app.name}...`);
+      const regionalData = [];
+      
+      // Fetch from all regions
+      for (const region of regions) {
+        try {
+          const data = await fetchAppRating(app.id, region);
+          regionalData.push(data);
+          
+          if (data.ratingCount > 0) {
+            console.log(`  ${data.country}: ${data.rating.toFixed(1)} stars (${data.ratingCount} ratings)`);
+          } else {
+            console.log(`  ${data.country}: No ratings`);
+          }
+        } catch (err) {
+          console.error(`  ${region.toUpperCase()}: Error - ${err.message}`);
+        }
+      }
+      
+      // Calculate combined rating
+      const combined = calculateCombinedRating(regionalData);
+      
+      console.log(`  ✓ Combined: ${combined.rating.toFixed(2)} stars (${combined.ratingCount} total ratings)\n`);
+      
       ratings[app.slug] = {
         name: app.name,
         appId: app.id,
-        rating: data.rating,
-        ratingCount: data.ratingCount,
-        version: data.version,
+        rating: combined.rating,
+        ratingCount: combined.ratingCount,
+        regionalBreakdown: regionalData,
         lastUpdated: timestamp
       };
-      console.log(`✓ ${app.name}: ${data.rating} stars (${data.ratingCount} ratings)`);
+      
     } catch (err) {
       console.error(`✗ Error fetching ${app.name}:`, err.message);
-      // Keep existing data if fetch fails
       ratings[app.slug] = {
         name: app.name,
         appId: app.id,
@@ -88,7 +140,7 @@ async function updateRatings() {
   const outputPath = './data/app-ratings.json';
   fs.mkdirSync('./data', { recursive: true });
   fs.writeFileSync(outputPath, JSON.stringify(ratings, null, 2));
-  console.log(`\nRatings saved to ${outputPath}`);
+  console.log(`Ratings saved to ${outputPath}`);
 }
 
 updateRatings().catch(err => {
