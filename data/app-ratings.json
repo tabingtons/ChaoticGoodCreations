@@ -3,16 +3,90 @@
     "name": "Dig Deeper",
     "appId": "6472387394",
     "rating": 5,
-    "ratingCount": 3,
-    "version": "2.0",
-    "lastUpdated": "2025-10-22T03:07:51.928Z"
+    "ratingCount": 6,
+    "regionalBreakdown": [
+      {
+        "country": "US",
+        "rating": 5,
+        "ratingCount": 3,
+        "version": "2.0"
+      },
+      {
+        "country": "GB",
+        "rating": 5,
+        "ratingCount": 1,
+        "version": "2.0"
+      },
+      {
+        "country": "CA",
+        "rating": 0,
+        "ratingCount": 0,
+        "version": "2.0"
+      },
+      {
+        "country": "AU",
+        "rating": 0,
+        "ratingCount": 0,
+        "version": "2.0"
+      },
+      {
+        "country": "DE",
+        "rating": 0,
+        "ratingCount": 0,
+        "version": "2.0"
+      },
+      {
+        "country": "NZ",
+        "rating": 5,
+        "ratingCount": 2,
+        "version": "2.0"
+      }
+    ],
+    "lastUpdated": "2025-10-22T16:58:40.657Z"
   },
   "per-100": {
     "name": "Per 100",
     "appId": "6670795904",
-    "rating": 0,
-    "ratingCount": 0,
-    "version": "1.2",
-    "lastUpdated": "2025-10-22T03:07:51.928Z"
+    "rating": 5,
+    "ratingCount": 1,
+    "regionalBreakdown": [
+      {
+        "country": "US",
+        "rating": 0,
+        "ratingCount": 0,
+        "version": "1.2"
+      },
+      {
+        "country": "GB",
+        "rating": 0,
+        "ratingCount": 0,
+        "version": "1.2"
+      },
+      {
+        "country": "CA",
+        "rating": 0,
+        "ratingCount": 0,
+        "version": "1.2"
+      },
+      {
+        "country": "AU",
+        "rating": 0,
+        "ratingCount": 0,
+        "version": "1.2"
+      },
+      {
+        "country": "DE",
+        "rating": 0,
+        "ratingCount": 0,
+        "version": "1.2"
+      },
+      {
+        "country": "NZ",
+        "rating": 5,
+        "ratingCount": 1,
+        "version": "1.2"
+      }
+    ],
+    "lastUpdated": "2025-10-22T16:58:40.657Z"
   }
 }
