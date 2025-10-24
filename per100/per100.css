@@ -104,7 +104,7 @@ section.white-bg {
 .app-icon {
   width: 100px;
   border-radius: 20%;
-  margin-bottom: 1rem;
+
 }
 
 .appstore-btn img {
@@ -219,6 +219,12 @@ img.screenshot {
 
 .cta .appstore-btn img {
   height: 70px;
+}
+
+/* --- More Apps --- */
+.more-apps-link {
+  color: var(--muted);
+  font-weight: 600;
 }
 
 /* --- Footer --- */
