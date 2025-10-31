@@ -135,8 +135,15 @@ h1 {
     visibility: visible;
 }
 
-nav {
+#nav-placeholder {
     position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+nav {
+    position: relative;
     top: 0;
     left: 0;
     z-index: 1;
@@ -480,6 +487,14 @@ nav ul li {
 .submit-btn:hover {
     background-color: var(--blue);
     cursor: pointer;
+}
+
+.privacy-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 footer {
