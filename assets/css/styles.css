@@ -147,7 +147,7 @@ h1 {
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 9999;
 }
 
 #footer-placeholder {
@@ -158,7 +158,7 @@ nav {
     position: relative;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 9999;
     padding: 2rem;
     display: flex;
     align-items: center;
@@ -173,6 +173,8 @@ nav {
     border-radius: 50rem;
     background-color: var(--bg-color);
     box-shadow: var(--nav-shadow);
+    position: relative;
+    z-index: 9999;
 }
 
 nav a {
