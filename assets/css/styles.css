@@ -324,7 +324,7 @@ nav ul li {
     justify-content: center;
     gap: 2.5rem;
     max-width: 68.75rem;
-    height: 77.5vh;
+    height: 50vh;
     margin: auto;
     padding: 5rem;
 }
@@ -423,7 +423,7 @@ nav ul li {
 }
 
 .about-width {
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .about-details {
@@ -687,7 +687,7 @@ footer {
     .hero {
         flex-direction: column;
         gap: 0;
-        height: 66vh;
+        height: 33vh;
     }
 
     .hero img {
