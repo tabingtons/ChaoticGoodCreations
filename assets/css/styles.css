@@ -250,7 +250,7 @@ nav ul li {
   height: 200%; /* Increased height to prevent gaps during scrolling */
   background-image: url('../images/memphisShapes.webp');
   background-repeat: repeat;
-  background-size: 750px auto;
+  background-size: 2000px auto;
   background-position: top center;
   z-index: -2;
   pointer-events: none;
@@ -266,7 +266,7 @@ nav ul li {
 @media screen and (max-width: 720px) {
   .parallax-layer {
     /* Reduce background size on mobile to improve rendering performance */
-    background-size: 500px auto;
+    background-size: 1000px auto;
     /* Ensure smooth rendering on mobile devices */
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
