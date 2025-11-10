@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap for Chaotic Good Creations
+  This sitemap helps search engines discover and index all pages on the website
+  Last updated: November 2025
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage - Highest priority, updated frequently -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main navigation pages -->
+  
+  <!-- About page - Company information -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/about.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Media page - Press and media resources -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/media.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- App landing pages - High priority for product discovery -->
+  
+  <!-- Dig Deeper app page -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/digdeeper/</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Per 100 app page -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/per100/</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Services page - Key conversion page -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/services.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact/Booking page - Critical for lead generation -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/contact.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Work/Portfolio pages - Showcasing client projects -->
+  
+  <!-- Ako Playrooms case study -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/work/ako-playrooms.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Privacy policy pages - Required for legal compliance -->
+  
+  <!-- Privacy policy hub -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/privacy/</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Dig Deeper privacy policy -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/privacy/dig-deeper-privacy.html</loc>
+    <lastmod>2023-12-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Per 100 privacy policy -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/privacy/per-100-privacy.html</loc>
+    <lastmod>2024-09-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Chaotic Good Creations website privacy policy -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/privacy/chaotic-good-creations-privacy.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
