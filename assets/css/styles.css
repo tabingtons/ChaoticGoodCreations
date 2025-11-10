@@ -297,6 +297,7 @@ nav ul li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     gap: 2.5rem;
     max-width: 68.75rem;
     height: 50vh;
@@ -411,7 +412,11 @@ nav ul li {
     margin: 2rem 0 100px;
 }
 
-.contact h1 {
+.contact p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.8rem;
+    text-align: center;
     padding-bottom: 30px;
 }
 
@@ -577,7 +582,9 @@ nav ul li {
 
 footer {
     background: url(../images/footer.jpg);
-    background-size: contain;
+    background-size: 15%;
+    background-repeat: repeat;
+    background-position: top left;
     padding: 3rem;
     margin: 32px 0 0;
     display: flex;
@@ -610,9 +617,11 @@ footer {
     background-color: var(--blue);
     border-radius: 28px;
     width: fit-content;
+    color: #000;
 }
 
 .footer-social:hover {
+    color: var(--red);
     background-color: var(--yellow);
 }
 
@@ -623,6 +632,24 @@ footer {
 .footer-social:hover img {
     filter: invert(10%) sepia(83%) saturate(7111%) hue-rotate(345deg)
         brightness(106%) contrast(113%);
+}
+
+.footer-disclaimer {
+    margin-top: auto;
+    width: fit-content;
+    font-size: 0.875rem;
+    line-height: 0;
+    padding: 1rem;
+    color: #000;
+    background-color: var(--blue);
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-disclaimer p {
+    margin: 0;
 }
 
 .paragraph-img {
@@ -784,6 +811,7 @@ footer {
     footer {
         flex-direction: column;
         align-items: center;
+        background-size: 30%;
     }
 
     .footer-block {

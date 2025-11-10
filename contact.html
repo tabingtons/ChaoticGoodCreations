@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- SEO Meta Tags -->
+		<meta
+			name="description"
+			content="Book a free 30-minute Discovery Session with Chaotic Good Creations. Let's talk ideas, challenges, and goals — and see how thoughtful design and technology can bring your vision to life."
+		/>
+		<meta
+			name="keywords"
+			content="book discovery session, web design consultation, app design NZ, Chaotic Good Creations, discovery call, project planning, NZ designer, web development meeting"
+		/>
+
+		<!-- Open Graph Tags -->
+		<meta property="og:title" content="Contact | Chaotic Good Creations" />
+		<meta
+			property="og:description"
+			content="Book a free 30-minute Discovery Session with Chaotic Good Creations. Let's talk ideas, challenges, and goals — and see how thoughtful design and technology can bring your vision to life."
+		/>
+		<meta
+			property="og:image"
+			content="https://chaoticgoodcreations.co/assets/images/openGraph.jpg"
+		/>
+		<meta
+			property="og:url"
+			content="https://chaoticgoodcreations.co/book-a-session"
+		/>
+		<meta property="og:type" content="website" />
+
+		<!-- Twitter Card Tags -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta
+			property="twitter:title"
+			content="Contact | Chaotic Good Creations"
+		/>
+		<meta
+			property="twitter:description"
+			content="Let’s connect. Book a 30-minute discovery call or send a quick message — whichever works best for you."
+		/>
+		<meta property="twitter:site" content="@chaoticgoodapps" />
+		<meta
+			property="twitter:image"
+			content="https://chaoticgoodcreations.co/assets/images/openGraph.jpg"
+		/>
+
+		<!-- CSS Styles -->
+		<link rel="stylesheet" href="assets/css/styles.css" />
+		<link rel="stylesheet" href="assets/css/book-a-session-styles.css" />
+
+		<!-- Favicons -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="assets/icons/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="assets/icons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="assets/icons/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="assets/icons/site.webmanifest" />
+
+		<title>Book a Discovery Session | Chaotic Good Creations</title>
+	</head>
+
+	<body>
+		<!-- Fixed grid background (no parallax) -->
+		<div class="grid"></div>
+
+		<!-- Content layer -->
+		<div class="content-layer">
+			<!-- Navigation Placeholder -->
+			<div id="nav-placeholder"></div>
+
+			<!-- Hero Section - Invitation to Connect -->
+			<section class="booking-hero">
+				<div class="booking-hero-content">
+					<h1>LET'S TALK ABOUT<br />YOUR NEXT PROJECT</h1>
+					<p class="booking-hero-subtitle">
+						Whether you’re ready to kick off a project or just
+						exploring ideas, I’d love to hear from you.
+						<a href="#booking-calendar"
+							>Book a free Discovery Session</a
+						>
+						or
+						<a href="#contact-form">send me a message</a>.
+					</p>
+				</div>
+			</section>
+
+			<!-- Hero Section - Invitation to Connect -->
+			<section class="booking-hero">
+				<div class="booking-hero-content">
+					<h2>Discovery call</h2>
+					<p class="booking-hero-subtitle">
+						A free 30-minute session to explore your ideas,
+						challenges, and goals — and see if we're the right fit
+						to bring them to life.
+					</p>
+				</div>
+			</section>
+
+			<!-- What to Expect Section -->
+			<section class="booking-expect">
+				<div class="booking-expect-grid">
+					<!-- Relaxed Conversation -->
+					<div class="booking-expect-card">
+						<ion-icon
+							name="chatbubble-ellipses-outline"
+							class="booking-expect-icon"
+						></ion-icon>
+						<h3>A relaxed conversation</h3>
+						<p>
+							No pressure, no jargon — just a chat about your
+							goals and what's possible.
+						</p>
+					</div>
+
+					<!-- Clarity & Direction -->
+					<div class="booking-expect-card">
+						<ion-icon
+							name="bulb-outline"
+							class="booking-expect-icon"
+						></ion-icon>
+						<h3>Clarity & direction</h3>
+						<p>
+							You'll leave with insight into what's next, even if
+							we don't work together.
+						</p>
+					</div>
+
+					<!-- 30 Minutes, Online -->
+					<div class="booking-expect-card">
+						<ion-icon
+							name="calendar-outline"
+							class="booking-expect-icon"
+						></ion-icon>
+						<h3>30 minutes, online</h3>
+						<p>
+							Simple video call — just choose a time that suits
+							you.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Booking Section with Cal.com Embed -->
+			<section class="booking-calendar" id="booking-calendar">
+				<div class="booking-calendar-content">
+					<h2>Book Your Discovery Session</h2>
+					<p class="booking-calendar-intro">
+						Choose a time that works for you — it's quick, easy, and
+						completely free.
+					</p>
+
+					<!-- Cal.com Embed Placeholder -->
+					<div class="cal-embed-container">
+						<!-- Cal.com Inline Embed Code -->
+						<div style="width: 100%; height: 650px">
+							<!-- Cal inline embed code begins -->
+							<div
+								style="
+									width: 100%;
+									height: 100%;
+									overflow: scroll;
+								"
+								id="my-cal-inline-discovery"
+							></div>
+							<script type="text/javascript">
+								(function (C, A, L) {
+									let p = function (a, ar) {
+										a.q.push(ar);
+									};
+									let d = C.document;
+									C.Cal =
+										C.Cal ||
+										function () {
+											let cal = C.Cal;
+											let ar = arguments;
+											if (!cal.loaded) {
+												cal.ns = {};
+												cal.q = cal.q || [];
+												d.head.appendChild(
+													d.createElement("script")
+												).src = A;
+												cal.loaded = true;
+											}
+											if (ar[0] === L) {
+												const api = function () {
+													p(api, arguments);
+												};
+												const namespace = ar[1];
+												api.q = api.q || [];
+												if (
+													typeof namespace ===
+													"string"
+												) {
+													cal.ns[namespace] =
+														cal.ns[namespace] ||
+														api;
+													p(cal.ns[namespace], ar);
+													p(cal, [
+														"initNamespace",
+														namespace,
+													]);
+												} else p(cal, ar);
+												return;
+											}
+											p(cal, ar);
+										};
+								})(
+									window,
+									"https://app.cal.com/embed/embed.js",
+									"init"
+								);
+								Cal("init", "discovery", {
+									origin: "https://app.cal.com",
+								});
+
+								Cal.ns.discovery("inline", {
+									elementOrSelector:
+										"#my-cal-inline-discovery",
+									config: {
+										layout: "month_view",
+										theme: "light",
+									},
+									calLink: "harry-brown/discovery",
+								});
+
+								Cal.ns.discovery("ui", {
+									theme: "light",
+									cssVarsPerTheme: {
+										light: { "cal-brand": "#2db9e6" },
+										dark: { "cal-brand": "#2db9e6" },
+									},
+									hideEventTypeDetails: true,
+									layout: "month_view",
+								});
+							</script>
+							<!-- Cal inline embed code ends -->
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Alternative CTA Section -->
+			<section class="booking-alternative" id="contact-form">
+				<div class="booking-alternative-content">
+					<h2>Prefer to reach out directly?</h2>
+					<p class="booking-alternative-text">
+						Not quite ready to book? No problem. You can also reach
+						out directly — I'm always happy to talk ideas.
+					</p>
+					<div class="contact-form-container">
+						<div class="contact-form">
+							<form
+								action="https://formspree.io/f/mqkrwjvw"
+								method="POST"
+							>
+								<div class="form-control">
+									<label for="name">Name</label>
+									<input
+										type="text"
+										id="name"
+										name="sender-name"
+										placeholder="Enter Your Name"
+										class="input-field"
+										required
+									/>
+								</div>
+								<div class="form-control">
+									<label for="email">Email</label>
+									<input
+										type="email"
+										id="email"
+										name="sender-email"
+										placeholder="Enter Your Email"
+										class="input-field"
+										required
+									/>
+								</div>
+								<div class="form-control">
+									<label for="message">Message</label>
+									<textarea
+										id="message"
+										cols="60"
+										rows="10"
+										placeholder="Enter Your Message"
+										name="message"
+										class="input-field"
+										required
+									></textarea>
+								</div>
+								<input
+									type="submit"
+									value="Send message"
+									id="submit-btn"
+									class="submit-btn"
+								/>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Footer Placeholder -->
+			<div id="footer-placeholder"></div>
+		</div>
+
+		<!-- Website scripts -->
+		<script src="/assets/js/load-components.js"></script>
+		<script src="/assets/js/app.js"></script>
+
+		<!-- Ion icons scripts -->
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+		></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+		></script>
+	</body>
+</html>
