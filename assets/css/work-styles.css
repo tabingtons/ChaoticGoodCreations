@@ -83,31 +83,6 @@
     height: auto;
 }
 
-/* CTA Buttons */
-.cta-button {
-    display: inline-block;
-    background-color: var(--yellow);
-    border: 2px solid var(--red);
-    border-radius: 30px;
-    box-shadow: var(--red) 4px 4px 0 0;
-    color: var(--red);
-    cursor: pointer;
-    font-weight: 600;
-    padding: 0 24px;
-    line-height: 50px;
-    text-align: center;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.cta-button:hover {
-    color: var(--purple);
-    background-color: var(--pink);
-    border: 2px solid var(--purple);
-    box-shadow: var(--purple) 4px 4px 0 0;
-    transform: translateY(-2px);
-}
-
 /* Case Study Sections */
 .case-study-section {
     padding: 4rem 2rem;
@@ -501,33 +476,6 @@
     color: var(--text);
 }
 
-.cta-button-large {
-    display: inline-block;
-    background-color: var(--yellow);
-    border: 2px solid var(--red);
-    border-radius: 30px;
-    box-shadow: var(--red) 4px 4px 0 0;
-    color: var(--red);
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1.2rem;
-    padding: 0 40px;
-    line-height: 60px;
-    text-align: center;
-    text-decoration: none;
-    transition: var(--transition);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-.cta-button-large:hover {
-    color: var(--purple);
-    background-color: var(--pink);
-    border: 2px solid var(--purple);
-    box-shadow: var(--purple) 4px 4px 0 0;
-}
-
 /* ====================================
    RESPONSIVE DESIGN
    Mobile and Tablet Breakpoints
@@ -687,14 +635,6 @@
     .case-study-cta p {
         font-size: 1.1rem;
     }
-
-    .cta-button-large {
-        font-size: 1rem;
-        padding: 0 30px;
-        line-height: 50px;
-        width: auto;
-        display: inline-block;
-    }
 }
 
 @media screen and (max-width: 420px) {
@@ -732,15 +672,5 @@
 
     .case-study-cta h2 {
         font-size: 1.8rem;
-    }
-
-    .cta-button-large {
-        font-size: 1.1rem;
-        padding: 1rem 2rem;
-        line-height: 1.4;
-        height: auto;
-        width: auto;
-        max-width: none;
-        white-space: normal;
     }
 }

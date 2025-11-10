@@ -1,0 +1,412 @@
+/* ===================================
+   SERVICES PAGE STYLES
+   Chaotic Good Creations
+   =================================== */
+
+/* Color variables for service theming */
+:root {
+    --yellow: rgb(252, 221, 12);
+    --pink: rgb(249, 21, 133);
+    --blue: rgb(45, 185, 230);
+    --purple: rgb(113, 0, 180);
+    --red: rgb(250, 0, 39);
+    --web-design-color: var(--pink);
+    --ios-app-color: var(--blue);
+    --uiux-color: var(--yellow);
+    --branding-color: var(--purple);
+    --maintenance-color: var(--red);
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+
+.services-hero {
+    text-align: center;
+    padding: 6rem 2rem 6rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.services-hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero-subheadline {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    color: #666;
+}
+
+/* ===================================
+   SERVICES OVERVIEW
+   =================================== */
+
+.services-overview {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.overview-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* ===================================
+   SERVICE SECTIONS
+   =================================== */
+
+.service-section {
+    padding: 5rem 2rem;
+    margin: 0 auto;
+}
+
+.service-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Reverse layout for alternating sections */
+.service-content.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.service-content.reverse .service-text {
+    order: 2;
+}
+
+.service-content.reverse .service-image {
+    order: 1;
+}
+
+/* Centered layout for maintenance section */
+.service-content.centered {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    text-align: center;
+}
+
+.service-content.centered .service-text-full h2 {
+    justify-content: center;
+}
+
+.service-content.centered .pricing-cta {
+    justify-content: center;
+}
+
+/* ===================================
+   SERVICE TEXT CONTENT
+   =================================== */
+
+.service-text h2,
+.service-text-full h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    line-height: 1.2;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+/* Individual service color theming */
+.web-design h2,
+.web-design .service-icon {
+    color: var(--web-design-color);
+}
+
+.ios-app h2,
+.ios-app .service-icon {
+    color: var(--ios-app-color);
+}
+
+.uiux-design h2,
+.uiux-design .service-icon {
+    color: var(--uiux-color);
+}
+
+.branding h2,
+.branding .service-icon {
+    color: var(--branding-color);
+}
+
+.maintenance h2,
+.maintenance .service-icon {
+    color: var(--maintenance-color);
+}
+
+.service-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #444;
+}
+
+.service-text h3,
+.service-text-full h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.service-list li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.service-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Inline list for maintenance section */
+.service-list-inline {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.service-list-inline li {
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.service-list-inline li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--maintenance-color);
+    font-weight: bold;
+}
+
+/* ===================================
+   PRICING
+   =================================== */
+
+.pricing-cta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e0e0e0;
+}
+
+.pricing {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+}
+
+.pricing strong {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+}
+
+/* ===================================
+   SERVICE IMAGES
+   =================================== */
+
+.service-image {
+    width: 100%;
+}
+
+.service-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+/* ===================================
+   FINAL CTA SECTION
+   =================================== */
+.services-cta {
+    text-align: center;
+    padding: 6rem 2rem;
+    overflow: hidden;
+}
+
+.cta-icon {
+    font-size: 4rem;
+    opacity: 0.9;
+}
+
+.services-cta h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.services-cta p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+    .services-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subheadline {
+        font-size: 1.1rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .service-content,
+    .service-content.reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .service-content.reverse .service-text,
+    .service-content.reverse .service-image {
+        order: initial;
+    }
+
+    .service-text h2,
+    .service-text-full h2 {
+        font-size: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+    }
+
+    .pricing-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .service-list-inline {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .services-cta h2 {
+        font-size: 2rem;
+    }
+
+    .services-cta p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .services-hero {
+        padding: 5rem 1.5rem 4rem;
+    }
+
+    .services-hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subheadline {
+        font-size: 1rem;
+    }
+
+    .service-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .service-text h2,
+    .service-text-full h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-description {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .primary-cta-large {
+        font-size: 1.1rem;
+        padding: 1.2rem 2rem;
+    }
+
+    .services-cta {
+        padding: 5rem 1.5rem;
+    }
+
+    .services-cta h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ===================================
+   CENTERED TEXT ALIGNMENT ON MOBILE
+   =================================== */
+
+@media (max-width: 768px) {
+    .service-content.centered .service-text-full {
+        text-align: left;
+    }
+
+    .service-content.centered h2 {
+        align-items: flex-start;
+    }
+}
