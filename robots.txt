@@ -1,0 +1,70 @@
+# robots.txt for Chaotic Good Creations
+# This file tells search engine crawlers which pages or sections of the site to crawl or not crawl
+# Last updated: November 2025
+
+# ====================================
+# Allow all bots to access the entire site by default
+# ====================================
+User-agent: *
+Allow: /
+
+# ====================================
+# Disallow specific file types and directories that shouldn't be indexed
+# ====================================
+
+# Don't index CSS, JS, or image assets (but allow crawling for rendering purposes)
+# Modern best practice is to allow CSS/JS so Google can render pages properly
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Don't index icon files
+Disallow: /assets/icons/
+
+# Don't index the app-ads.txt file
+Disallow: /app-ads.txt
+
+# Don't index GitHub workflows or any hidden files
+Disallow: /.github/
+Disallow: /.*
+
+# ====================================
+# Sitemap location
+# ====================================
+# Tell crawlers where to find the sitemap for efficient crawling
+Sitemap: https://chaoticgoodcreations.co/sitemap.xml
+
+# ====================================
+# Crawl delay (optional - only if needed)
+# ====================================
+# Uncomment the lines below if you experience server load issues from aggressive crawlers
+# User-agent: *
+# Crawl-delay: 1
+
+# ====================================
+# Specific bot instructions (optional)
+# ====================================
+# Block AI training bots if desired (uncomment to activate)
+# User-agent: GPTBot
+# Disallow: /
+# 
+# User-agent: ChatGPT-User
+# Disallow: /
+# 
+# User-agent: CCBot
+# Disallow: /
+# 
+# User-agent: anthropic-ai
+# Disallow: /
+# 
+# User-agent: Claude-Web
+# Disallow: /
+
+# ====================================
+# Notes:
+# ====================================
+# - This robots.txt allows all major search engines (Google, Bing, etc.) to crawl the entire site
+# - Privacy policy pages are allowed to be indexed (users may want to find them via search)
+# - App landing pages (/digdeeper/ and /per100/) are allowed and encouraged for SEO
+# - Assets like CSS, JS, and images are allowed so Google can properly render pages
+# - The sitemap is referenced to help crawlers discover all pages efficiently
