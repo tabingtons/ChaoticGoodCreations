@@ -27,14 +27,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Media page - Press and media resources -->
-  <url>
-    <loc>https://chaoticgoodcreations.co/media.html</loc>
-    <lastmod>2025-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
   <!-- App landing pages - High priority for product discovery -->
   
   <!-- Dig Deeper app page -->
