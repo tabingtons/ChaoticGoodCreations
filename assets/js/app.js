@@ -1,111 +1,102 @@
 // ============================================
-// MOBILE-OPTIMIZED PARALLAX EFFECT
-// Smooth parallax scrolling for all devices
+// PARALLAX EFFECT - DESKTOP ONLY
+// Smooth parallax on desktop, static on mobile
+// This is the most reliable cross-device solution
 // ============================================
 
 (function() {
-    // Get the parallax layer
     const parallaxLayer = document.getElementById('memphis');
-    
-    // Only run parallax if the element exists
     if (!parallaxLayer) return;
     
-    // Detect if user prefers reduced motion
+    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+        parallaxLayer.style.transform = 'none';
+        parallaxLayer.style.willChange = 'auto';
+        return;
+    }
     
-    // Performance optimization variables
+    // Detect mobile devices OR small screens
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                     || window.innerWidth <= 720;
+    
+    // ============================================
+    // MOBILE: No parallax - keep it static
+    // ============================================
+    if (isMobile) {
+        // Keep background fixed but don't animate it
+        parallaxLayer.style.transform = 'none';
+        parallaxLayer.style.willChange = 'auto';
+        parallaxLayer.style.transition = 'none';
+        return; // Exit - no parallax on mobile
+    }
+    
+    // ============================================
+    // DESKTOP: Smooth JavaScript parallax
+    // ============================================
+    
     let ticking = false;
-    let lastScrollY = 0;
     
-    // Detect mobile devices
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    // Different parallax speeds for desktop vs mobile
-    const parallaxSpeed = isMobile ? 0.3 : 0.5; // Slower on mobile for better performance
+    // Negative value makes background scroll UP (same direction as page)
+    // Lower absolute value = slower parallax
+    // -0.3 means background moves 30% the speed of scroll
+    const parallaxSpeed = -0.3;
     
     /**
-     * Updates the parallax transform
-     * Uses transform3d for GPU acceleration
+     * Update parallax position smoothly
+     * Runs at 60fps via requestAnimationFrame
      */
     function updateParallax() {
-        // Calculate the parallax offset
         const scrollY = window.pageYOffset || window.scrollY;
+        
+        // Calculate offset: negative value moves background UP as you scroll DOWN
         const offset = scrollY * parallaxSpeed;
         
-        // Apply transform using GPU-accelerated 3D transform
-        // translate3d is faster than translateY alone
+        // Apply GPU-accelerated transform
         parallaxLayer.style.transform = `translate3d(0, ${offset}px, 0)`;
         
-        // Reset ticking flag
         ticking = false;
-        lastScrollY = scrollY;
     }
     
     /**
-     * Request animation frame for smooth scrolling
-     * This throttles updates to match the browser's refresh rate
+     * Request animation frame to sync with browser refresh
      */
-    function requestTick() {
+    function onScroll() {
         if (!ticking) {
             requestAnimationFrame(updateParallax);
             ticking = true;
         }
     }
     
-    /**
-     * Passive scroll listener for better performance
-     * Passive: true prevents scroll blocking
-     */
-    function onScroll() {
-        requestTick();
-    }
-    
-    // Add scroll listener with passive flag for better mobile performance
+    // Add smooth scroll listener (passive for performance)
     window.addEventListener('scroll', onScroll, { passive: true });
     
-    // Initialize parallax position on page load
+    // Initialize parallax on page load
     updateParallax();
     
-    // Re-calculate on window resize (for orientation changes on mobile)
+    // Handle window resize (orientation change, etc.)
     let resizeTimeout;
     window.addEventListener('resize', function() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(function() {
-            updateParallax();
-        }, 150);
-    }, { passive: true });
-    
-})();
-
-// ============================================
-// ADDITIONAL MOBILE OPTIMIZATION
-// Reduce parallax range on very small screens
-// ============================================
-
-(function() {
-    const parallaxLayer = document.getElementById('memphis');
-    if (!parallaxLayer) return;
-    
-    // On very small screens (< 480px), reduce the background size further
-    function optimizeForScreenSize() {
-        if (window.innerWidth < 480) {
-            parallaxLayer.style.backgroundSize = '800px auto';
-        } else if (window.innerWidth < 720) {
-            parallaxLayer.style.backgroundSize = '1000px auto';
-        } else {
-            parallaxLayer.style.backgroundSize = '2000px auto';
+        // Check if we switched to mobile size
+        if (window.innerWidth <= 720) {
+            parallaxLayer.style.transform = 'none';
+            parallaxLayer.style.willChange = 'auto';
+            window.removeEventListener('scroll', onScroll);
+            return;
         }
-    }
-    
-    // Run on load
-    optimizeForScreenSize();
-    
-    // Run on resize
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
+        
+        // Otherwise update parallax position
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(optimizeForScreenSize, 150);
+        resizeTimeout = setTimeout(updateParallax, 150);
     }, { passive: true });
     
 })();
+
+// ============================================
+// NOTES:
+// - Mobile devices get a static background (no jitter)
+// - Desktop devices get smooth parallax effect
+// - Parallax scrolls UP with the page, just slower
+// - Uses GPU acceleration for smooth performance
+// - Respects user's reduced motion preferences
+// ============================================

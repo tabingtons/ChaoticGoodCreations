@@ -240,14 +240,18 @@ nav ul li {
   z-index: -1;
 }
 
-/* Optimized Parallax scrolling layer */
-/* Uses transform for GPU acceleration and smooth mobile performance */
+/* ============================================
+   OPTIMIZED PARALLAX LAYER STYLES
+   Desktop: Animated parallax
+   Mobile: Static background (no animation)
+   ============================================ */
+
 .parallax-layer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 200%; /* Increased height to prevent gaps */
+  height: 200%; /* Increased height to prevent gaps during scroll */
   background-image: url('../images/memphisShapes.webp');
   background-repeat: repeat;
   background-size: 2000px auto;
@@ -255,18 +259,12 @@ nav ul li {
   z-index: -2;
   pointer-events: none;
   
-  /* GPU acceleration for smooth transforms */
+  /* GPU acceleration for smooth transforms on desktop */
   will-change: transform;
   transform: translateZ(0);
-  
-  /* Anti-aliasing for smoother rendering */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
-  
-  /* Smooth transitions between scroll updates */
-  /* Only on desktop - removed on mobile */
-  transition: transform 0.05s ease-out;
 }
 
 /* ============================================
