@@ -81,6 +81,21 @@ async function loadFooter() {
     }
 }
 
+// Load contact form component (only if placeholder exists on page)
+const contactFormPlaceholder = document.getElementById('contact-form-placeholder');
+if (contactFormPlaceholder) {
+    fetch('/components/contact-form.html')
+        .then(response => response.text())
+        .then(data => {
+            contactFormPlaceholder.innerHTML = data;
+            // Initialize contact form handler after form is loaded
+            if (typeof initContactForm === 'function') {
+                initContactForm();
+            }
+        })
+        .catch(error => console.error('Error loading contact form:', error));
+}
+
 // Initialize burger menu functionality
 function initBurgerMenu() {
     const burger = document.getElementById('burger-menu');
