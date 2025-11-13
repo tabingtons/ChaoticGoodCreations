@@ -1,0 +1,73 @@
+/* ============================================
+   FORM COMPONENT
+   Contact form and form elements
+   ============================================ */
+
+/* === FORM CONTAINER === */
+.contact-form-container {
+	max-width: 40.75rem;
+	margin: 0 auto;
+	padding: var(--space-sm);
+	background-color: var(--color-purple);
+	box-shadow: -15px -20px var(--color-pink);
+}
+
+/* === FORM CONTROLS === */
+.form-control {
+	margin-bottom: var(--space-md);
+}
+
+/* === LABELS === */
+.contact-form-container label {
+	display: block;
+	line-height: 2em;
+	font-weight: var(--font-weight-bold);
+	color: var(--color-yellow);
+}
+
+/* === INPUTS & TEXTAREAS === */
+.contact-form-container textarea,
+.contact-form-container .input-field {
+	width: 100%;
+	padding: var(--space-sm);
+	box-sizing: border-box;
+	border: 7.5px solid var(--color-yellow);
+	font-size: var(--font-size-sm);
+	outline: none;
+	font-family: var(--font-body);
+}
+
+.contact-form-container textarea {
+	min-height: 6.25rem;
+	resize: vertical;
+}
+
+.input-field::placeholder {
+	color: var(--color-purple);
+}
+
+/* === SUCCESS MESSAGE === */
+#form-success {
+	display: none;
+	padding: var(--space-sm);
+	background: #d4edda;
+	color: #155724;
+	border-radius: var(--radius-sm);
+	margin-bottom: var(--space-sm);
+	border: 1px solid #c3e6cb;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 768px) {
+	.contact-form-container {
+		max-width: 23.75rem;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.contact-form-container {
+		max-width: 17.75rem;
+	}
+}
