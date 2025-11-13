@@ -53,7 +53,7 @@
 		/>
 
 		<!-- CSS Styles -->
-		<link rel="stylesheet" href="assets/css/styles.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/book-a-session-styles.css" />
 
 		<!-- JSON-LD -->
@@ -124,200 +124,207 @@
 
 	<body>
 		<!-- Fixed grid background (no parallax) -->
-		<div class="grid"></div>
+		<div class="background background--grid"></div>
 
 		<!-- Content layer -->
-		<div class="content-layer">
-			<!-- Navigation Placeholder -->
-			<div id="nav-placeholder"></div>
+		<div class="page">
+			<div class="page__content">
+				<!-- Navigation Placeholder -->
+				<div id="nav-placeholder"></div>
 
-			<!-- Hero Section - Invitation to Connect -->
-			<section class="booking-hero">
-				<div class="booking-hero-content">
-					<h1>LET'S TALK ABOUT<br />YOUR NEXT PROJECT</h1>
-					<p class="booking-hero-subtitle">
-						Whether you’re ready to kick off a project or just
-						exploring ideas, I’d love to hear from you.
-						<a href="#booking-calendar"
-							>Book a free Discovery Session</a
-						>
-						or
-						<a href="#contact-form">send me a message</a>.
-					</p>
-				</div>
-			</section>
-
-			<!-- Hero Section - Invitation to Connect -->
-			<section class="booking-hero">
-				<div class="booking-hero-content">
-					<h2>Discovery call</h2>
-					<p class="booking-hero-subtitle">
-						A free 30-minute session to explore your ideas,
-						challenges, and goals — and see if we're the right fit
-						to bring them to life.
-					</p>
-				</div>
-			</section>
-
-			<!-- What to Expect Section -->
-			<section class="booking-expect">
-				<div class="booking-expect-grid">
-					<!-- Relaxed Conversation -->
-					<div class="booking-expect-card">
-						<ion-icon
-							name="chatbubble-ellipses-outline"
-							class="booking-expect-icon"
-						></ion-icon>
-						<h3>A relaxed conversation</h3>
-						<p>
-							No pressure, no jargon — just a chat about your
-							goals and what's possible.
+				<!-- Hero Section - Invitation to Connect -->
+				<section class="booking-hero">
+					<div class="booking-hero-content">
+						<h1>LET'S TALK ABOUT<br />YOUR NEXT PROJECT</h1>
+						<p class="booking-hero-subtitle">
+							Whether you’re ready to kick off a project or just
+							exploring ideas, I’d love to hear from you.
+							<a href="#booking-calendar"
+								>Book a free Discovery Session</a
+							>
+							or
+							<a href="#contact-form">send me a message</a>.
 						</p>
 					</div>
+				</section>
 
-					<!-- Clarity & Direction -->
-					<div class="booking-expect-card">
-						<ion-icon
-							name="bulb-outline"
-							class="booking-expect-icon"
-						></ion-icon>
-						<h3>Clarity & direction</h3>
-						<p>
-							You'll leave with insight into what's next, even if
-							we don't work together.
+				<!-- Hero Section - Invitation to Connect -->
+				<section class="booking-hero">
+					<div class="booking-hero-content">
+						<h2>Discovery call</h2>
+						<p class="booking-hero-subtitle">
+							A free 30-minute session to explore your ideas,
+							challenges, and goals — and see if we're the right
+							fit to bring them to life.
 						</p>
 					</div>
+				</section>
 
-					<!-- 30 Minutes, Online -->
-					<div class="booking-expect-card">
-						<ion-icon
-							name="calendar-outline"
-							class="booking-expect-icon"
-						></ion-icon>
-						<h3>30 minutes, online</h3>
-						<p>
-							Simple video call — just choose a time that suits
-							you.
-						</p>
-					</div>
-				</div>
-			</section>
+				<!-- What to Expect Section -->
+				<section class="booking-expect">
+					<div class="booking-expect-grid">
+						<!-- Relaxed Conversation -->
+						<div class="booking-expect-card">
+							<ion-icon
+								name="chatbubble-ellipses-outline"
+								class="booking-expect-icon"
+							></ion-icon>
+							<h3>A relaxed conversation</h3>
+							<p>
+								No pressure, no jargon — just a chat about your
+								goals and what's possible.
+							</p>
+						</div>
 
-			<!-- Booking Section with Cal.com Embed -->
-			<section class="booking-calendar" id="booking-calendar">
-				<div class="booking-calendar-content">
-					<h2>Book Your Discovery Session</h2>
-					<p class="booking-calendar-intro">
-						Choose a time that works for you — it's quick, easy, and
-						completely free.
-					</p>
+						<!-- Clarity & Direction -->
+						<div class="booking-expect-card">
+							<ion-icon
+								name="bulb-outline"
+								class="booking-expect-icon"
+							></ion-icon>
+							<h3>Clarity & direction</h3>
+							<p>
+								You'll leave with insight into what's next, even
+								if we don't work together.
+							</p>
+						</div>
 
-					<!-- Cal.com Embed Placeholder -->
-					<div class="cal-embed-container">
-						<!-- Cal.com Inline Embed Code -->
-						<div style="width: 100%; height: 650px">
-							<!-- Cal inline embed code begins -->
-							<div
-								style="
-									width: 100%;
-									height: 100%;
-									overflow: scroll;
-								"
-								id="my-cal-inline-discovery"
-							></div>
-							<script type="text/javascript">
-								(function (C, A, L) {
-									let p = function (a, ar) {
-										a.q.push(ar);
-									};
-									let d = C.document;
-									C.Cal =
-										C.Cal ||
-										function () {
-											let cal = C.Cal;
-											let ar = arguments;
-											if (!cal.loaded) {
-												cal.ns = {};
-												cal.q = cal.q || [];
-												d.head.appendChild(
-													d.createElement("script")
-												).src = A;
-												cal.loaded = true;
-											}
-											if (ar[0] === L) {
-												const api = function () {
-													p(api, arguments);
-												};
-												const namespace = ar[1];
-												api.q = api.q || [];
-												if (
-													typeof namespace ===
-													"string"
-												) {
-													cal.ns[namespace] =
-														cal.ns[namespace] ||
-														api;
-													p(cal.ns[namespace], ar);
-													p(cal, [
-														"initNamespace",
-														namespace,
-													]);
-												} else p(cal, ar);
-												return;
-											}
-											p(cal, ar);
-										};
-								})(
-									window,
-									"https://app.cal.com/embed/embed.js",
-									"init"
-								);
-								Cal("init", "discovery", {
-									origin: "https://app.cal.com",
-								});
-
-								Cal.ns.discovery("inline", {
-									elementOrSelector:
-										"#my-cal-inline-discovery",
-									config: {
-										layout: "month_view",
-										theme: "light",
-									},
-									calLink: "harry-brown/discovery",
-								});
-
-								Cal.ns.discovery("ui", {
-									theme: "light",
-									cssVarsPerTheme: {
-										light: { "cal-brand": "#2db9e6" },
-										dark: { "cal-brand": "#2db9e6" },
-									},
-									hideEventTypeDetails: true,
-									layout: "month_view",
-								});
-							</script>
-							<!-- Cal inline embed code ends -->
+						<!-- 30 Minutes, Online -->
+						<div class="booking-expect-card">
+							<ion-icon
+								name="calendar-outline"
+								class="booking-expect-icon"
+							></ion-icon>
+							<h3>30 minutes, online</h3>
+							<p>
+								Simple video call — just choose a time that
+								suits you.
+							</p>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<!-- Alternative CTA Section -->
-			<section class="booking-alternative" id="contact-form">
-				<div class="booking-alternative-content">
-					<h2>Prefer to reach out directly?</h2>
-					<p class="booking-alternative-text">
-						Not quite ready to book? No problem. You can also reach
-						out directly — I'm always happy to talk ideas.
-					</p>
+				<!-- Booking Section with Cal.com Embed -->
+				<section class="booking-calendar" id="booking-calendar">
+					<div class="booking-calendar-content">
+						<h2>Book Your Discovery Session</h2>
+						<p class="booking-calendar-intro">
+							Choose a time that works for you — it's quick, easy,
+							and completely free.
+						</p>
 
-					<!-- Contact Form Placeholder - component will load here -->
-					<div id="contact-form-placeholder"></div>
-				</div>
-			</section>
+						<!-- Cal.com Embed Placeholder -->
+						<div class="cal-embed-container">
+							<!-- Cal.com Inline Embed Code -->
+							<div style="width: 100%; height: 650px">
+								<!-- Cal inline embed code begins -->
+								<div
+									style="
+										width: 100%;
+										height: 100%;
+										overflow: scroll;
+									"
+									id="my-cal-inline-discovery"
+								></div>
+								<script type="text/javascript">
+									(function (C, A, L) {
+										let p = function (a, ar) {
+											a.q.push(ar);
+										};
+										let d = C.document;
+										C.Cal =
+											C.Cal ||
+											function () {
+												let cal = C.Cal;
+												let ar = arguments;
+												if (!cal.loaded) {
+													cal.ns = {};
+													cal.q = cal.q || [];
+													d.head.appendChild(
+														d.createElement(
+															"script"
+														)
+													).src = A;
+													cal.loaded = true;
+												}
+												if (ar[0] === L) {
+													const api = function () {
+														p(api, arguments);
+													};
+													const namespace = ar[1];
+													api.q = api.q || [];
+													if (
+														typeof namespace ===
+														"string"
+													) {
+														cal.ns[namespace] =
+															cal.ns[namespace] ||
+															api;
+														p(
+															cal.ns[namespace],
+															ar
+														);
+														p(cal, [
+															"initNamespace",
+															namespace,
+														]);
+													} else p(cal, ar);
+													return;
+												}
+												p(cal, ar);
+											};
+									})(
+										window,
+										"https://app.cal.com/embed/embed.js",
+										"init"
+									);
+									Cal("init", "discovery", {
+										origin: "https://app.cal.com",
+									});
 
-			<!-- Footer Placeholder -->
-			<div id="footer-placeholder"></div>
+									Cal.ns.discovery("inline", {
+										elementOrSelector:
+											"#my-cal-inline-discovery",
+										config: {
+											layout: "month_view",
+											theme: "light",
+										},
+										calLink: "harry-brown/discovery",
+									});
+
+									Cal.ns.discovery("ui", {
+										theme: "light",
+										cssVarsPerTheme: {
+											light: { "cal-brand": "#2db9e6" },
+											dark: { "cal-brand": "#2db9e6" },
+										},
+										hideEventTypeDetails: true,
+										layout: "month_view",
+									});
+								</script>
+								<!-- Cal inline embed code ends -->
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Alternative CTA Section -->
+				<section class="booking-alternative" id="contact-form">
+					<div class="booking-alternative-content">
+						<h2>Prefer to reach out directly?</h2>
+						<p class="booking-alternative-text">
+							Not quite ready to book? No problem. You can also
+							reach out directly — I'm always happy to talk ideas.
+						</p>
+
+						<!-- Contact Form Placeholder - component will load here -->
+						<div id="contact-form-placeholder"></div>
+					</div>
+				</section>
+
+				<!-- Footer Placeholder -->
+				<div id="footer-placeholder"></div>
+			</div>
 		</div>
 
 		<!-- Website scripts -->

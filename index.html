@@ -43,7 +43,7 @@
 		/>
 
 		<!-- CSS Styles -->
-		<link rel="stylesheet" href="assets/css/styles.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/flickity.css" media="screen" />
 
 		<!-- JSON-LD -->
@@ -114,189 +114,202 @@
 
 	<body>
 		<!-- Fixed grid background layer -->
-		<div class="background-layer"></div>
+		<div class="background background--grid"></div>
 
 		<!-- Parallax scrolling layer -->
-		<div class="parallax-layer" id="memphis"></div>
+		<div class="background background--parallax" id="memphis"></div>
 
 		<!-- Content layer -->
-		<div class="content-layer">
-			<!-- Navigation Placeholder -->
-			<div id="nav-placeholder"></div>
+		<div class="page">
+			<div class="page__content">
+				<!-- Navigation Placeholder -->
+				<div id="nav-placeholder"></div>
 
-			<!-- Hero Section -->
-			<section class="hero">
-				<img
-					src="./assets/images/largeLogo.png"
-					alt="Stylised Chaotic Good Creations logo"
-					loading="lazy"
-					class="hero-img"
-				/>
-			</section>
+				<!-- Hero Section -->
+				<section class="hero">
+					<img
+						src="./assets/images/largeLogo.png"
+						alt="Stylised Chaotic Good Creations logo"
+						loading="lazy"
+						class="hero-img"
+					/>
+				</section>
 
-			<section class="about">
-				<div class="about-width">
-					<h1>DESIGN WITH PURPOSE.<br />BUILD WITH BOLDNESS.</h1>
-					<p class="about-details" id="projects">
-						Chaotic Good Creations helps humans do amazing things
-						through thoughtful design and technology. We don’t just
-						build apps or websites — we craft digital experiences
-						that feel human, function beautifully, and make a
-						lasting impact.
-					</p>
-				</div>
-			</section>
+				<section class="about">
+					<div class="about-width">
+						<h1>DESIGN WITH PURPOSE.<br />BUILD WITH BOLDNESS.</h1>
+						<p class="about-details" id="projects">
+							Chaotic Good Creations helps humans do amazing
+							things through thoughtful design and technology. We
+							don’t just build apps or websites — we craft digital
+							experiences that feel human, function beautifully,
+							and make a lasting impact.
+						</p>
+					</div>
+				</section>
 
-			<!-- Projects section -->
-			<section class="projects">
-				<!-- Flickity Carousel -->
-				<div class="gallery js-flickity">
-					<div class="gallery-cell">
-						<div class="project-card per-100">
-							<div class="project-header">
-								<img
-									src="assets/images/per100/appIcon.png"
-									alt="App Icon /100 in white with purple gradient background"
-									loading="lazy"
-									class="project-icon"
-								/>
-								<div>
-									<h3 class="project-title">Per 100</h3>
-									<div class="project-type">
-										<ion-icon
-											name="phone-portrait-outline"
-											class="project-type-icon"
-										></ion-icon>
-										<p>iOS App</p>
+				<!-- Projects section -->
+				<section class="projects">
+					<!-- Flickity Carousel -->
+					<div class="gallery js-flickity">
+						<div class="gallery-cell">
+							<div class="project-card per-100">
+								<div class="project-header">
+									<img
+										src="assets/images/per100/appIcon.png"
+										alt="App Icon /100 in white with purple gradient background"
+										loading="lazy"
+										class="project-icon"
+									/>
+									<div>
+										<h3 class="project-title">Per 100</h3>
+										<div class="project-type">
+											<ion-icon
+												name="phone-portrait-outline"
+												class="project-type-icon"
+											></ion-icon>
+											<p>iOS App</p>
+										</div>
 									</div>
 								</div>
+								<p class="project-details">
+									Quickly calculate the cost of something to
+									help make a quick decision in your weekly
+									shop, or set up a Comparison and start
+									researching.
+								</p>
+								<a href="/per100/" class="project-link">
+									Learn More
+								</a>
 							</div>
-							<p class="project-details">
-								Quickly calculate the cost of something to help
-								make a quick decision in your weekly shop, or
-								set up a Comparison and start researching.
-							</p>
-							<a href="/per100/" class="project-link">
-								Learn More
-							</a>
 						</div>
-					</div>
-					<div class="gallery-cell">
-						<div class="project-card ako-playrooms">
-							<div class="project-header">
-								<img
-									src="assets/images/work/ako-playrooms/ako-logo.png"
-									alt="Ako Playrooms logo - playful children's brand icon"
-									loading="lazy"
-									class="project-icon"
-								/>
-								<div>
-									<h3 class="project-title">Ako Playrooms</h3>
-									<div class="project-type">
-										<ion-icon
-											name="globe-outline"
-											class="project-type-icon"
-										></ion-icon>
-										<p>Shopify Site</p>
+						<div class="gallery-cell">
+							<div class="project-card ako-playrooms">
+								<div class="project-header">
+									<img
+										src="assets/images/work/ako-playrooms/ako-logo.png"
+										alt="Ako Playrooms logo - playful children's brand icon"
+										loading="lazy"
+										class="project-icon"
+									/>
+									<div>
+										<h3 class="project-title">
+											Ako Playrooms
+										</h3>
+										<div class="project-type">
+											<ion-icon
+												name="globe-outline"
+												class="project-type-icon"
+											></ion-icon>
+											<p>Shopify Site</p>
+										</div>
 									</div>
 								</div>
+								<p class="project-details">
+									A full Shopify redesign and online-store
+									launch for a children's interior design
+									studio, blending creativity with clean,
+									conversion-focused design.
+								</p>
+								<a
+									href="/work/ako-playrooms.html"
+									class="project-link"
+								>
+									View Project
+								</a>
 							</div>
-							<p class="project-details">
-								A full Shopify redesign and online-store launch
-								for a children's interior design studio,
-								blending creativity with clean,
-								conversion-focused design.
-							</p>
-							<a
-								href="/work/ako-playrooms.html"
-								class="project-link"
-							>
-								View Project
-							</a>
 						</div>
-					</div>
-					<div class="gallery-cell">
-						<div class="project-card dig-deeper">
-							<div class="project-header">
-								<img
-									src="assets/images/digDeeper/appIcon.png"
-									alt="App Icon white heart with green gradient"
-									loading="lazy"
-									class="project-icon"
-								/>
-								<div>
-									<h3 class="project-title">Dig Deeper</h3>
-									<div class="project-type">
-										<ion-icon
-											name="phone-portrait-outline"
-											class="project-type-icon"
-										></ion-icon>
-										<p>iOS App</p>
+						<div class="gallery-cell">
+							<div class="project-card dig-deeper">
+								<div class="project-header">
+									<img
+										src="assets/images/digDeeper/appIcon.png"
+										alt="App Icon white heart with green gradient"
+										loading="lazy"
+										class="project-icon"
+									/>
+									<div>
+										<h3 class="project-title">
+											Dig Deeper
+										</h3>
+										<div class="project-type">
+											<ion-icon
+												name="phone-portrait-outline"
+												class="project-type-icon"
+											></ion-icon>
+											<p>iOS App</p>
+										</div>
 									</div>
 								</div>
+								<p class="project-details">
+									Learn to be more present with yourself and
+									take control of your mental state. Use the
+									feelings wheel to identify and record your
+									emotions.
+								</p>
+								<a href="/digdeeper/" class="project-link">
+									Learn More
+								</a>
 							</div>
-							<p class="project-details">
-								Learn to be more present with yourself and take
-								control of your mental state. Use the feelings
-								wheel to identify and record your emotions.
-							</p>
-							<a href="/digdeeper/" class="project-link">
-								Learn More
-							</a>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<!-- Services section -->
-			<section class="about" id="services">
-				<div class="about-width">
-					<h1>PURPOSE BUILT.<br />BOLDLY MADE.</h1>
+				<!-- Services section -->
+				<section class="about" id="services">
+					<div class="about-width">
+						<h1>PURPOSE BUILT.<br />BOLDLY MADE.</h1>
+						<p class="about-details">
+							Design and technology should serve people — not the
+							other way around. Chaotic Good Creations builds
+							meaningful digital experiences for those who care
+							deeply about what they do. Every app and website is
+							crafted with purpose, clarity, and bold creativity.
+						</p>
+						<a
+							href="./services.html"
+							class="cta-button primary-cta"
+						>
+							Explore our services →
+						</a>
+					</div>
+				</section>
+
+				<!-- About section -->
+				<section class="about" id="about">
+					<div class="about-width">
+						<h1>CREATING WITH INTENT</h1>
+						<p class="about-details">
+							Chaotic Good Creations is the studio of Harry Brown
+							— where design, code, and creativity collide with
+							purpose. I create digital experiences that feel as
+							good as they look, helping ideas grow into bold,
+							meaningful products.
+						</p>
+						<a href="./about.html" class="cta-button secondary-cta">
+							Learn more about me
+						</a>
+					</div>
+				</section>
+
+				<!-- Contact section -->
+				<section class="contact" id="contact">
+					<h1>Get In Touch</h1>
 					<p class="about-details">
-						Design and technology should serve people — not the
-						other way around. Chaotic Good Creations builds
-						meaningful digital experiences for those who care deeply
-						about what they do. Every app and website is crafted
-						with purpose, clarity, and bold creativity.
+						Whether you have a project in mind or just want to say
+						hello, I'd love to hear from you. Prefer to book a time
+						to chat?
+						<a href="/contact.html">Book a free Discovery Session</a
+						>.
 					</p>
-					<a href="./services.html" class="cta-button primary-cta">
-						Explore our services →
-					</a>
-				</div>
-			</section>
 
-			<!-- About section -->
-			<section class="about" id="about">
-				<div class="about-width">
-					<h1>CREATING WITH INTENT</h1>
-					<p class="about-details">
-						Chaotic Good Creations is the studio of Harry Brown —
-						where design, code, and creativity collide with purpose.
-						I create digital experiences that feel as good as they
-						look, helping ideas grow into bold, meaningful products.
-					</p>
-					<a href="./about.html" class="cta-button secondary-cta">
-						Learn more about me
-					</a>
-				</div>
-			</section>
+					<!-- Contact Form Placeholder - component will load here -->
+					<div id="contact-form-placeholder"></div>
+				</section>
 
-			<!-- Contact section -->
-			<section class="contact" id="contact">
-				<h1>Get In Touch</h1>
-				<p class="about-details">
-					Whether you have a project in mind or just want to say
-					hello, I'd love to hear from you. Prefer to book a time to
-					chat?
-					<a href="/contact.html">Book a free Discovery Session</a>.
-				</p>
-
-				<!-- Contact Form Placeholder - component will load here -->
-				<div id="contact-form-placeholder"></div>
-			</section>
-
-			<!-- Footer placeholder -->
-			<div id="footer-placeholder"></div>
+				<!-- Footer placeholder -->
+				<div id="footer-placeholder"></div>
+			</div>
 		</div>
 
 		<!-- Website scripts -->

@@ -1,0 +1,57 @@
+/* ============================================
+   CHAOTIC GOOD CREATIONS - MAIN STYLESHEET
+   Modular CSS architecture using imports
+   Last updated: November 2025
+   ============================================ */
+
+/* === GOOGLE FONTS === */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ============================================
+   CORE - FOUNDATION STYLES
+   Load first - these define the base
+   ============================================ */
+@import "core/reset.css";
+@import "core/variables.css";
+@import "core/typography.css";
+@import "core/base.css";
+
+/* ============================================
+   LAYOUT - STRUCTURAL COMPONENTS
+   Navigation, footer, sections, grid system
+   ============================================ */
+@import "layout/navigation.css";
+@import "layout/footer.css";
+@import "layout/sections.css";
+
+/* ============================================
+   COMPONENTS - REUSABLE UI ELEMENTS
+   Buttons, cards, forms, etc.
+   ============================================ */
+@import "components/buttons.css";
+@import "components/cards.css";
+@import "components/forms.css";
+
+/* ============================================
+   UTILITIES - HELPER CLASSES
+   Single-purpose utility classes
+   ============================================ */
+@import "utilities/utilities.css";
+
+/* ============================================
+   LEGACY SUPPORT
+   Temporary styles for backwards compatibility
+   Will be removed once HTML is fully updated
+   ============================================ */
+
+/* Flickity carousel - keep existing styles */
+.gallery {
+	/* Styles handled by flickity.css */
+}
+
+.js-flickity {
+	/* Styles handled by flickity.css */
+}
+
+/* App rating styles - keep separate for now */
+/* Handled by app-rating-styles.css */
