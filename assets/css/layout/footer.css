@@ -1,0 +1,116 @@
+/* ============================================
+   FOOTER COMPONENT
+   Site footer with links and social icons
+   ============================================ */
+
+footer {
+	background-image: url("../../images/footer.jpg");
+	background-size: 15%;
+	background-repeat: repeat;
+	background-position: top left;
+	padding: var(--space-lg);
+	margin-top: var(--space-lg);
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+/* === FOOTER BLOCKS === */
+.footer-block {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+
+/* === FOOTER LINKS === */
+.footer-link {
+	display: inline-block;
+	padding: var(--space-sm) var(--space-sm);
+	color: var(--color-text-primary);
+	background-color: var(--color-blue);
+	text-decoration: none;
+	width: fit-content;
+	transition: all var(--transition-base);
+}
+
+.footer-link:hover {
+	color: var(--color-red);
+	background-color: var(--color-yellow);
+}
+
+/* === FOOTER DISCLAIMER === */
+.footer-disclaimer {
+	margin-top: auto;
+	padding: var(--space-sm);
+	background-color: var(--color-blue);
+	width: fit-content;
+	font-size: var(--font-size-xs);
+	line-height: 1.1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-disclaimer p {
+	margin: 0;
+	color: var(--color-text-primary);
+}
+
+/* === SOCIAL LINKS === */
+.footer-social {
+	padding: var(--space-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-blue);
+	border-radius: var(--radius-xl);
+	width: fit-content;
+	color: var(--color-text-primary);
+	text-decoration: none;
+	transition: all var(--transition-base);
+}
+
+.footer-social:hover {
+	color: var(--color-red);
+	background-color: var(--color-yellow);
+}
+
+.footer-social img {
+	height: 1.4rem;
+	width: auto;
+}
+
+.footer-social:hover img {
+	filter: invert(10%) sepia(83%) saturate(7111%) hue-rotate(345deg)
+		brightness(106%) contrast(113%);
+}
+
+.footer-social ion-icon {
+	font-size: 1.4rem;
+}
+
+.right-block {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 768px) {
+	footer {
+		flex-direction: column;
+		align-items: center;
+		background-size: 30%;
+	}
+
+	.footer-block {
+		align-items: center;
+	}
+
+	.right-block {
+		margin-top: var(--space-md);
+		flex-direction: row;
+	}
+}
