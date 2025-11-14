@@ -44,13 +44,13 @@
    ============================================ */
 @import "pages/case-study.css";
 @import "pages/booking.css";
+@import "pages/services.css";
 
 /* ============================================
    LEGACY SUPPORT
    Temporary styles for backwards compatibility
    Will be removed once HTML is fully updated
    ============================================ */
-
 /* Flickity carousel - keep existing styles */
 .gallery {
 	/* Styles handled by flickity.css */
