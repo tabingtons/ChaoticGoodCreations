@@ -39,6 +39,13 @@
 @import "utilities/utilities.css";
 
 /* ============================================
+   PAGES - PAGE-SPECIFIC STYLES
+   Styles unique to specific page types
+   ============================================ */
+@import "pages/case-study.css";
+@import "pages/booking.css";
+
+/* ============================================
    LEGACY SUPPORT
    Temporary styles for backwards compatibility
    Will be removed once HTML is fully updated

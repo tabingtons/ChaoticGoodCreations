@@ -1,7 +1,7 @@
-/* ====================================
+/* ============================================
    CASE STUDY PAGE STYLES
-   For work/project showcase pages
-   ==================================== */
+   For portfolio/work showcase pages
+   ============================================ */
 
 /* Back to Projects Link */
 .back-link-container {
@@ -22,20 +22,6 @@
 .back-link:hover {
 	color: var(--color-purple);
 	transform: translateX(-5px);
-}
-
-.grid {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background-image: url("../images/grid.svg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	pointer-events: none;
-	z-index: -3;
 }
 
 /* Hero Section */
