@@ -1,0 +1,218 @@
+/* ============================================
+   BUTTON COMPONENT SYSTEM
+   All button styles using BEM methodology
+   ============================================ */
+
+/* === BASE BUTTON === */
+.button,
+.cta-button,
+.submit-btn {
+	/* Reset browser defaults */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-xs);
+
+	/* Typography */
+	font-family: var(--font-body);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-semibold);
+	text-decoration: none;
+	text-align: center;
+	line-height: 1;
+
+	/* Spacing */
+	padding: var(--space-sm) var(--space-md);
+	min-width: 120px;
+
+	/* Visual */
+	border: 2px solid transparent;
+	border-radius: var(--radius-full);
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+
+	/* Interaction */
+	transition: all var(--transition-slow);
+}
+
+.button:disabled,
+.submit-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* === PRIMARY VARIANT === */
+.button--primary,
+.primary-cta,
+.cta-button.primary-cta {
+	background-color: var(--color-yellow);
+	border-color: var(--color-red);
+	color: var(--color-red);
+	box-shadow: var(--color-red) 4px 4px 0 0;
+}
+
+.button--primary:hover:not(:disabled),
+.primary-cta:hover:not(:disabled),
+.cta-button.primary-cta:hover:not(:disabled) {
+	background-color: var(--color-pink);
+	border-color: var(--color-purple);
+	color: var(--color-purple);
+	box-shadow: var(--color-purple) 4px 4px 0 0;
+	transform: translateY(-2px);
+}
+
+/* === SECONDARY VARIANT === */
+.button--secondary,
+.secondary-cta {
+	background: linear-gradient(
+		180deg,
+		transparent 65%,
+		var(--color-yellow) 30%
+	);
+	color: var(--color-pink);
+	border: none;
+	border-radius: 0;
+	transform: skewX(-10deg);
+	position: relative;
+	overflow: hidden;
+	padding: 0 var(--space-xs);
+	font-size: var(--font-size-base);
+	z-index: 1;
+}
+
+.button--secondary::before,
+.secondary-cta::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background-color: var(--color-pink);
+	transition: height var(--transition-slow);
+	z-index: -1;
+}
+
+.button--secondary:hover::before,
+.secondary-cta:hover::before {
+	height: 100%;
+}
+
+.button--secondary:hover,
+.secondary-cta:hover {
+	color: var(--color-yellow);
+}
+
+/* === SIZE MODIFIERS === */
+.button--large,
+.primary-cta-large {
+	font-size: var(--font-size-lg);
+	padding: 1.5rem var(--space-lg);
+	background-color: var(--color-yellow);
+	border: 2px solid var(--color-red);
+	border-radius: var(--radius-2xl);
+	box-shadow: var(--color-red) 4px 4px 0 0;
+	color: var(--color-red);
+}
+
+.button--large:hover:not(:disabled),
+.primary-cta-large:hover:not(:disabled) {
+	background-color: var(--color-pink);
+	border-color: var(--color-purple);
+	color: var(--color-purple);
+	box-shadow: var(--color-purple) 4px 4px 0 0;
+	transform: translateY(-3px);
+}
+
+.button--small {
+	font-size: var(--font-size-sm);
+	padding: var(--space-xs) var(--space-sm);
+}
+
+/* === FULL WIDTH MODIFIER === */
+.button--full {
+	width: 100%;
+}
+
+/* === APP STORE BADGE === */
+.appstore-btn {
+	padding: 0;
+	border: none;
+	background: transparent;
+	min-width: auto;
+	display: inline-block;
+}
+
+.appstore-btn img {
+	height: 45px;
+	cursor: pointer;
+	transition: transform var(--transition-base);
+}
+
+.appstore-btn:hover img {
+	transform: scale(1.05);
+}
+
+/* === SUBMIT BUTTON (FORMS) === */
+.submit-btn {
+	width: 100%;
+	padding: var(--space-sm);
+	margin: var(--space-sm) 0;
+	box-sizing: border-box;
+	color: var(--color-yellow);
+	background-color: var(--color-pink);
+	border: 5px solid var(--color-yellow);
+	font-size: 1.75rem;
+	font-weight: var(--font-weight-bold);
+}
+
+.submit-btn:hover:not(:disabled) {
+	background-color: var(--color-blue);
+}
+
+/* === PROJECT LINK (SPECIAL CASE) === */
+.project-link {
+	color: var(--color-text-primary);
+	border-radius: var(--radius-xl);
+	padding: var(--space-sm) var(--space-sm);
+	background-color: #f7f7f7;
+	text-decoration: none;
+	display: inline-block;
+	transition: all var(--transition-base);
+}
+
+.project-link:hover {
+	color: #242424;
+	background-color: var(--color-white);
+}
+
+/* === PRIVACY BUTTONS === */
+.privacy-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+	justify-content: center;
+	margin: var(--space-sm);
+	max-width: 400px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 768px) {
+	.button--large,
+	.primary-cta-large {
+		font-size: 1.1rem;
+		padding: 1.2rem var(--space-md);
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.button,
+	.cta-button {
+		padding: 0.8rem 1.5rem;
+		font-size: 1rem;
+	}
+}

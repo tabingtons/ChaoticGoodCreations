@@ -1,0 +1,145 @@
+/* ============================================
+   TYPOGRAPHY SYSTEM
+   All font styles, headings, and text elements
+   Uses variables from variables.css
+   ============================================ */
+
+/* === BASE TYPOGRAPHY === */
+body {
+	font-family: var(--font-body);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-normal);
+	line-height: var(--line-height-base);
+	color: var(--color-text-primary);
+}
+
+/* === HEADINGS === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-display);
+	font-weight: var(--font-weight-normal);
+	line-height: var(--line-height-tight);
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	font-size: var(--font-size-3xl);
+	text-shadow: var(--glow-lg);
+	text-align: center;
+	margin-top: var(--space-xl);
+	margin-bottom: var(--space-lg);
+}
+
+h2 {
+	font-size: var(--font-size-2xl);
+	text-shadow: var(--glow-sm);
+}
+
+h3 {
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-semibold);
+}
+
+h4 {
+	font-size: var(--font-size-lg);
+	font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-bold);
+}
+
+h6 {
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-bold);
+}
+
+/* === PARAGRAPHS === */
+p {
+	margin-top: 1em;
+	line-height: var(--line-height-relaxed);
+}
+
+/* === LINKS === */
+a {
+	color: var(--color-pink);
+	text-decoration: none;
+	transition: color var(--transition-base);
+}
+
+a:hover {
+	color: var(--color-yellow);
+}
+
+/* === EMPHASIS === */
+strong,
+b {
+	font-weight: var(--font-weight-bold);
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+/* === LISTS === */
+ul,
+ol {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+li {
+	line-height: var(--line-height-relaxed);
+}
+
+/* === ACCENT HIGHLIGHT === */
+.accent-underline {
+	background: linear-gradient(
+		180deg,
+		transparent 60%,
+		var(--color-yellow) 60%
+	);
+	padding: 0 0.2rem;
+}
+
+/* === TEXT UTILITY CLASSES === */
+.text--center {
+	text-align: center;
+}
+
+.text--left {
+	text-align: left;
+}
+
+.text--right {
+	text-align: right;
+}
+
+.text--muted {
+	color: var(--color-text-muted);
+}
+
+.text--secondary {
+	color: var(--color-text-secondary);
+}
+
+/* === RESPONSIVE TYPOGRAPHY === */
+@media (max-width: 768px) {
+	body {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 420px) {
+	h1 {
+		margin-top: var(--space-md);
+		margin-bottom: var(--space-md);
+	}
+}

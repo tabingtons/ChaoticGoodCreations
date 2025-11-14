@@ -1,0 +1,172 @@
+/* ============================================
+   SECTION LAYOUTS
+   Common section patterns and content layouts
+   ============================================ */
+
+/* === HERO SECTION === */
+.hero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 2.5rem;
+	max-width: 68.75rem;
+	height: 50vh;
+	margin: auto;
+	padding: 10rem var(--space-xl) var(--space-xl) var(--space-xl);
+}
+
+.hero img {
+	width: 100%;
+	max-width: 100%;
+}
+
+.hero-img {
+	width: 100%;
+}
+
+/* === ABOUT SECTION === */
+.about {
+	padding: var(--space-md) 100px;
+	margin-top: var(--space-md);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.about-width {
+	max-width: 1000px;
+}
+
+.about-details {
+	text-shadow: var(--glow-sm);
+	margin-bottom: var(--space-lg);
+}
+
+/* === PROJECTS SECTION === */
+.projects {
+	padding: var(--space-md) 0;
+	margin-top: var(--space-md);
+}
+
+/* === CONTACT SECTION === */
+.contact {
+	padding: var(--space-md) 0;
+	margin: var(--space-md) 0 100px;
+}
+
+.contact p {
+	max-width: 600px;
+	margin: 0 auto var(--space-md) auto;
+	line-height: var(--line-height-loose);
+	text-align: center;
+	padding-bottom: var(--space-lg);
+}
+
+/* === SECTION HEADER === */
+.section-header {
+	max-width: 900px;
+	text-align: center;
+	margin-bottom: var(--space-lg);
+}
+
+/* === TWO COLUMN LAYOUTS === */
+.left-text {
+	max-width: 900px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: var(--space-md);
+}
+
+.right-text {
+	max-width: 900px;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	gap: var(--space-md);
+}
+
+/* === CENTER BODY === */
+.center-body {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* === PARAGRAPH SECTIONS === */
+.paragraph {
+	max-width: 1200px;
+	text-align: left;
+	padding: var(--space-xs);
+}
+
+.paragraph-img {
+	width: 25rem;
+	border-radius: var(--radius-lg);
+	float: right;
+	margin: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.full-page-text {
+	max-width: 1200px;
+	text-align: left;
+	padding: 0 var(--space-sm);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 768px) {
+	.hero {
+		flex-direction: column;
+		gap: 0;
+		height: 33vh;
+		padding: var(--space-lg) 1.5rem var(--space-xl) 1.5rem;
+	}
+
+	.hero img {
+		max-width: 30rem;
+	}
+
+	.about {
+		padding: var(--space-sm);
+	}
+
+	.left-text,
+	.right-text {
+		flex-direction: column-reverse;
+		text-align: center;
+	}
+
+	.paragraph {
+		text-align: center;
+		justify-content: center;
+	}
+
+	.paragraph-img {
+		float: none;
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.hero img {
+		max-width: 23rem;
+	}
+}

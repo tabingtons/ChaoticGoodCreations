@@ -1,0 +1,159 @@
+/* ============================================
+   DARK MODE SYSTEM
+   Automatic dark mode based on user preference
+   Uses prefers-color-scheme media query
+   ============================================ */
+
+/* Dark mode color overrides */
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* === DARK MODE COLORS === */
+
+		/* Background Colors */
+		--color-bg: #0a0a0a;
+		--color-white: #1a1a1a;
+
+		/* Text Colors */
+		--color-text-primary: #ffffff;
+		--color-text-secondary: #a0a0a0;
+		--color-text-muted: #808080;
+		--color-text-dark: #ffffff;
+
+		/* Brand colors stay the same but we might adjust for contrast */
+		--color-yellow: rgb(255, 230, 40); /* Slightly brighter */
+		--color-pink: rgb(255, 60, 160); /* Slightly brighter */
+		--color-blue: rgb(70, 200, 245); /* Slightly brighter */
+		--color-purple: rgb(150, 50, 220); /* Slightly brighter */
+		--color-red: rgb(255, 40, 70); /* Slightly brighter */
+
+		/* === DARK MODE EFFECTS === */
+
+		/* Adjusted shadows for dark mode */
+		--shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.5);
+		--shadow-md: 0 8px 30px rgba(0, 0, 0, 0.6);
+		--shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.7);
+		--shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.8);
+
+		/* Navigation shadow adjusted */
+		--shadow-nav: rgba(0, 0, 0, 0.5) 0px 54px 55px,
+			rgba(0, 0, 0, 0.3) 0px -12px 30px, rgba(0, 0, 0, 0.3) 0px 4px 6px,
+			rgba(0, 0, 0, 0.4) 0px 12px 13px, rgba(0, 0, 0, 0.2) 0px -3px 5px;
+
+		/* Text glow reduced for dark backgrounds */
+		--glow-sm: 0 0 3px rgba(255, 255, 255, 0.3),
+			0 0 8px rgba(255, 255, 255, 0.2), 0 0 16px rgba(255, 255, 255, 0.1);
+
+		--glow-lg: 0 0 12px rgba(255, 255, 255, 0.4),
+			0 0 32px rgba(255, 255, 255, 0.3), 0 0 64px rgba(255, 255, 255, 0.2);
+	}
+
+	/* === COMPONENT SPECIFIC DARK MODE ADJUSTMENTS === */
+
+	/* Navigation */
+	.nav-box {
+		background-color: #1a1a1a;
+		border: 1px solid #333;
+	}
+
+	/* Footer */
+	footer {
+		background-color: #0f0f0f;
+	}
+
+	.footer-disclaimer {
+		background-color: #2a2a2a;
+	}
+
+	/* Cards */
+	.project-card,
+	.feature-card,
+	.takeaway-card,
+	.testimonial-card {
+		background-color: #1a1a1a;
+		border: 1px solid #333;
+	}
+
+	.review {
+		background: #1a1a1a;
+		border: 1px solid #333;
+	}
+
+	/* Forms */
+	.contact-form-container {
+		background-color: #1a1a1a;
+	}
+
+	.input-field,
+	.contact-form-container .input-field,
+	.contact-form-container textarea {
+		background-color: #2a2a2a;
+		color: var(--color-text-primary);
+		border-color: var(--color-yellow);
+	}
+
+	.input-field::placeholder {
+		color: #808080;
+	}
+
+	/* Sections with white backgrounds */
+	.section--white,
+	section.white-bg {
+		background-color: #1a1a1a;
+	}
+
+	/* Site headers (for app pages) */
+	.site-header {
+		background: #1a1a1a;
+		border-bottom: 1px solid #333;
+	}
+
+	.site-footer {
+		background: #0f0f0f;
+	}
+
+	/* Ensure images don't look too bright */
+	img {
+		opacity: 0.9;
+	}
+
+	/* But keep logo/icon images at full opacity */
+	.nav-logo img,
+	.small-logo,
+	.app-icon,
+	.project-icon,
+	.header-icon {
+		opacity: 1;
+	}
+
+	/* Links in dark mode */
+	a {
+		color: var(--color-blue);
+	}
+
+	a:hover {
+		color: var(--color-pink);
+	}
+
+	/* Buttons maintain their colors but adjust shadows */
+	.button--primary,
+	.primary-cta,
+	.cta-button.primary-cta {
+		box-shadow: var(--color-red) 3px 3px 0 0;
+	}
+
+	.button--primary:hover:not(:disabled),
+	.primary-cta:hover:not(:disabled) {
+		box-shadow: var(--color-purple) 3px 3px 0 0;
+	}
+}
+
+/* === DARK MODE TOGGLE (OPTIONAL - FOR MANUAL CONTROL) === */
+
+/* If you want to add a manual dark mode toggle button later,
+   add a class to the body element and use this instead: */
+
+/*
+body.dark-mode {
+    (Same styles as above but without the media query wrapper)
+}
+*/

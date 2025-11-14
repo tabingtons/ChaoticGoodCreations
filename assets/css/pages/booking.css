@@ -1,0 +1,198 @@
+/* ============================================
+   BOOKING PAGE STYLES
+   For discovery session booking page
+   ============================================ */
+
+/* ============================================
+   BOOKING PAGE STYLES
+   Add these styles to the end of styles.css
+   ============================================ */
+
+/* --- BOOKING HERO SECTION --- */
+.booking-hero {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 2rem;
+	min-height: 25vh;
+}
+
+.booking-hero-content {
+	max-width: 900px;
+}
+
+.booking-hero h1 {
+	font-size: clamp(2.5rem, 6vw, 4rem);
+	line-height: 1.1;
+	margin-bottom: 2rem;
+	font-weight: 700;
+}
+
+.booking-hero h2 {
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	color: var(--color-text-dark);
+}
+
+.booking-hero-subtitle {
+	font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+	line-height: 1.6;
+	color: var(--color-text-muted);
+}
+
+/* --- WHAT TO EXPECT SECTION --- */
+.booking-expect {
+	padding: 4rem 2rem;
+}
+
+.booking-expect-grid {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 4rem;
+}
+
+.booking-expect-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 0;
+}
+
+.booking-expect-icon {
+	font-size: 2.5rem;
+	color: var(--color-pink);
+	margin-bottom: 0rem;
+	display: block;
+}
+
+.booking-expect-card h3 {
+	font-size: clamp(1.25rem, 2vw, 1.5rem);
+	font-weight: 600;
+	margin-bottom: 0rem;
+	color: var(--color-text-dark);
+}
+
+.booking-expect-card p {
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--color-text-muted);
+}
+
+/* --- BOOKING CALENDAR SECTION --- */
+.booking-calendar {
+	padding: 2rem;
+}
+
+.booking-calendar-content {
+	max-width: 900px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.booking-calendar h2 {
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	color: var(--color-text-dark);
+}
+
+.booking-calendar-intro {
+	font-size: clamp(1rem, 2vw, 1.2rem);
+	line-height: 1.6;
+	color: var(--color-text-muted);
+}
+
+/* Cal.com Embed Container */
+.cal-embed-container {
+	overflow: hidden;
+}
+
+/* --- ALTERNATIVE CTA SECTION --- */
+.booking-alternative {
+	padding: 2rem;
+	text-align: center;
+}
+
+.booking-alternative-content {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.booking-alternative-text {
+	font-size: clamp(1rem, 2vw, 1.2rem);
+	line-height: 1.7;
+	color: var(--color-text-muted);
+	margin-bottom: 2.5rem;
+}
+
+.booking-cta-icon {
+	font-size: 1.3rem;
+}
+
+/* --- RESPONSIVE DESIGN (Mobile-First Priority) --- */
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+	.booking-hero {
+		padding: 8rem 1.5rem 6rem;
+		min-height: 60vh;
+	}
+
+	.booking-hero h1 {
+		font-size: 2rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.booking-hero-icon {
+		font-size: 2.5rem;
+		margin: 1rem 0;
+	}
+
+	.booking-expect {
+		padding: 5rem 1.5rem;
+	}
+
+	.booking-expect-grid {
+		gap: 3rem;
+	}
+
+	.booking-calendar {
+		padding: 6rem 1.5rem;
+	}
+
+	.booking-alternative {
+		padding: 5rem 1.5rem;
+	}
+}
+
+/* Tablet (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+	.booking-expect-grid {
+		grid-template-columns: 1fr;
+		gap: 3.5rem;
+		max-width: 500px;
+	}
+}
+
+/* Desktop optimization (769px+) */
+@media (min-width: 769px) {
+	.booking-expect-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+	.booking-hero h1 {
+		font-size: 4.5rem;
+	}
+
+	.booking-expect-grid {
+		gap: 5rem;
+	}
+}

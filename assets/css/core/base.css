@@ -1,0 +1,161 @@
+/* ============================================
+   BASE STYLES
+   Global element styles and body setup
+   ============================================ */
+
+/* === HTML & BODY === */
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background-color: var(--color-bg);
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+/* === MAIN CONTENT WRAPPER === */
+.page {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	flex: 1;
+}
+
+.page__content {
+	flex: 1;
+}
+
+/* === BACKGROUND LAYERS === */
+/* Fixed grid background (static) */
+.background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	z-index: -3;
+}
+
+.background--grid {
+	background-image: url("../../images/grid.svg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: -3;
+}
+
+/* Parallax scrolling background (animated on desktop) */
+.background--parallax {
+	height: 200%;
+	background-image: url("../../images/memphisShapes.webp");
+	background-repeat: repeat;
+	background-size: 2000px auto;
+	background-position: top center;
+	z-index: -2;
+	will-change: transform;
+	transform: translateZ(0);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+}
+
+/* === SECTIONS === */
+.section {
+	padding-top: var(--space-xl);
+	padding-bottom: var(--space-xl);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.section--tight {
+	padding-top: var(--space-lg);
+	padding-bottom: var(--space-lg);
+}
+
+.section--spacious {
+	padding-top: var(--space-2xl);
+	padding-bottom: var(--space-2xl);
+}
+
+.section--white {
+	background-color: var(--color-white);
+}
+
+/* === CONTAINERS === */
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--space-md);
+	padding-right: var(--space-md);
+}
+
+.container--sm {
+	max-width: var(--container-sm);
+}
+
+.container--md {
+	max-width: var(--container-md);
+}
+
+.container--lg {
+	max-width: var(--container-lg);
+}
+
+/* === PLACEHOLDERS === */
+/* Used for dynamically loaded components */
+#nav-placeholder {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+#footer-placeholder {
+	margin-top: auto;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+	.background--parallax {
+		background-size: 1000px auto;
+		height: 150%;
+		transition: none;
+	}
+
+	.section {
+		padding-top: var(--space-lg);
+		padding-bottom: var(--space-lg);
+	}
+
+	.container {
+		padding-left: var(--space-sm);
+		padding-right: var(--space-sm);
+	}
+}
+
+@media (max-width: 480px) {
+	.background--parallax {
+		background-size: 800px auto;
+	}
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+	.background--parallax {
+		transform: none !important;
+		will-change: auto;
+		transition: none;
+		position: fixed;
+		top: 0;
+	}
+}
