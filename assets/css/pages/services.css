@@ -1,9 +1,10 @@
-/* ===================================
+/* ============================================
    SERVICES PAGE STYLES
+   Uses core variables from variables.css
    Chaotic Good Creations
-   =================================== */
+   ============================================ */
 
-/* Color variables for service theming */
+/* Service-specific color variables using core colors */
 :root {
 	--web-design-color: var(--color-pink);
 	--ios-app-color: var(--color-blue);
@@ -34,14 +35,14 @@
 	font-size: 1.3rem;
 	line-height: 1.6;
 	margin-bottom: 1rem;
-	color: #333;
+	color: var(--color-text-secondary);
 }
 
 .hero-tagline {
 	font-size: 1.1rem;
 	line-height: 1.6;
 	margin-bottom: 2.5rem;
-	color: #666;
+	color: var(--color-text-muted);
 }
 
 /* ===================================
@@ -58,7 +59,7 @@
 .overview-text {
 	font-size: 1.2rem;
 	line-height: 1.8;
-	color: #444;
+	color: var(--color-text-secondary);
 }
 
 /* ===================================
@@ -156,7 +157,7 @@
 	font-size: 1.1rem;
 	line-height: 1.8;
 	margin-bottom: 2rem;
-	color: #444;
+	color: var(--color-text-secondary);
 }
 
 .service-text h3,
@@ -184,7 +185,7 @@
 	content: "→";
 	position: absolute;
 	left: 0;
-	color: #333;
+	color: var(--color-text-secondary);
 	font-weight: bold;
 }
 
@@ -216,16 +217,26 @@
 /* ===================================
    PRICING
    =================================== */
+
+.pricing-cta {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+	border-top: 2px solid var(--color-text-muted);
+}
+
 .pricing {
 	font-size: 1.2rem;
 	margin: 0;
-	color: #333;
+	color: var(--color-text-secondary);
 }
 
 .pricing strong {
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: #000;
+	color: var(--color-text-primary);
 }
 
 /* ===================================
@@ -240,7 +251,7 @@
 	width: 100%;
 	height: auto;
 	display: block;
-	border-radius: 12px;
+	border-radius: var(--radius-md);
 }
 
 /* ===================================
@@ -393,5 +404,15 @@
 
 	.service-content.centered h2 {
 		align-items: flex-start;
+	}
+}
+
+/* ============================================
+   DARK MODE OVERRIDES
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+	/* Pricing border adjustment */
+	.pricing-cta {
+		border-top-color: #333;
 	}
 }

@@ -15,8 +15,8 @@
 
 		/* Text Colors */
 		--color-text-primary: #ffffff;
-		--color-text-secondary: #a0a0a0;
-		--color-text-muted: #808080;
+		--color-text-secondary: #c5c5c5;
+		--color-text-muted: #a3a3a3;
 		--color-text-dark: #ffffff;
 
 		/* Brand colors stay the same but we might adjust for contrast */
@@ -47,6 +47,13 @@
 			0 0 32px rgba(255, 255, 255, 0.3), 0 0 64px rgba(255, 255, 255, 0.2);
 	}
 
+	/* === DARK MODE BACKGROUND ADJUSTMENTS === */
+
+	/* Dim the grid background significantly */
+	.background--grid {
+		opacity: 0.15; /* Very subtle in dark mode */
+	}
+
 	/* === COMPONENT SPECIFIC DARK MODE ADJUSTMENTS === */
 
 	/* Navigation */
@@ -57,7 +64,7 @@
 
 	/* Footer */
 	footer {
-		background-color: #0f0f0f;
+		background-color: #0f0f0f !important;
 	}
 
 	.footer-disclaimer {
@@ -69,13 +76,8 @@
 	.feature-card,
 	.takeaway-card,
 	.testimonial-card {
-		background-color: #1a1a1a;
-		border: 1px solid #333;
-	}
-
-	.review {
-		background: #1a1a1a;
-		border: 1px solid #333;
+		background-color: #1a1a1a !important;
+		border: 1px solid #333 !important;
 	}
 
 	/* Forms */
@@ -111,11 +113,6 @@
 		background: #0f0f0f;
 	}
 
-	/* Ensure images don't look too bright */
-	img {
-		opacity: 0.9;
-	}
-
 	/* But keep logo/icon images at full opacity */
 	.nav-logo img,
 	.small-logo,
@@ -144,6 +141,89 @@
 	.button--primary:hover:not(:disabled),
 	.primary-cta:hover:not(:disabled) {
 		box-shadow: var(--color-purple) 3px 3px 0 0;
+	}
+
+	/* === FOOTER - PRESERVE COLORED BACKGROUNDS WITH BLACK TEXT === */
+
+	/* Footer container */
+	footer {
+		background-color: #0f0f0f;
+		background-image: none; /* Remove pattern in dark mode */
+	}
+
+	/* Footer links - force black text on blue background */
+	.footer-link,
+	.footer-link:visited {
+		color: #000000 !important;
+		background-color: rgb(45, 185, 230) !important; /* Original blue */
+	}
+
+	.footer-link:hover {
+		color: rgb(250, 0, 39) !important; /* Original red */
+		background-color: rgb(252, 221, 12) !important; /* Original yellow */
+	}
+
+	/* Footer social icons - force black text on blue background */
+	.footer-social {
+		color: #000000 !important;
+		background-color: rgb(45, 185, 230) !important; /* Original blue */
+	}
+
+	.footer-social:hover {
+		color: rgb(250, 0, 39) !important; /* Original red */
+		background-color: rgb(252, 221, 12) !important; /* Original yellow */
+	}
+
+	/* Footer social icon images */
+	.footer-social ion-icon {
+		color: #000000 !important;
+	}
+
+	/* Footer disclaimer - keep black text on blue */
+	.footer-disclaimer {
+		background-color: rgb(45, 185, 230) !important; /* Original blue */
+	}
+
+	.footer-disclaimer p {
+		color: #000000 !important;
+	}
+
+	/* === PROJECT CARDS - PRESERVE ORIGINAL COLORS === */
+
+	/* Project cards - keep white text, remove dark mode border */
+	.project-card {
+		color: #ffffff !important; /* Force white text */
+		background-color: transparent !important;
+		border: none !important;
+	}
+
+	/* Project card headings */
+	.project-card h3,
+	.project-title {
+		color: #ffffff !important;
+	}
+
+	/* Project card paragraphs */
+	.project-card p,
+	.project-details {
+		color: #ffffff !important;
+	}
+
+	/* Project card meta text */
+	.project-type,
+	.project-type p {
+		color: #ffffff !important;
+	}
+
+	/* Project link button - keep light background with black text */
+	.project-link {
+		color: #000000 !important;
+		background-color: #f7f7f7 !important;
+	}
+
+	.project-link:hover {
+		color: #242424 !important;
+		background-color: #ffffff !important;
 	}
 }
 
