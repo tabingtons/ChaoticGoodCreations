@@ -4,7 +4,8 @@
    ============================================ */
 
 footer {
-	background-image: url("../../images/footer.jpg");
+	background-image: url("../../images/footer.png");
+	background-color: #fff;
 	background-size: 15%;
 	background-repeat: repeat;
 	background-position: top left;

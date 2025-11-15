@@ -15,6 +15,7 @@
 @import "core/variables.css";
 @import "core/typography.css";
 @import "core/base.css";
+@import "core/dark-mode.css";
 
 /* ============================================
    LAYOUT - STRUCTURAL COMPONENTS

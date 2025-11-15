@@ -291,15 +291,35 @@
 										calLink: "harry-brown/discovery",
 									});
 
+									// Detect user's color scheme preference
+									const isDarkMode =
+										window.matchMedia &&
+										window.matchMedia(
+											"(prefers-color-scheme: dark)"
+										).matches;
+
 									Cal.ns.discovery("ui", {
-										theme: "light",
+										theme: isDarkMode ? "dark" : "light",
 										cssVarsPerTheme: {
 											light: { "cal-brand": "#2db9e6" },
-											dark: { "cal-brand": "#2db9e6" },
+											dark: { "cal-brand": "#70c8f0" }, // Lighter blue for dark mode
 										},
 										hideEventTypeDetails: true,
 										layout: "month_view",
 									});
+
+									// Listen for theme changes (if user switches during session)
+									window
+										.matchMedia(
+											"(prefers-color-scheme: dark)"
+										)
+										.addEventListener("change", (e) => {
+											Cal.ns.discovery("ui", {
+												theme: e.matches
+													? "dark"
+													: "light",
+											});
+										});
 								</script>
 								<!-- Cal inline embed code ends -->
 							</div>
