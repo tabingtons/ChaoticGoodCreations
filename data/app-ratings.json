@@ -42,7 +42,7 @@
         "version": "2.0"
       }
     ],
-    "lastUpdated": "2026-01-10T03:21:08.853Z"
+    "lastUpdated": "2026-01-11T03:46:33.253Z"
   },
   "per-100": {
     "name": "Per 100",
@@ -78,15 +78,15 @@
         "country": "DE",
         "rating": 0,
         "ratingCount": 0,
-        "version": "1.2.1"
+        "version": "2.0.0"
       },
       {
         "country": "NZ",
         "rating": 5,
         "ratingCount": 1,
-        "version": "1.2.1"
+        "version": "2.0.0"
       }
     ],
-    "lastUpdated": "2026-01-10T03:21:08.853Z"
+    "lastUpdated": "2026-01-11T03:46:33.253Z"
   }
 }
