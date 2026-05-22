@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keepsake — Save what matters</title>
+  <meta name="description" content="Keepsake helps you preserve the things you can't replace — children's artwork, handwritten cards, letters, and handmade objects — as beautiful digital memories with 3D viewing and AR." />
+  <meta property="og:title" content="Keepsake — Save what matters" />
+  <meta property="og:description" content="Preserve children's artwork, cards, letters, and objects as lasting digital memories. Privacy-first, iCloud-only, built for the things you can't replace." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/images/keepsake/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────────────────────────────
+       DESIGN TOKENS — identical to the press kit so both pages
+       share the same visual language.
+    ───────────────────────────────────────────────────────────── */
+    :root {
+      --evergreen:        #2E7D5E;
+      --evergreen-dark:   #1f5a43;
+      --evergreen-light:  #e8f5ef;
+      --evergreen-mid:    #c2e0d2;
+      --warm-fawn:        #D1B478;
+      --thistle:          #B7ADCF;
+      --dusty-rose:       #C49098;
+      --powder-blue:      #98C1D9;
+      --bg:               #faf8f5;
+      --bg-card:          #ffffff;
+      --bg-muted:         #f2efe9;
+      --border:           rgba(0,0,0,0.07);
+      --border-mid:       rgba(0,0,0,0.12);
+      --text:             #1a1a1a;
+      --text-mid:         #4a4a4a;
+      --text-muted:       #6e6e6e;
+      --text-faint:       #999;
+      --font-display:     'Playfair Display', Georgia, serif;
+      --font-body:        'Lato', -apple-system, sans-serif;
+      --max-w:            860px;
+      --max-w-wide:       1040px;
+      --radius:           12px;
+      --radius-sm:        8px;
+      --radius-lg:        20px;
+    }
+
+    /* ── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--evergreen); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ── BACKGROUND GRADIENT ────────────────────────────────────── */
+    /* Same subtle warm-to-cool ambient gradient as the press kit */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 0% 0%, rgba(209,180,120,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 100% 80%, rgba(183,173,207,0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       NAV
+       Simpler than the press kit — horizontal, icon + name left,
+       single CTA right. No scrollspy needed for a landing page.
+    ───────────────────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-nav-inner {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-identity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-identity:hover { text-decoration: none; }
+    .nav-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      line-height: 0;
+      font-size: 0;
+    }
+    .nav-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .nav-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-link-secondary {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 4px 0;
+      transition: color 0.15s;
+    }
+    .nav-link-secondary:hover { color: var(--evergreen); text-decoration: none; }
+
+    /* ── SHARED BUTTON SYSTEM ───────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      text-decoration: none;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-primary {
+      background: var(--evergreen);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(46,125,94,0.3);
+    }
+    .btn-primary:hover { background: var(--evergreen-dark); box-shadow: 0 6px 20px rgba(46,125,94,0.4); }
+    .btn-sm { font-size: 12px; padding: 8px 18px; }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text);
+      border: 1.5px solid var(--border-mid);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .btn-secondary:hover { border-color: var(--evergreen); color: var(--evergreen); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--evergreen);
+      border: 1.5px solid var(--evergreen-mid);
+    }
+    .btn-ghost:hover { background: var(--evergreen-light); }
+
+    /* ── PAGE WRAPPER ───────────────────────────────────────────── */
+    .page { position: relative; z-index: 1; }
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    .container-wide {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       HERO
+       The emotional anchor of the page. Large display headline,
+       warm supportive copy, and a pair of CTAs. The app icon sits
+       above the headline as a visual anchor.
+    ───────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 80px 0 72px;
+      text-align: center;
+    }
+    .hero-app-icon {
+      width: 104px;
+      height: 104px;
+      border-radius: 28px;
+      margin: 0 auto 32px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.13), 0 3px 10px rgba(0,0,0,0.07);
+      overflow: hidden;
+      line-height: 0;
+      font-size: 0;
+    }
+    .hero-app-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--evergreen);
+      background: var(--evergreen-light);
+      border: 1px solid var(--evergreen-mid);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--evergreen);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 7vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--evergreen);
+    }
+    .hero-sub {
+      font-size: 19px;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .hero-disclaimer {
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-top: 12px;
+    }
+    .hero-disclaimer a { color: var(--text-muted); }
+    .hero-disclaimer a:hover { color: var(--evergreen); }
+
+    /* Hero screenshot strip — horizontal scroll of phone frames */
+    .hero-screenshots {
+      margin-top: 64px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      overflow-x: auto;
+      padding: 0 28px 20px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hero-screenshots::-webkit-scrollbar { display: none; }
+    .hero-screenshot {
+      flex-shrink: 0;
+      width: 200px;
+      height: 434px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+      line-height: 0;
+      font-size: 0;
+      /* Subtle parallax-like perspective tilt on alternating items is handled
+         with nth-child transforms below */
+    }
+    .hero-screenshot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    /* Slight tilt on outer screenshots for depth */
+    .hero-screenshot:nth-child(1) { transform: rotate(-2deg) translateY(16px); }
+    .hero-screenshot:nth-child(2) { transform: rotate(-1deg) translateY(4px); }
+    .hero-screenshot:nth-child(3) { transform: translateY(0px); }
+    .hero-screenshot:nth-child(4) { transform: rotate(1deg) translateY(4px); }
+    .hero-screenshot:nth-child(5) { transform: rotate(2deg) translateY(16px); }
+
+    /* ─────────────────────────────────────────────────────────────
+       ORIGIN STORY — brief, human, emotional.
+       Not a long narrative (that's the press kit). Just enough to
+       establish why this exists and who it's for.
+    ───────────────────────────────────────────────────────────── */
+    .origin {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .origin-inner {
+      max-width: 640px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--evergreen);
+      margin-bottom: 10px;
+    }
+    .origin h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .origin h2 em { font-style: italic; color: var(--evergreen); }
+    .origin-body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-mid);
+    }
+    .origin-body p { margin-bottom: 18px; }
+    .origin-body p:last-child { margin-bottom: 0; }
+    .origin-pull {
+      font-family: var(--font-display);
+      font-size: clamp(19px, 2.5vw, 24px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.45;
+      border-left: 3px solid var(--warm-fawn);
+      padding: 8px 0 8px 24px;
+      margin: 32px 0;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       FEATURES GRID
+       Matches the press kit card style exactly. 8 features.
+    ───────────────────────────────────────────────────────────── */
+    .features {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .features-header {
+      margin-bottom: 40px;
+    }
+    .features-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .features-header h2 em { font-style: italic; color: var(--evergreen); }
+    .features-header p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      max-width: 520px;
+      line-height: 1.65;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SCREENSHOTS STRIP
+       Full-width scrollable strip, wider than the text container.
+    ───────────────────────────────────────────────────────────── */
+    .screenshots-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .screenshots-header {
+      max-width: var(--max-w);
+      margin: 0 auto 36px;
+      padding: 0 28px;
+    }
+    .screenshots-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .screenshots-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 8px 28px 24px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .screenshots-scroll::-webkit-scrollbar { display: none; }
+    .screenshot-frame {
+      flex-shrink: 0;
+      width: 180px;
+      height: 390px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.10), 0 3px 10px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      line-height: 0;
+      font-size: 0;
+      background: var(--bg-muted);
+    }
+    .screenshot-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       PRIVACY SECTION
+       A genuine product differentiator — gets its own section rather
+       than a card. Warm background to distinguish it visually.
+    ───────────────────────────────────────────────────────────── */
+    .privacy-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .privacy-inner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .privacy-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .privacy-text h2 em { font-style: italic; color: var(--evergreen); }
+    .privacy-text p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+    }
+    .privacy-text p:last-of-type { margin-bottom: 0; }
+    .privacy-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .privacy-fact {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .privacy-fact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--evergreen-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .privacy-fact-body h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .privacy-fact-body p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       PRICING — same card style as the press kit.
+    ───────────────────────────────────────────────────────────── */
+    .pricing-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .pricing-header { margin-bottom: 36px; }
+    .pricing-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .pricing-header p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 480px;
+      line-height: 1.65;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+    .pricing-card.featured {
+      border-color: var(--evergreen);
+      background: var(--evergreen-light);
+    }
+    .pricing-card h3 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .pricing-amount {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .pricing-amount span { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+    .pricing-note { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .pricing-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pricing-card li {
+      font-size: 14px;
+      color: var(--text-mid);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.4;
+    }
+    .pricing-card li::before {
+      content: '✓';
+      color: var(--evergreen);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       FOUNDER STRIP — brief, human, trust-building.
+       Not the full bio (that's the press kit). Just enough.
+    ───────────────────────────────────────────────────────────── */
+    .founder-strip {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .founder-strip-inner {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      max-width: 640px;
+    }
+    .founder-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      line-height: 0;
+      font-size: 0;
+    }
+    .founder-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .founder-text h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .founder-text p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+    .founder-text p a { font-weight: 700; }
+
+    /* ─────────────────────────────────────────────────────────────
+       FINAL CTA — prominent closing section before the footer.
+    ───────────────────────────────────────────────────────────── */
+    .cta-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 16px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-section h2 em { font-style: italic; color: var(--evergreen); }
+    .cta-section p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─────────────────────────────────────────────────────────────
+       NOTIFY ME FORM
+       Lightweight email capture since the app isn't live yet.
+       Used in the hero and the final CTA section.
+    ───────────────────────────────────────────────────────────── */
+    .notify-form {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .notify-input {
+      flex: 1;
+      min-width: 200px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text);
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-mid);
+      border-radius: 100px;
+      padding: 11px 20px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .notify-input:focus { border-color: var(--evergreen); }
+    .notify-input::placeholder { color: var(--text-faint); }
+    .notify-success {
+      display: none;
+      font-size: 14px;
+      color: var(--evergreen);
+      font-weight: 700;
+      padding: 12px 0;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0 56px;
+    }
+    .footer-inner {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-brand-block { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .footer-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      overflow: hidden;
+      line-height: 0;
+      font-size: 0;
+    }
+    .footer-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-bottom: 16px;
+      max-width: 220px;
+      line-height: 1.5;
+    }
+    .footer-copy { font-size: 11px; color: var(--text-faint); }
+    .footer-links-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .footer-links-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links-col li a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.15s;
+    }
+    .footer-links-col li a:hover { color: var(--evergreen); text-decoration: none; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION ENTRANCE ANIMATION
+       Same fadeUp as the press kit — sections animate in as they
+       scroll into view.
+    ───────────────────────────────────────────────────────────── */
+    .animate-section {
+      animation: fadeUp 0.5s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .privacy-inner {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+        gap: 32px;
+      }
+      .hero { padding: 56px 0 48px; }
+      .founder-strip-inner { flex-direction: column; gap: 20px; }
+      .footer-inner { flex-direction: column; gap: 28px; }
+      .hero-screenshot:nth-child(1),
+      .hero-screenshot:nth-child(5) { display: none; }
+      .hero-screenshot:nth-child(2),
+      .hero-screenshot:nth-child(4) { transform: none; opacity: 0.7; }
+      .hero-screenshot:nth-child(3) { transform: none; }
+    }
+    @media (max-width: 480px) {
+      .site-nav-inner { padding: 10px 20px; }
+      .nav-link-secondary { display: none; }
+      .container, .container-wide { padding: 0 20px; }
+      .screenshots-scroll { padding: 8px 20px 20px; }
+      .hero-screenshots { padding: 0 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────────────── -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/keepsake" class="nav-identity">
+      <div class="nav-icon">
+        <img src="/assets/images/keepsake/AppIcon.png" alt="" aria-hidden="true" />
+      </div>
+      <span class="nav-name">Keepsake</span>
+    </a>
+    <div class="nav-actions">
+      <a href="/keepsake/presskit.html" class="nav-link-secondary">Press Kit</a>
+      <!-- SWAP: When the app is live, replace the notify-cta button with a
+           real App Store badge or link. The simplest swap is:
+           <a href="YOUR_APP_STORE_LINK" class="btn btn-primary btn-sm">
+             Download on the App Store
+           </a> -->
+       <a
+        href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20—%20Notify%20me%20at%20launch&body=Hi%20Harry%2C%0A%0APlease%20let%20me%20know%20when%20Keepsake%20is%20available%20on%20the%20App%20Store.%0A%0AThanks!"
+        class="btn btn-primary btn-sm"
+      >
+        Get Notified
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────────── -->
+<div class="page">
+<section class="hero">
+  <div class="container">
+
+    <div class="hero-app-icon">
+      <img src="/assets/images/keepsake/AppIcon.png" alt="Keepsake app icon" />
+    </div>
+
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Built for iPhone
+    </div>
+
+    <h1>The memories worth keeping<em> deserve more than a camera roll.</em></h1>
+
+    <p class="hero-sub">
+      Keepsake helps you preserve the things you can’t replace — children’s 
+      artwork, handwritten cards, letters, and meaningful objects — so they’re 
+      easier to revisit over time.
+    </p>
+
+    <div class="hero-actions">
+      <!-- SWAP: Replace with App Store button when live -->
+       <a
+        href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20—%20Notify%20me%20at%20launch&body=Hi%20Harry%2C%0A%0APlease%20let%20me%20know%20when%20Keepsake%20is%20available%20on%20the%20App%20Store.%0A%0AThanks!"
+        class="btn btn-primary"
+      >
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Get Notified at Launch
+      </a>
+      <a href="/keepsake/presskit.html" class="btn btn-secondary">Press Kit</a>
+    </div>
+
+    <p class="hero-disclaimer">
+      Privacy-first · iCloud only · No account needed ·
+      <a href="https://chaoticgoodcreations.co/privacy/keepsake-privacy" target="_blank" rel="noopener">Privacy Policy</a>
+    </p>
+
+  </div>
+
+  <!-- Screenshot strip — 5 images, outer ones tilt slightly for depth -->
+  <div class="hero-screenshots">
+    <div class="hero-screenshot">
+      <img src="/assets/images/keepsake/appScreenshots/Memory Boxes View.png" alt="Memory Boxes" />
+    </div>
+    <div class="hero-screenshot">
+      <img src="/assets/images/keepsake/appScreenshots/Capture Flow Selection.png" alt="Capture Flow Selection" />
+    </div>
+    <div class="hero-screenshot">
+      <img src="/assets/images/keepsake/appScreenshots/All Keepsakes View.png" alt="All Keepsakes" />
+    </div>
+    <div class="hero-screenshot">
+      <img src="/assets/images/keepsake/appScreenshots/Keepsake Detail Expanded.png" alt="Full detail view" />
+    </div>
+    <div class="hero-screenshot">
+      <img src="/assets/images/keepsake/appScreenshots/AR Experience Drawing.png" alt="AR Experience" />
+    </div>
+  </div>
+
+</section>
+
+<!-- ── ORIGIN STORY ──────────────────────────────────────────────── -->
+<section class="origin animate-section">
+  <div class="container">
+    <p class="section-label">Why Keepsake exists</p>
+    <div class="origin-inner">
+      <h2>There's a pile. You know <em>the pile.</em></h2>
+      <div class="origin-body">
+        <p>
+          The shoebox in the wardrobe. The drawer that doesn't quite close. The shelf
+          with a child's first painting, a grandmother's last birthday card, a letter
+          you've read a hundred times and can't throw away.
+        </p>
+        <blockquote class="origin-pull">
+          "These aren't just photos. They're the things that will matter in twenty years."
+        </blockquote>
+        <p>
+          Keepsake was built because nothing else treated these objects with the weight
+          they deserve. Not a camera roll. Not a cloud drive. Something that captures
+          the story alongside the image — and brings it back to you at the right moment.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ──────────────────────────────────────────────────── -->
+<section class="features animate-section">
+  <div class="container">
+    <div class="features-header">
+      <p class="section-label">What it does</p>
+      <h2 class="features-header">Capture <em>more</em> than an image</h2>
+      <p>Every keepsake type has its own guided capture flow. Every memory carries its own story.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#e8f5ef;">📷</div>
+        <h3>Smart Capture</h3>
+        <p>Different keepsakes deserve different kinds of capture. Artwork and letters are preserved cleanly, while meaningful objects can be captured in rich 3D.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#f5f0e8;">🗂️</div>
+        <h3>Memory Boxes</h3>
+        <p>Create personalised memory boxes for the people, moments, and seasons that matter most — just like the real boxes already sitting in homes and wardrobes.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#f0edf5;">🧊</div>
+        <h3>3D Model Viewing</h3>
+        <p>Revisit handmade objects from every angle — preserving not just how they looked, but the shape and presence they had in your hands.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#edf3f7;">🔮</div>
+        <h3>AR Experience</h3>
+        <p>Bring keepsakes back into your space — place a drawing on the kitchen table or revisit an object as though it were still sitting beside you.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#e8f5ef;">📝</div>
+        <h3>Rich Context</h3>
+        <p>Add the little details that are easy to forget later — who made it, how old they were, and why this moment mattered.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fef9ee;">🔔</div>
+        <h3>Gentle Reminders</h3>
+        <p>Occasional reminders quietly bring meaningful keepsakes back into view — gentle moments to pause and look back.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#faf0f1;">🔒</div>
+        <h3>Genuinely Private</h3>
+        <p>Your memories stay in your iCloud account, not on Keepsake servers. No account to create, no ads, and no personal data collected, sold or shared.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#edf3f7;">☁️</div>
+        <h3>iCloud Sync</h3>
+        <p>Your keepsakes stay available across your Apple devices automatically and privately through iCloud.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SCREENSHOTS STRIP ─────────────────────────────────────────── -->
+<section class="screenshots-section animate-section">
+  <div class="screenshots-header">
+    <p class="section-label">See it in action</p>
+    <h2>Thoughtfully <em>designed</em> for the memories that matter</h2>
+  </div>
+  <div class="screenshots-scroll">
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/All Keepsakes View.png" alt="All Keepsakes view" />
+    </div>
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/Memory Boxes View.png" alt="Memory Boxes" />
+    </div>
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/Memory Boxes Inside.png" alt="Inside a Memory Box" />
+    </div>
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/Keepsake Detail Minimised.png" alt="Keepsake detail" />
+    </div>
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/Keepsake Detail Expanded.png" alt="Keepsake detail expanded" />
+    </div>
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/Capture Flow Selection.png" alt="Capture flow" />
+    </div>
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/Capture Flow Card Scan.png" alt="Card scanning" />
+    </div>
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/AR Experience Drawing.png" alt="AR experience" />
+    </div>
+    <div class="screenshot-frame">
+      <img src="/assets/images/keepsake/appScreenshots/Capture Flow 3D Scan.PNG" alt="3D capture" />
+    </div>
+  </div>
+</section>
+
+<!-- ── PRIVACY ───────────────────────────────────────────────────── -->
+<section class="privacy-section animate-section">
+  <div class="container">
+    <div class="privacy-inner">
+
+      <div class="privacy-text">
+        <p class="section-label">Privacy</p>
+        <h2>Your memories are <em>not our business.</em></h2>
+        <p>
+          Most apps treat your data as a product. Keepsake treats it as something
+          you trusted it with. The privacy model isn't a feature bolted on at the
+          end — it's a structural decision made at the start.
+        </p>
+        <p>
+          Your keepsakes live in your iCloud account. There is no Keepsake server
+          where they are stored. This is not a marketing claim. It is how the app
+          is architecturally built.
+        </p>
+        <a href="https://chaoticgoodcreations.co/privacy/keepsake-privacy" class="btn btn-ghost" style="margin-top:20px;" target="_blank" rel="noopener">
+          Read the Privacy Policy
+        </a>
+      </div>
+
+      <div class="privacy-facts">
+        <div class="privacy-fact">
+          <div class="privacy-fact-icon">🏦</div>
+          <div class="privacy-fact-body">
+            <h4>Stored in your iCloud</h4>
+            <p>All content is in your personal CloudKit private database. Only your Apple ID can access it.</p>
+          </div>
+        </div>
+        <div class="privacy-fact">
+          <div class="privacy-fact-icon">👤</div>
+          <div class="privacy-fact-body">
+            <h4>No account required</h4>
+            <p>No sign-up, no email, no password. There is no Keepsake account to create or leak.</p>
+          </div>
+        </div>
+        <div class="privacy-fact">
+          <div class="privacy-fact-icon">🚫</div>
+          <div class="privacy-fact-body">
+            <h4>No ads, ever</h4>
+            <p>Keepsake makes money through subscriptions, not by selling your attention or your data.</p>
+          </div>
+        </div>
+        <div class="privacy-fact">
+          <div class="privacy-fact-icon">📊</div>
+          <div class="privacy-fact-body">
+            <h4>Anonymous analytics only</h4>
+            <p>TelemetryDeck is used for crash reports and aggregate usage signals. No personal identifiers, ever.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ───────────────────────────────────────────────────── -->
+<section class="pricing-section animate-section">
+  <div class="container">
+    <div class="pricing-header">
+      <p class="section-label">Pricing</p>
+      <h2>Start free. <em>Upgrade when you're ready.</em></h2>
+      <p>Prices shown are in USD. Local pricing may vary and will be displayed on the App Store listing.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="pricing-amount">$0</div>
+        <div class="pricing-note">No credit card, no commitment</div>
+        <ul>
+          <li>5 keepsakes</li>
+          <li>2 memory boxes</li>
+          <li>All capture types</li>
+          <li>iCloud sync</li>
+          <li>Rich context &amp; stories</li>
+          <li>3D model viewing</li>
+          <li>Gentle reminders</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card featured">
+        <h3>Premium Monthly</h3>
+        <div class="pricing-amount">$4.99 <span>/ month</span></div>
+        <div class="pricing-note">Cancel anytime from Settings</div>
+        <ul>
+          <li>Unlimited keepsakes</li>
+          <li>Unlimited memory boxes</li>
+          <li>AR Experience</li>
+          <li>Everything in Free</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Premium Annual</h3>
+        <div class="pricing-amount">$49.99 <span>/ year</span></div>
+        <div class="pricing-note">Save ~17% vs monthly</div>
+        <ul>
+          <li>Unlimited keepsakes</li>
+          <li>Unlimited memory boxes</li>
+          <li>AR Experience</li>
+          <li>Everything in Free</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOUNDER STRIP ─────────────────────────────────────────────── -->
+<section class="founder-strip animate-section">
+  <div class="container">
+    <div class="founder-strip-inner">
+      <div class="founder-avatar">
+        <img src="/assets/images/personalPortrait.jpg" alt="Harry Brown" />
+      </div>
+      <div class="founder-text">
+        <h3>Built by one person, for his own pile.</h3>
+        <p>
+          Keepsake was made by <strong>Harry Brown</strong> of
+          <a href="https://www.chaoticgoodcreations.co" target="_blank" rel="noopener">Chaotic Good Creations</a>
+          in New Zealand. It's a solo project — fully self-funded, no investors,
+          no team. Just a someone who needed this to exist.
+          Questions? <a href="mailto:hello@chaoticgoodcreations.co">Say hello.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ─────────────────────────────────────────────────── -->
+<section class="cta-section animate-section" id="notify">
+  <div class="container">
+    <h2>The pile deserves <em>better than a drawer.</em></h2>
+    <p>
+      Keepsake is coming soon to iPhone. Send me an email and I'll
+      let you know the moment it's available.
+    </p>
+    <!-- SWAP: When the app is live, replace the <a> below with a real
+         App Store badge or button pointing to your App Store listing. -->
+    <div class="cta-actions">
+      <a
+        href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20—%20Notify%20me%20at%20launch&body=Hi%20Harry%2C%0A%0APlease%20let%20me%20know%20when%20Keepsake%20is%20available%20on%20the%20App%20Store.%0A%0AThanks!"
+        class="btn btn-primary"
+      >
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Notify Me at Launch
+      </a>
+    </div>
+    <p style="font-size:12px; color:var(--text-faint); margin-top:14px;">
+      Opens your mail app. One reply from me when it's live.
+    </p>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div>
+      <div class="footer-brand-block">
+        <div class="footer-icon">
+          <img src="/assets/images/keepsake/AppIcon.png" alt="" aria-hidden="true" />
+        </div>
+        <span class="footer-brand-name">Keepsake</span>
+      </div>
+      <p class="footer-tagline">
+        A product by Chaotic Good Creations, New Zealand.
+      </p>
+      <p class="footer-copy">
+        &copy; <span id="year"></span> Chaotic Good Creations.<br />
+        All rights reserved.
+      </p>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>App</h4>
+      <ul>
+        <!-- SWAP: Update when App Store link is live -->
+        <li><a href="#">App Store</a></li>
+        <li><a href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20TestFlight">Join TestFlight</a></li>
+        <li><a href="/keepsake/presskit.html">Press Kit</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="https://chaoticgoodcreations.co/privacy/keepsake-privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@chaoticgoodcreations.co">hello@chaoticgoodcreations.co</a></li>
+        <li><a href="https://www.chaoticgoodcreations.co" target="_blank" rel="noopener">Studio Website</a></li>
+        <li><a href="https://www.threads.com/@tabingtons" target="_blank" rel="noopener">Threads</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+</div><!-- /.page -->
+
+<script>
+  /* ── Year ────────────────────────────────────────────────────── */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Scroll-to notify ───────────────────────────────────────── */
+  function scrollToNotify() {
+    document.getElementById('notify').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      document.getElementById('notify-email').focus({ preventScroll: true });
+    }, 600);
+  }
+
+  /* ── Section entrance animations ───────────────────────────── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06 });
+
+  document.querySelectorAll('.animate-section').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
