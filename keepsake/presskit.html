@@ -162,7 +162,7 @@
     }
 
     /*
-      FIX 3: Hero app icon.
+    Hero app icon.
       - Removed display:flex/align-items/justify-content from the container;
         instead we use line-height:0 + font-size:0 to kill any anonymous text
         nodes (including the stray ">" character that was in the original HTML).
@@ -174,7 +174,7 @@
     .hero-app-icon {
       width: 96px;
       height: 96px;
-      border-radius: 22px;
+      border-radius: 28px;
       margin: 0 auto 28px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.07);
       overflow: hidden;
@@ -1246,7 +1246,7 @@ Keepsake is free to download and start exploring with a free tier. A Premium sub
   });
 
   /*
-    FIX 1 — Scrollspy: active nav link.
+    Scrollspy: active nav link.
 
     Strategy: use a single IntersectionObserver watching every section that has
     a matching data-section on a nav link. When a section crosses the top 30% of
@@ -1289,6 +1289,20 @@ Keepsake is free to download and start exploring with a free tier. A Premium sub
       const section = document.getElementById(id);
       if (section) spyObserver.observe(section);
     });
+
+    // Prevent default jump for nav links (if using smooth scroll or Scrollspy)
+document.querySelectorAll('.nav-links a[data-section]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const id = this.getAttribute('href').replace('#', '');
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Optionally update the URL hash without jumping
+    history.replaceState(null, '', '#' + id);
+  });
+});
 
     // Clear active state when the user scrolls back above all sections
     // (i.e. back into the hero). We do this by also observing the hero
