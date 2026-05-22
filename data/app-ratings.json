@@ -42,7 +42,7 @@
         "version": "2.0"
       }
     ],
-    "lastUpdated": "2025-11-15T03:03:56.474Z"
+    "lastUpdated": "2026-05-21T06:06:02.574Z"
   },
   "per-100": {
     "name": "Per 100",
@@ -54,39 +54,39 @@
         "country": "US",
         "rating": 0,
         "ratingCount": 0,
-        "version": "1.2"
+        "version": "2.1.0"
       },
       {
         "country": "GB",
         "rating": 0,
         "ratingCount": 0,
-        "version": "1.2"
+        "version": "2.1.0"
       },
       {
         "country": "CA",
         "rating": 0,
         "ratingCount": 0,
-        "version": "1.2"
+        "version": "2.1.0"
       },
       {
         "country": "AU",
         "rating": 0,
         "ratingCount": 0,
-        "version": "1.2"
+        "version": "2.1.0"
       },
       {
         "country": "DE",
         "rating": 0,
         "ratingCount": 0,
-        "version": "1.2"
+        "version": "2.1.0"
       },
       {
         "country": "NZ",
         "rating": 5,
         "ratingCount": 1,
-        "version": "1.2"
+        "version": "2.1.0"
       }
     ],
-    "lastUpdated": "2025-11-15T03:03:56.474Z"
+    "lastUpdated": "2026-05-21T06:06:02.574Z"
   }
 }
