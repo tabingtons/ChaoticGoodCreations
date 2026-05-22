@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keepsake — Press Kit</title>
+  <meta name="description" content="Press kit for Keepsake. A privacy-first iOS app for preserving the physical keepsakes that matter most. Everything a journalist, blogger, or reviewer needs." />
+  <meta property="og:title" content="Keepsake Press Kit" />
+  <meta property="og:description" content="Everything a journalist, blogger, or reviewer needs to cover Keepsake. The privacy-first app for preserving children's artwork, cards, and handmade memories." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── DESIGN TOKENS ─────────────────────────────────────────── */
+    :root {
+      --evergreen:        #2E7D5E;
+      --evergreen-dark:   #1f5a43;
+      --evergreen-light:  #e8f5ef;
+      --evergreen-mid:    #c2e0d2;
+      --warm-fawn:        #D1B478;
+      --thistle:          #B7ADCF;
+      --dusty-rose:       #C49098;
+      --powder-blue:      #98C1D9;
+      --bg:               #faf8f5;
+      --bg-card:          #ffffff;
+      --bg-muted:         #f2efe9;
+      --border:           rgba(0,0,0,0.07);
+      --border-mid:       rgba(0,0,0,0.12);
+      --text:             #1a1a1a;
+      --text-mid:         #4a4a4a;
+      --text-muted:       #6e6e6e;
+      --text-faint:       #999;
+      --font-display:     'Playfair Display', Georgia, serif;
+      --font-body:        'Lato', -apple-system, sans-serif;
+      --max-w:            840px;
+      --radius:           12px;
+      --radius-sm:        8px;
+    }
+
+    /* ── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--evergreen); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ── SUBTLE BACKGROUND GRADIENT ────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 0% 0%, rgba(209,180,120,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 100% 80%, rgba(183,173,207,0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── STICKY NAV ─────────────────────────────────────────────── */
+    /*
+      FIX 2: Nav is now a vertical column — brand on top, links below.
+      text-align: center on the inner container centres both rows.
+      We keep the frosted-glass backdrop and border as before.
+    */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 10px 24px 12px;
+      display: flex;
+      flex-direction: column;   /* vertical stack */
+      align-items: center;      /* centre both rows */
+      gap: 8px;
+    }
+    .nav-brand {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+    .nav-brand span { color: var(--evergreen); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 100px;       /* pill shape ready for active state */
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-links a:hover {
+      color: var(--evergreen);
+      background: var(--evergreen-light);
+      text-decoration: none;
+    }
+    /*
+      FIX 1: Active nav link — green pill, added/removed by the scrollspy JS.
+      Uses a slightly higher-opacity background so it reads clearly as current position.
+    */
+    .nav-links a.active {
+      color: var(--evergreen);
+      background: var(--evergreen-light);
+      border: 1px solid var(--evergreen-mid);
+    }
+
+    /* ── PAGE WRAPPER ───────────────────────────────────────────── */
+    .page { position: relative; z-index: 1; }
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HERO ───────────────────────────────────────────────────── */
+    .hero {
+      padding: 72px 0 60px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--evergreen);
+      background: var(--evergreen-light);
+      border: 1px solid var(--evergreen-mid);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    /*
+      FIX 3: Hero app icon.
+      - Removed display:flex/align-items/justify-content from the container;
+        instead we use line-height:0 + font-size:0 to kill any anonymous text
+        nodes (including the stray ">" character that was in the original HTML).
+      - The img itself is display:block with width/height 100% so it fills the
+        container exactly and sits at the true top-left with no offset.
+      - box-shadow is on the container, border-radius clips the image.
+      - margin: 0 auto centres the block-level container horizontally.
+    */
+    .hero-app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      margin: 0 auto 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.07);
+      overflow: hidden;
+      line-height: 0;      /* collapses any whitespace/text nodes inside */
+      font-size: 0;        /* belt-and-suspenders: hides stray text nodes */
+    }
+    .hero-app-icon img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: italic; color: var(--evergreen); }
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-primary {
+      background: var(--evergreen);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(46,125,94,0.3);
+    }
+    .btn-primary:hover { background: var(--evergreen-dark); box-shadow: 0 6px 20px rgba(46,125,94,0.4); }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text);
+      border: 1.5px solid var(--border-mid);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .btn-secondary:hover { border-color: var(--evergreen); color: var(--evergreen); }
+    .hero-contact-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-faint);
+    }
+    .hero-contact-note a { color: var(--text-muted); font-weight: 700; }
+    .hero-contact-note a:hover { color: var(--evergreen); }
+
+    /* ── SECTION STRUCTURE ──────────────────────────────────────── */
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.5s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--evergreen);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 34px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+    .section-title em { font-style: italic; color: var(--evergreen); }
+
+    /* ── AT A GLANCE — TABLE ────────────────────────────────────── */
+    .glance-table { width: 100%; border-collapse: collapse; }
+    .glance-table tr { border-bottom: 1px solid var(--border); }
+    .glance-table tr:last-child { border-bottom: none; }
+    .glance-table td {
+      padding: 14px 0;
+      font-size: 15px;
+      vertical-align: top;
+    }
+    .glance-table td:first-child {
+      width: 200px;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding-right: 24px;
+    }
+    .glance-table td:last-child { color: var(--text); }
+    .glance-table a { word-break: break-all; }
+
+    /* ── STORY ──────────────────────────────────────────────────── */
+    .story-body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-mid);
+      max-width: 680px;
+    }
+    .story-body p { margin-bottom: 20px; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--text); font-weight: 700; }
+    .story-pull {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 26px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.4;
+      border-left: 3px solid var(--warm-fawn);
+      padding-left: 24px;
+      margin: 40px 0;
+    }
+
+    /* ── FEATURES ───────────────────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── PRICING ────────────────────────────────────────────────── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .pricing-card.featured {
+      border-color: var(--evergreen);
+      background: var(--evergreen-light);
+    }
+    .pricing-card h3 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .pricing-amount { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .pricing-amount span { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+    .pricing-note { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
+    .pricing-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .pricing-card li {
+      font-size: 13px;
+      color: var(--text-mid);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .pricing-card li::before {
+      content: '✓';
+      color: var(--evergreen);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── TECHNICAL TABLE ────────────────────────────────────────── */
+    .tech-table { width: 100%; border-collapse: collapse; }
+    .tech-table tr { border-bottom: 1px solid var(--border); }
+    .tech-table tr:last-child { border-bottom: none; }
+    .tech-table td { padding: 12px 0; font-size: 14px; vertical-align: top; }
+    .tech-table td:first-child {
+      width: 200px;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding-right: 24px;
+    }
+    .tech-table code {
+      font-family: 'SF Mono', 'Fira Mono', 'Menlo', monospace;
+      font-size: 12px;
+      background: var(--bg-muted);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--evergreen-dark);
+    }
+
+    /* ── FOUNDER BIO ────────────────────────────────────────────── */
+    .founder-block { display: flex; gap: 32px; align-items: flex-start; }
+    .founder-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      overflow: hidden;
+      line-height: 0;
+      font-size: 0;
+    }
+    .founder-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .founder-name { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+    .founder-role {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .founder-bio { font-size: 15px; line-height: 1.75; color: var(--text-mid); max-width: 600px; }
+    .founder-bio p { margin-bottom: 12px; }
+    .founder-bio p:last-child { margin-bottom: 0; }
+    .founder-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .founder-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--evergreen);
+      border: 1.5px solid var(--evergreen-mid);
+      padding: 5px 14px;
+      border-radius: 100px;
+      transition: background 0.15s;
+    }
+    .founder-link:hover { background: var(--evergreen-light); text-decoration: none; }
+
+    /* ── QUOTES ─────────────────────────────────────────────────── */
+    .quotes-label { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 24px; }
+    .quote-block {
+      border-left: 3px solid var(--evergreen-mid);
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      background: var(--bg-card);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .quote-text {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .quote-attr { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* ── BOILERPLATE ────────────────────────────────────────────── */
+    .boilerplate-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .boilerplate-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-muted);
+    }
+    .boilerplate-header h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .copy-btn {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--evergreen);
+      background: none;
+      border: 1.5px solid var(--evergreen-mid);
+      padding: 4px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-family: var(--font-body);
+    }
+    .copy-btn:hover { background: var(--evergreen-light); }
+    .copy-btn.copied { color: var(--text-muted); border-color: var(--border-mid); }
+    .boilerplate-body { padding: 20px; font-size: 15px; line-height: 1.75; color: var(--text-mid); }
+
+    /* ── FAQ ────────────────────────────────────────────────────── */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .faq-q .chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-q .chevron { transform: rotate(180deg); }
+    .faq-a {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-a { max-height: 400px; }
+
+    /* ── ASSETS / BRAND ─────────────────────────────────────────── */
+    .assets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .asset-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-align: center;
+    }
+    .asset-preview {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--text-faint);
+      border-bottom: 1px solid var(--border);
+    }
+    .asset-preview.light-bg { background: #fff; }
+    .asset-preview.dark-bg  { background: #1a1a1a; color: #666; }
+    .asset-preview.gradient-bg {
+      background: linear-gradient(135deg, #98C1D9 0%, #B7ADCF 50%, #D1B478 100%);
+    }
+    .asset-preview img { max-height: 80px; max-width: 80%; object-fit: contain; }
+    .asset-info { padding: 14px; }
+    .asset-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .asset-links { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .asset-link {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--evergreen);
+      border: 1px solid var(--evergreen-mid);
+      padding: 3px 10px;
+      border-radius: 100px;
+      transition: background 0.15s;
+    }
+    .asset-link:hover { background: var(--evergreen-light); text-decoration: none; }
+
+    .color-swatches { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .swatch { text-align: center; }
+    .swatch-dot {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .swatch-name { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .swatch-hex { font-size: 11px; color: var(--text-faint); font-family: 'SF Mono', monospace; }
+
+    .usage-note {
+      background: var(--bg-muted);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 28px;
+    }
+    .usage-note strong { color: var(--text); }
+
+    /* ── SCREENSHOTS ────────────────────────────────────────────── */
+    .screenshots-row {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+    .screenshot-placeholder {
+      flex-shrink: 0;
+      width: 160px;
+      height: 347px;
+      background: linear-gradient(160deg, var(--bg-muted) 0%, #e8e4de 100%);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--text-faint);
+      text-align: center;
+      object-fit: cover;  /* used when the element is an <img> */
+    }
+
+    /* ── CONTACT ────────────────────────────────────────────────── */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      text-align: center;
+      max-width: 500px;
+    }
+    .contact-card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 10px; }
+    .contact-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; }
+    .contact-email { font-size: 20px; font-weight: 700; color: var(--evergreen); margin-bottom: 8px; display: block; }
+    .contact-response { font-size: 12px; color: var(--text-faint); margin-top: 12px; }
+
+    /* ── FOOTER ─────────────────────────────────────────────────── */
+    .footer { border-top: 1px solid var(--border); padding: 40px 0 56px; text-align: center; }
+    .footer-brand { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 12px; }
+    .footer-brand span { color: var(--evergreen); }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .footer-links a { font-size: 13px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--evergreen); }
+    .footer-copy { font-size: 12px; color: var(--text-faint); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 48px 0 40px; }
+      .founder-block { flex-direction: column; gap: 20px; }
+      .glance-table td:first-child { width: 120px; font-size: 13px; }
+      .contact-card { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────────────── -->
+<nav class="site-nav" aria-label="Press kit navigation">
+  <div class="site-nav-inner">
+    <img src="/assets/images/keepsake/appIcon.png" alt="Keepsake app icon" width="32" height="32" style="border-radius: 8px;" />
+    <a href="https://www.chaoticgoodcreations.co" class="nav-brand">
+      Keepsake <span>·</span> Press Kit
+    </a>
+    <div class="nav-links">
+      <a href="#at-a-glance" data-section="at-a-glance">Overview</a>
+      <a href="#story"       data-section="story">Story</a>
+      <a href="#features"    data-section="features">Features</a>
+      <a href="#pricing"     data-section="pricing">Pricing</a>
+      <a href="#screenshots" data-section="screenshots">Screenshots</a>
+      <a href="#founder"     data-section="founder">Founder</a>
+      <a href="#boilerplate" data-section="boilerplate">Copy</a>
+      <a href="#assets"      data-section="assets">Assets</a>
+      <a href="#contact"     data-section="contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────────── -->
+<div class="page">
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Press Kit</div>
+
+    <!-- FIX 3: No stray ">" character. Clean img tag only inside the container. -->
+    <div class="hero-app-icon">
+      <img src="/assets/images/keepsake/appIcon.png" alt="Keepsake app icon" />
+    </div>
+
+    <h1>Save the things that <em>matter most.</em></h1>
+    <p class="hero-sub">
+      Keepsake is a privacy-first iPhone app for preserving children’s artwork, cards, 
+      letters, and handmade objects as lasting digital memories — including interactive 
+      3D viewing and AR.
+    </p>
+    <div class="hero-actions">
+      <a href="#assets" class="btn btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Assets
+      </a>
+      <a href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20Press%20Enquiry" class="btn btn-secondary">
+        Contact Harry
+      </a>
+    </div>
+    <p class="hero-contact-note">
+      Press enquiries: <a href="mailto:hello@chaoticgoodcreations.co">hello@chaoticgoodcreations.co</a>
+      &nbsp;·&nbsp; Response within 48 hours
+    </p>
+  </div>
+</section>
+
+<!-- ── AT A GLANCE ───────────────────────────────────────────────── -->
+<section class="section" id="at-a-glance">
+  <div class="container">
+    <p class="section-label">Overview</p>
+    <h2 class="section-title">At a Glance</h2>
+    <table class="glance-table" aria-label="App quick facts">
+      <tbody>
+        <tr><td>App name</td><td>Keepsake</td></tr>
+        <tr><td>Category</td><td>Lifestyle, Photography</td></tr>
+        <tr><td>Platform</td><td>iPhone</td></tr>
+        <tr><td>Minimum OS</td><td>iOS 26</td></tr>
+        <tr><td>Language</td><td>English</td></tr>
+        <tr><td>Price</td><td>Free (with Premium subscription)</td></tr>
+        <tr><td>Premium options</td><td>Monthly subscription (USD$4.99/month) · Annual subscription (USD$49.99/year)</td></tr>
+        <tr><td>Free tier</td><td>5 keepsakes · 2 memory boxes · No AR viewing</td></tr>
+        <tr><td>Data storage</td><td>iCloud only · No external servers, no data collection</td></tr>
+        <tr>
+          <td>Privacy</td>
+          <td>No ads, no tracking, no data sold. Anonymous analytics via TelemetryDeck only. Your memories stay yours.</td>
+        </tr>
+        <tr><td>Developer</td><td>Harry Brown · Solo indie developer, New Zealand</td></tr>
+        <tr><td>Studio</td><td><a href="https://www.chaoticgoodcreations.co" target="_blank" rel="noopener">Chaotic Good Creations</a></td></tr>
+        <tr><td>Contact</td><td><a href="mailto:hello@chaoticgoodcreations.co">hello@chaoticgoodcreations.co</a></td></tr>
+        <tr><td>App Store</td><td><a href="#" target="_blank" rel="noopener">Coming soon on the App Store</a></td></tr>
+        <tr><td>Website</td><td><a href="https://www.chaoticgoodcreations.co/keepsake" target="_blank" rel="noopener">chaoticgoodcreations.co/keepsake</a></td></tr>
+        <tr><td>Privacy Policy</td><td><a href="https://chaoticgoodcreations.co/privacy/keepsake-privacy" target="_blank" rel="noopener">chaoticgoodcreations.co/privacy/keepsake-privacy</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── THE STORY ─────────────────────────────────────────────────── -->
+<section class="section" id="story">
+  <div class="container">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">The Story</h2>
+    <div class="story-body">
+      <p>
+        Every parent has the pile. The shoebox in the wardrobe, the drawer in the kitchen
+        that's too full to close, the shelf that holds a child's first painting and a
+        birthday card from a grandmother who is no longer here. These things matter,
+        but most of them will eventually be lost to a house move, a flood, or time.
+      </p>
+      <p>
+        Keepsake started from a simple frustration: there was no good way to preserve these objects 
+        digitally without reducing them to files in a camera roll.
+      </p>
+      <blockquote class="story-pull">
+        "These aren't just photos. They're the things that will matter in twenty years.
+        I wanted an app that treated them that way."
+      </blockquote>
+      <p>
+        Keepsake is built around revisiting, not just storing. Memories resurface quietly over time 
+        through optional reminders designed to feel thoughtful rather than demanding.
+      </p>
+      <p>
+        Keepsake is built specifically for Apple devices, using native technologies for privacy, 
+        spatial capture, and AR. No cross-platform compromises. No external servers. Your
+        memories live in your iCloud account and nowhere else.
+      </p>
+      <p>
+        Keepsake was built solo by Harry Brown of Chaotic Good Creations, a design and
+        development studio based in New Zealand. It is the studio's most personal project.
+        A product built because Harry needed it, and because he believes the technology
+        now exists to do it properly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ──────────────────────────────────────────────────── -->
+<section class="section" id="features">
+  <div class="container">
+    <p class="section-label">Key Features</p>
+    <h2 class="section-title">What Keepsake Does</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#e8f5ef;">📷</div>
+        <h3>Smart Capture</h3>
+        <p>VisionKit document scanning for artwork, cards, and letters. Full 3D photogrammetry for physical objects via LiDAR. Guided capture flows for every keepsake type.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#f5f0e8;">🗂️</div>
+        <h3>Memory Boxes</h3>
+        <p>Organise keepsakes into colour-coded boxes. Isla's Art, Gran's Cards, School Year Three. A visual, physical metaphor for how memories actually live in our homes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#f0edf5;">🧊</div>
+        <h3>3D Model Viewing</h3>
+        <p>Physical keepsakes can be captured as interactive 3D models that users can rotate, inspect, and revisit from every angle.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#edf3f7;">🔮</div>
+        <h3>AR Experience</h3>
+        <p>Place any keepsake in the real world using ARKit. Lay artwork flat on a table, stand a card upright on a shelf, or see a 3D object floating in your living room. Premium feature.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#faf0f1;">🔒</div>
+        <h3>Genuinely Private</h3>
+        <p>No account. No email. No data sold, no ads. Everything syncs exclusively to your personal iCloud account via CloudKit. Keepsake has no access to your memories.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fef9ee;">🔔</div>
+        <h3>Gentle Reminders</h3>
+        <p>A weekly invitation to revisit something meaningful. A personalised 7-day look-back after each new keepsake is saved. Notifications that feel like a tap on the shoulder, not a badge count.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#e8f5ef;">📝</div>
+        <h3>Rich Metadata</h3>
+        <p>Capture who made it, how old they were, when it was made, and the story behind it. A keepsake without context is just a scan; with context it becomes a memory.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#edf3f7;">☁️</div>
+        <h3>iCloud Sync</h3>
+        <p>Captures on one device appear on all your devices, automatically. Private CloudKit database, the same infrastructure Apple uses for Photos, Health, and Messages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ───────────────────────────────────────────────────── -->
+<section class="section" id="pricing">
+  <div class="container">
+    <p class="section-label">Business Model</p>
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="pricing-amount">$0</div>
+        <div class="pricing-note">No credit card required</div>
+        <ul>
+          <li>5 keepsakes</li>
+          <li>2 memory boxes</li>
+          <li>Document scanning (all types)</li>
+          <li>iCloud sync</li>
+          <li>Rich metadata &amp; stories</li>
+          <li>3D model viewing</li>
+        </ul>
+      </div>
+      <div class="pricing-card featured">
+        <h3>Premium Monthly</h3>
+        <div class="pricing-amount">USD$4.99 <span>/ month</span></div>
+        <div class="pricing-note">Cancel anytime</div>
+        <ul>
+          <li>Unlimited keepsakes</li>
+          <li>Unlimited memory boxes</li>
+          <li>Everything in Free</li>
+          <li>AR Experience</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h3>Premium Annual</h3>
+        <div class="pricing-amount">USD$49.99 <span>/ year</span></div>
+        <div class="pricing-note">Best value</div>
+        <ul>
+          <li>Unlimited keepsakes</li>
+          <li>Unlimited memory boxes</li>
+          <li>Everything in Free</li>
+          <li>AR Experience</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:20px; font-size:14px; color:var(--text-muted); line-height:1.6;">
+      The free tier is designed to give a chance to experience all keepsake types, organising
+      in boxes and the revisit experience. Premium is designed for people who preserve 
+      keepsakes regularly and want unlimited storage and the full AR experience.
+    </p>
+  </div>
+</section>
+
+<!-- ── SCREENSHOTS ───────────────────────────────────────────────── -->
+<section class="section" id="screenshots">
+  <div class="container">
+    <p class="section-label">Visuals</p>
+    <p style="font-size:14px; color:var(--text-muted); margin-bottom:24px; line-height:1.6; max-width:580px;">
+      High-resolution screenshots and App Store artwork are available in the assets download below.
+    </p>
+    <h2 class="section-title">App Screenshots</h2>
+    <div class="screenshots-row">
+      <img src="/assets/images/keepsake/appScreenshots/All Keepsakes View.png" alt="All Keepsakes View" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appScreenshots/Memory Boxes View.png" alt="Memory Boxes View" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appScreenshots/Memory Boxes Inside.png" alt="Inside a Memory Box" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appScreenshots/Keepsake Detail Minimised.png" alt="Keepsake Detail minimised" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appScreenshots/Keepsake Detail Expanded.png" alt="Keepsake Detail expanded" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appScreenshots/AR Experience Drawing.png" alt="AR Experience of a drawing" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appScreenshots/Capture Flow Selection.png" alt="Capture Flow Selection Screen" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appScreenshots/Capture Flow Card Scan.png" alt="Card Capture flow" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appScreenshots/Capture Flow 3D Scan.PNG" alt="3D Model Capture Flow" class="screenshot-placeholder" />
+    </div>
+    <h2 class="section-title" style="margin-top:2em;">App Store Images</h2>
+    <div class="screenshots-row">
+      <img src="/assets/images/keepsake/appStoreImages/App Store 1.jpg" alt="App Store Image 1" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appStoreImages/App Store 2.jpg" alt="App Store Image 2" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appStoreImages/App Store 3.jpg" alt="App Store Image 3" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appStoreImages/App Store 4.jpg" alt="App Store Image 4" class="screenshot-placeholder" />
+      <img src="/assets/images/keepsake/appStoreImages/App Store 5.jpg" alt="App Store Image 5" class="screenshot-placeholder" />
+    </div>
+    <a href="#assets" class="btn btn-secondary" style="margin-top:4px;">
+      Download Full Resolution Assets
+    </a>
+  </div>
+</section>
+
+<!-- ── TECHNICAL ─────────────────────────────────────────────────── -->
+<section class="section" id="technical">
+  <div class="container">
+    <p class="section-label">Technical Details</p>
+    <h2 class="section-title">Under the Hood</h2>
+    <table class="tech-table" aria-label="Technical specifications">
+      <tbody>
+        <tr><td>Framework</td><td>SwiftUI (iOS 26)</td></tr>
+        <tr><td>Minimum deployment</td><td>iOS 26.0</td></tr>
+        <tr><td>Data layer</td><td>SwiftData with CloudKit sync</td></tr>
+        <tr><td>Sync</td><td>CloudKit private database via iCloud</td></tr>
+        <tr><td>Subscriptions</td><td>RevenueCat</td></tr>
+        <tr><td>Analytics</td><td>TelemetryDeck (anonymous, privacy-preserving — no PII)</td></tr>
+        <tr><td>3D / AR</td><td>RealityKit · ARKit · Object Capture (VisionKit photogrammetry)</td></tr>
+        <tr><td>Scanning</td><td>VisionKit (VNDocumentCameraViewController)</td></tr>
+        <tr><td>Architecture</td><td>MVVM with <code>@Observable</code></td></tr>
+        <tr>
+          <td>Privacy</td>
+          <td>Anonymous usage analytics via TelemetryDeck. No personal data collected. No external servers for user data. All keepsake content stored exclusively in the user's personal iCloud account.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── FOUNDER ───────────────────────────────────────────────────── -->
+<section class="section" id="founder">
+  <div class="container">
+    <p class="section-label">Developer Bio</p>
+    <h2 class="section-title">The Founder</h2>
+    <div class="founder-block">
+      <div class="founder-photo">
+        <img src="/assets/images/personalPortrait.jpg" alt="Harry Brown" />
+      </div>
+      <div>
+        <div class="founder-name">Harry Brown</div>
+        <div class="founder-role">Developer &amp; Designer · Solo Indie · New Zealand</div>
+        <div class="founder-bio">
+          <p>
+            Harry is a solo indie developer and designer based in New Zealand, operating
+            under the studio name <strong>Chaotic Good Creations</strong>. He builds apps,
+            websites, and digital experiences with the belief that technology should serve
+            people, not the other way around.
+          </p>
+          <p>
+            Keepsake is his most personal project to date: a fully self-funded, solo-built
+            app from architecture to App Store copy, born from the realisation that the
+            physical objects we treasure most are the ones most at risk of being lost forever.
+          </p>
+          <p>
+            He previously built <strong>Per 100</strong> (a grocery unit-price calculator)
+            and <strong>Dig Deeper</strong> (an emotional intelligence app using the feelings
+            wheel), both available on the App Store.
+          </p>
+        </div>
+        <div class="founder-links">
+          <a href="mailto:hello@chaoticgoodcreations.co" class="founder-link">Email Harry</a>
+          <a href="https://www.chaoticgoodcreations.co" class="founder-link" target="_blank" rel="noopener">Studio Website</a>
+          <a href="https://www.threads.com/@tabingtons" class="founder-link" target="_blank" rel="noopener">Threads</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTES ────────────────────────────────────────────────────── -->
+<section class="section" id="quotes">
+  <div class="container">
+    <p class="section-label">Quotes</p>
+    <h2 class="section-title">In Harry's Words</h2>
+    <p class="quotes-label">Use freely in coverage. Attribution: <strong>Harry Brown, developer of Keepsake</strong></p>
+    <div class="quote-block">
+      <div class="quote-text">"Every parent has the pile. The shoebox, the overflowing drawer, the shelf that nobody tidies. Those things will mostly be lost. I wanted to build something that treated them with the seriousness they deserve."</div>
+      <div class="quote-attr">On why Keepsake exists</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"The privacy architecture isn't a feature I bolted on. It's a consequence of the decision that these are not my memories to see. They live in your iCloud. Full stop."</div>
+      <div class="quote-attr">On the privacy model</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Most apps optimise for engagement. Keepsake optimises for meaning. The question I ask about every design decision is: does this serve the memory, or does it serve the interface?"</div>
+      <div class="quote-attr">On the design philosophy</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Seeing your child’s drawing sitting on your kitchen table in AR feels surprisingly emotional. That moment convinced me the idea was worth building."</div>
+      <div class="quote-attr">On the AR experience</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOILERPLATE ───────────────────────────────────────────────── -->
+<section class="section" id="boilerplate">
+  <div class="container">
+    <p class="section-label">Copy &amp; Paste</p>
+    <h2 class="section-title">Ready-Made Descriptions</h2>
+    <p style="font-size:14px; color:var(--text-muted); margin-bottom:28px; max-width:580px; line-height:1.6;">
+      Ready for you to paste straight into a post, article, or review. Adapt freely.
+    </p>
+    <div class="boilerplate-block">
+      <div class="boilerplate-header">
+        <h4>Short — 1 sentence (~40 words)</h4>
+        <button class="copy-btn" onclick="copyText(this, 'short-copy')">Copy</button>
+      </div>
+      <div class="boilerplate-body" id="short-copy">Keepsake is a privacy-first iOS app that helps families preserve children's artwork, handwritten cards, letters, and physical objects as beautiful digital memories. Complete with 3D model viewing, AR, and gentle reminders to revisit what matters most.</div>
+    </div>
+    <div class="boilerplate-block">
+      <div class="boilerplate-header">
+        <h4>Standard — 1 paragraph (~100 words)</h4>
+        <button class="copy-btn" onclick="copyText(this, 'standard-copy')">Copy</button>
+      </div>
+      <div class="boilerplate-body" id="standard-copy">Keepsake is a native iOS app built by solo developer Harry Brown of Chaotic Good Creations (New Zealand). It helps families preserve the physical keepsakes that matter most — children's artwork, handwritten cards, letters, and handmade objects — as digitally captured memories. Using VisionKit document scanning for flat items and LiDAR-based 3D photogrammetry for objects, Keepsake captures not just an image but the physical form. Everything syncs privately to iCloud with no external servers or data collection. Premium users can view any keepsake in AR, placing memories in their real-world environment using ARKit.</div>
+    </div>
+    <div class="boilerplate-block">
+      <div class="boilerplate-header">
+        <h4>Long — Full description (~200 words)</h4>
+        <button class="copy-btn" onclick="copyText(this, 'long-copy')">Copy</button>
+      </div>
+      <div class="boilerplate-body" id="long-copy">Keepsake is a privacy-first iOS app built by Harry Brown of Chaotic Good Creations, a solo developer and designer based in New Zealand. The app helps families preserve the physical keepsakes that matter most — children's artwork, handwritten cards, letters, and handmade objects — as beautifully captured digital memories.
+
+Keepsake supports multiple capture types: VisionKit document scanning for artwork, letters, and cards; and full 3D photogrammetry using the iPhone's LiDAR scanner for physical objects. Keepsakes can be organised into personalised memory boxes, enriched with context (maker, age, date, story), and displayed with an interactive 3D model viewer. Premium users can place any keepsake in AR — laying artwork flat on a table, standing a card upright on a shelf, or inspecting a 3D object from every angle.
+
+Privacy is foundational: Keepsake has no account system, collects no personal data, and stores everything exclusively in the user's personal iCloud account via CloudKit. Gentle notifications invite users to revisit memories at the right moment — a 7-day look-back after each new capture, and a weekly Sunday reminder.
+
+Keepsake is free to download and start exploring with a free tier. A Premium subscription unlocks unlimited keepsakes, memory boxes, and the full AR experience.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────────────────── -->
+<section class="section" id="faq">
+  <div class="container">
+    <p class="section-label">Frequently Asked</p>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Who is Keepsake built for?<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">Primarily parents, grandparents, and teachers who accumulate meaningful physical objects — children's artwork, birthday cards, handwritten letters — and worry about losing them. Also people who inherit objects with sentimental value and want to preserve them with context and story, not just as photographs.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How is this different from just taking a photo?<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">Keepsake preserves context, not just images — who made it, how old they were, when, and the story behind it. It treats the capture as a deliberate act of preservation, not a casual snapshot. For physical objects, it builds a navigable 3D model rather than a flat photo. And it invites you back to memories over time via gentle reminders, rather than letting them disappear into a camera roll of thousands.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Is this available on Android or iPad?<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">V1 is iPhone-only. The app is built on native Apple technologies (SwiftUI, RealityKit, ARKit, Object Capture) that are exclusive to the Apple ecosystem. Android is not planned. Support for other Apple devices will come in a future release.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How does the 3D capture work? What hardware is required?<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">3D object capture uses Apple's Object Capture API (photogrammetry), which requires a LiDAR scanner. This is available on iPhone 12 Pro and later Pro and Pro Max models. All other capture types — artwork, cards, letters — use VisionKit and work on any iPhone capable of running iOS 26.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I see or access user keepsakes?<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">No — technically and by design. All keepsake data is stored exclusively in the user's personal iCloud private database using CloudKit. Chaotic Good Creations has no access to user keepsakes, no server where they are stored, and no visibility into the content. This is not a marketing claim; it is a structural property of the architecture.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Do you use AI or machine learning?<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">The 3D model building uses Apple's PhotogrammetrySession, which is Apple's computer vision framework that runs entirely on-device. There is no external AI API, no content sent to a language model, and no generative features. The capture and organisation experience is intentionally human-directed.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How does Keepsake make money?<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">Through a freemium subscription model via the App Store. Premium unlocks unlimited keepsakes, unlimited memory boxes, and the full AR experience. There are no ads, no data monetisation, and no dark patterns.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I get a review account or TestFlight access for review purposes?<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">Yes. Email <a href="mailto:hello@chaoticgoodcreations.co">hello@chaoticgoodcreations.co</a> with your request and I'll set you up with TestFlight access and a Premium unlock for review purposes. Response within 48 hours.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BRAND ASSETS ──────────────────────────────────────────────── -->
+<section class="section" id="assets">
+  <div class="container">
+    <p class="section-label">Downloads</p>
+    <h2 class="section-title">Brand Assets</h2>
+    <p style="font-size:14px; color:var(--text-muted); margin-bottom:28px; max-width:580px; line-height:1.6;">
+      Logos, app icon, and screenshots for press and review use.
+    </p>
+    <a href="/assets/images/keepsake/Keepsake - Full Press Kit Package.zip" class="btn btn-primary" style="margin-bottom:36px; display:inline-flex;" download>
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Press Kit (.zip)
+    </a>
+    <div class="assets-grid">
+      <div class="asset-card">
+        <div class="asset-preview" style="background:var(--bg-muted);">
+          <img src="/assets/images/keepsake/AppIcon.png" alt="Keepsake app icon" />
+        </div>
+        <div class="asset-info">
+          <div class="asset-name">App Icon (Light)</div>
+          <div class="asset-links">
+            <a href="/assets/images/keepsake/AppIcon.png" class="asset-link" download>1024×1024</a>
+            <a href="/assets/images/keepsake/AppIcon512.png" class="asset-link" download>512×512</a>
+          </div>
+        </div>
+      </div>
+      <div class="asset-card">
+        <div class="asset-preview" style="background:var(--bg-muted);">
+          <img src="/assets/images/keepsake/AppIconDark.png" alt="Keepsake app icon dark" />
+        </div>
+        <div class="asset-info">
+          <div class="asset-name">App Icon (Dark)</div>
+          <div class="asset-links">
+            <a href="/assets/images/keepsake/AppIconDark.png" class="asset-link" download>1024×1024</a>
+            <a href="/assets/images/keepsake/AppIconDark512.png" class="asset-link" download>512×512</a>
+          </div>
+        </div>
+      </div>
+      <div class="asset-card">
+        <div class="asset-preview" style="background:var(--bg-muted); flex-direction:column; gap:6px;">
+          <span style="font-size:24px;">📱</span>
+          <span style="font-size:11px; color:var(--text-faint);">9 screenshots<br />5 App Store images</span>
+        </div>
+        <div class="asset-info">
+          <div class="asset-name">Screenshots &amp; App Store Images</div>
+          <div class="asset-links">
+            <a href="/assets/images/keepsake/Keepsake Screenshots and Images.zip" class="asset-link" download>Download All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin-top:52px; margin-bottom:6px;">Brand Colours</h3>
+    <p style="font-size:14px; color:var(--text-muted); margin-bottom:20px;">
+      Evergreen is Keepsake's primary action colour. The warm palette is used for gradients and backgrounds only — never as a replacement for Evergreen on interactive elements.
+    </p>
+    <div class="color-swatches">
+      <div class="swatch"><div class="swatch-dot" style="background:#2E7D5E;"></div><div class="swatch-name">Evergreen</div><div class="swatch-hex">#2E7D5E</div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#4E9E6E;"></div><div class="swatch-name">Evergreen Dark</div><div class="swatch-hex">#4E9E6E</div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#D1B478;"></div><div class="swatch-name">Soft Fawn</div><div class="swatch-hex">#D1B478</div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#B7ADCF;"></div><div class="swatch-name">Thistle</div><div class="swatch-hex">#B7ADCF</div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#C49098;"></div><div class="swatch-name">Dusty Rose</div><div class="swatch-hex">#C49098</div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#98C1D9;"></div><div class="swatch-name">Powder Blue</div><div class="swatch-hex">#98C1D9</div></div>
+    </div>
+    <div class="usage-note">
+      <strong>Usage guidelines:</strong> Don't change logo colours, rotate, or stretch.
+      Use the dark-background icon on dark surfaces; light-background version elsewhere.
+      The Keepsake icon has rounded corners — don't apply additional masks or clip paths.
+      All assets are for editorial and review use only.
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ───────────────────────────────────────────────────── -->
+<section class="section" id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-card">
+      <h3>Press &amp; Review Enquiries</h3>
+      <p>Interviews, review codes, TestFlight access, feature questions. Reach Harry directly.</p>
+      <a href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20Press%20Enquiry" class="contact-email">hello@chaoticgoodcreations.co</a>
+      <a href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20Press%20Enquiry" class="btn btn-primary" style="margin-top:16px;">Send an Email</a>
+      <div class="contact-response">Response within 48 hours · Usually same day</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">Keepsake <span>by Chaotic Good Creations</span></div>
+    <div class="footer-links">
+      <a href="https://www.chaoticgoodcreations.co" target="_blank" rel="noopener">Studio Website</a>
+      <a href="https://www.chaoticgoodcreations.co/keepsake" target="_blank" rel="noopener">Keepsake Page</a>
+      <a href="https://chaoticgoodcreations.co/privacy/keepsake-privacy" target="_blank" rel="noopener">Privacy Policy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
+      <a href="mailto:hello@chaoticgoodcreations.co">Contact</a>
+    </div>
+    <div class="footer-copy">
+      &copy; <span id="year"></span> Chaotic Good Creations. All rights reserved.
+      Press kit content may be reproduced freely for editorial purposes.
+    </div>
+  </div>
+</footer>
+
+</div><!-- /.page -->
+
+<script>
+  /* ── Year ──────────────────────────────────────────────────────── */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── FAQ accordion ─────────────────────────────────────────────── */
+  function toggleFaq(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(item => item.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
+  /* ── Copy to clipboard ─────────────────────────────────────────── */
+  function copyText(btn, id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = el.innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+    });
+  }
+
+  /* ── Scroll-triggered section fade-in ─────────────────────────── */
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.section').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    fadeObserver.observe(el);
+  });
+
+  /*
+    FIX 1 — Scrollspy: active nav link.
+
+    Strategy: use a single IntersectionObserver watching every section that has
+    a matching data-section on a nav link. When a section crosses the top 30% of
+    the viewport (rootMargin shifts the trigger point up), we consider it "active".
+
+    We track the most-recently-entered section rather than the last one to fully
+    exit — this gives a leading-edge highlight that updates as soon as a section
+    enters view, which feels responsive on both fast and slow scrolls.
+
+    The hero section has no nav link so it is not observed. When no section is
+    active (e.g. at the very top of the page) all links are deactivated.
+  */
+  (function () {
+    const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+
+    function setActive(sectionId) {
+      navLinks.forEach(link => {
+        const matches = link.getAttribute('data-section') === sectionId;
+        link.classList.toggle('active', matches);
+      });
+    }
+
+    // rootMargin: "-20% 0px -70% 0px" means the trigger zone is the band
+    // between 20% from the top and 30% from the top of the viewport.
+    // A section fires as "intersecting" when its top edge enters this band.
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: '-15% 0px -80% 0px',
+      threshold: 0
+    });
+
+    // Observe every section that has a corresponding nav link.
+    navLinks.forEach(link => {
+      const id = link.getAttribute('data-section');
+      const section = document.getElementById(id);
+      if (section) spyObserver.observe(section);
+    });
+
+    // Clear active state when the user scrolls back above all sections
+    // (i.e. back into the hero). We do this by also observing the hero
+    // section, but using a separate observer that deactivates on entry.
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActive(null);
+        });
+      }, { rootMargin: '0px', threshold: 0.5 });
+      heroObserver.observe(heroSection);
+    }
+  })();
+</script>
+
+</body>
+</html>
