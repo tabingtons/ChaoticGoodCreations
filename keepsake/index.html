@@ -10,6 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/images/keepsake/KeepsakeOG.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="apple-itunes-app" content="app-id=6760719322">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -169,6 +170,11 @@
       border: 1.5px solid var(--evergreen-mid);
     }
     .btn-ghost:hover { background: var(--evergreen-light); }
+
+    .appstore-btn img {
+	height: 100px;
+	cursor: pointer;
+}
 
     /* ── PAGE WRAPPER ───────────────────────────────────────────── */
     .page { position: relative; z-index: 1; }
@@ -823,17 +829,6 @@
     </a>
     <div class="nav-actions">
       <a href="/keepsake/presskit.html" class="nav-link-secondary">Press Kit</a>
-      <!-- SWAP: When the app is live, replace the notify-cta button with a
-           real App Store badge or link. The simplest swap is:
-           <a href="YOUR_APP_STORE_LINK" class="btn btn-primary btn-sm">
-             Download on the App Store
-           </a> -->
-       <a
-        href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20—%20Notify%20me%20at%20launch&body=Hi%20Harry%2C%0A%0APlease%20let%20me%20know%20when%20Keepsake%20is%20available%20on%20the%20App%20Store.%0A%0AThanks!"
-        class="btn btn-primary btn-sm"
-      >
-        Get Notified
-      </a>
     </div>
   </div>
 </nav>
@@ -861,15 +856,15 @@
     </p>
 
     <div class="hero-actions">
-      <!-- SWAP: Replace with App Store button when live -->
-       <a
-        href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20—%20Notify%20me%20at%20launch&body=Hi%20Harry%2C%0A%0APlease%20let%20me%20know%20when%20Keepsake%20is%20available%20on%20the%20App%20Store.%0A%0AThanks!"
-        class="btn btn-primary"
-      >
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Get Notified at Launch
-      </a>
-      <a href="/keepsake/presskit.html" class="btn btn-secondary">Press Kit</a>
+					<a
+						href="https://apps.apple.com/app/keepsake-hold-memories/id6760719322"
+						class="appstore-btn"
+					>
+						<img
+							src="../assets/images/app-store-badge.svg"
+							alt="Download on the App Store"
+						/>
+					</a>
     </div>
 
     <p class="hero-disclaimer">
@@ -1160,24 +1155,18 @@
 <section class="cta-section animate-section" id="notify">
   <div class="container">
     <h2>The pile deserves <em>better than a drawer.</em></h2>
-    <p>
-      Keepsake is coming soon to iPhone. Send me an email and I'll
-      let you know the moment it's available.
-    </p>
-    <!-- SWAP: When the app is live, replace the <a> below with a real
-         App Store badge or button pointing to your App Store listing. -->
-    <div class="cta-actions">
-      <a
-        href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20—%20Notify%20me%20at%20launch&body=Hi%20Harry%2C%0A%0APlease%20let%20me%20know%20when%20Keepsake%20is%20available%20on%20the%20App%20Store.%0A%0AThanks!"
-        class="btn btn-primary"
-      >
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Notify Me at Launch
-      </a>
+    <div class="hero-actions">
+					<a
+						href="https://apps.apple.com/app/keepsake-hold-memories/id6760719322"
+						class="appstore-btn"
+					>
+						<img
+							src="../assets/images/app-store-badge.svg"
+							alt="Download on the App Store"
+						/>
+					</a>
     </div>
-    <p style="font-size:12px; color:var(--text-faint); margin-top:14px;">
-      Opens your mail app. One reply from me when it's live.
-    </p>
+    </div>
   </div>
 </section>
 
