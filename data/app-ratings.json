@@ -42,18 +42,18 @@
         "version": "2.0"
       }
     ],
-    "lastUpdated": "2026-08-16T02:54:48.257Z"
+    "lastUpdated": "2026-08-17T02:54:46.955Z"
   },
   "per-100": {
     "name": "Per 100",
     "appId": "6670795904",
     "rating": 5,
-    "ratingCount": 1,
+    "ratingCount": 2,
     "regionalBreakdown": [
       {
         "country": "US",
-        "rating": 0,
-        "ratingCount": 0,
+        "rating": 5,
+        "ratingCount": 1,
         "version": "2.1.0"
       },
       {
@@ -87,6 +87,6 @@
         "version": "2.1.0"
       }
     ],
-    "lastUpdated": "2026-08-16T02:54:48.257Z"
+    "lastUpdated": "2026-08-17T02:54:46.955Z"
   }
 }
