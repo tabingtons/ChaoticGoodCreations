@@ -58,3 +58,84 @@ document.addEventListener(
   "DOMContentLoaded",
   loadKeepsakeComponents
 );
+
+// ------------------------------------------------------------
+// TelemetryDeck website conversion tracking
+// ------------------------------------------------------------
+
+(function () {
+
+  function trackAppStoreClick() {
+
+    if (typeof TelemetryDeck === "undefined") {
+      return;
+    }
+
+    const path = window.location.pathname;
+
+    let source = "homepage";
+    let article = null;
+
+
+    // Journal article pages
+    if (path.includes("/journal/articles/")) {
+
+      source = "article";
+
+      if (path.includes("what-to-do-with-childrens-artwork")) {
+        article = "what-to-do-with-childrens-artwork";
+      }
+
+      else if (path.includes("why-childrens-artwork-matters")) {
+        article = "why-childrens-artwork-matters";
+      }
+
+      else if (path.includes("why-revisiting-memories-matters")) {
+        article = "why-revisiting-memories-matters";
+      }
+
+      else if (path.includes("family-memories-privacy")) {
+        article = "family-memories-privacy";
+      }
+
+    }
+
+    // Journal index
+    else if (path.includes("/journal")) {
+
+      source = "journal";
+
+    }
+
+
+    const parameters = {
+      source: source
+    };
+
+
+    if (article) {
+      parameters.article = article;
+    }
+
+
+    TelemetryDeck.signal(
+      "Website.appStore.click",
+      parameters
+    );
+
+  }
+
+
+  document
+    .querySelectorAll('a[href*="apps.apple.com"]')
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        trackAppStoreClick
+      );
+
+    });
+
+
+})();
