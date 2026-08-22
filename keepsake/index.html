@@ -3,839 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Keepsake — Save what matters</title>
-  <meta name="description" content="Keepsake helps you preserve the things you can't replace — children's artwork, handwritten cards, letters, and handmade objects — as beautiful digital memories with 3D viewing and AR." />
-  <meta property="og:title" content="Keepsake — Save what matters" />
-  <meta property="og:description" content="Preserve children's artwork, cards, letters, and objects as lasting digital memories. Privacy-first, iCloud-only, built for the things you can't replace." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/images/keepsake/KeepsakeOG.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="apple-itunes-app" content="app-id=6760719322">
+
+  <title>Keepsake — Preserve Children's Artwork & Family Memories</title>
+
+  <meta
+    name="description"
+    content="Keepsake helps you preserve children's artwork, handwritten cards, letters, and meaningful objects as lasting digital memories, with 3D viewing, AR, and private iCloud storage."
+  />
+
+  <link
+    rel="canonical"
+    href="https://chaoticgoodcreations.co/keepsake/"
+  />
+
+
+  <!-- Open Graph -->
+  <meta
+    property="og:title"
+    content="Keepsake — Preserve Children's Artwork & Family Memories"
+  />
+
+  <meta
+    property="og:description"
+    content="Preserve children's artwork, handwritten cards, letters, and meaningful objects as lasting digital memories. Private by design and stored in your iCloud account."
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <meta
+    property="og:url"
+    content="https://chaoticgoodcreations.co/keepsake/"
+  />
+
+  <meta
+    property="og:image"
+    content="https://chaoticgoodcreations.co/assets/images/keepsake/KeepsakeOG.jpg"
+  />
+
+
+  <!-- Twitter / social cards -->
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+
+  <!-- App Store Smart App Banner -->
+  <meta
+    name="apple-itunes-app"
+    content="app-id=6760719322"
+  />
+
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+
+
+  <!-- Styles -->
+  <link
+    rel="stylesheet"
+    href="/assets/css/keepsake.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="/assets/css/keepsake-components.css"
+  />
+
+
+  <!-- Analytics -->
   <script
     src="https://cdn.telemetrydeck.com/websdk/telemetrydeck.min.js"
     data-app-id="C3D89652-51B1-44C3-9D3A-1B99E66B1E12"
   ></script>
 
-  <style>
-    /* ─────────────────────────────────────────────────────────────
-       DESIGN TOKENS — identical to the press kit so both pages
-       share the same visual language.
-    ───────────────────────────────────────────────────────────── */
-    :root {
-      --evergreen:        #2E7D5E;
-      --evergreen-dark:   #1f5a43;
-      --evergreen-light:  #e8f5ef;
-      --evergreen-mid:    #c2e0d2;
-      --warm-fawn:        #D1B478;
-      --thistle:          #B7ADCF;
-      --dusty-rose:       #C49098;
-      --powder-blue:      #98C1D9;
-      --bg:               #faf8f5;
-      --bg-card:          #ffffff;
-      --bg-muted:         #f2efe9;
-      --border:           rgba(0,0,0,0.07);
-      --border-mid:       rgba(0,0,0,0.12);
-      --text:             #1a1a1a;
-      --text-mid:         #4a4a4a;
-      --text-muted:       #6e6e6e;
-      --text-faint:       #999;
-      --font-display:     'Playfair Display', Georgia, serif;
-      --font-body:        'Lato', -apple-system, sans-serif;
-      --max-w:            860px;
-      --max-w-wide:       1040px;
-      --radius:           12px;
-      --radius-sm:        8px;
-      --radius-lg:        20px;
-    }
 
-    /* ── RESET ──────────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--evergreen); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    img { max-width: 100%; display: block; }
-
-    /* ── BACKGROUND GRADIENT ────────────────────────────────────── */
-    /* Same subtle warm-to-cool ambient gradient as the press kit */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 50% at 0% 0%, rgba(209,180,120,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 100% 80%, rgba(183,173,207,0.07) 0%, transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       NAV
-       Simpler than the press kit — horizontal, icon + name left,
-       single CTA right. No scrollspy needed for a landing page.
-    ───────────────────────────────────────────────────────────── */
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250,248,245,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .site-nav-inner {
-      max-width: var(--max-w-wide);
-      margin: 0 auto;
-      padding: 12px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .nav-identity {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .nav-identity:hover { text-decoration: none; }
-    .nav-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      overflow: hidden;
-      flex-shrink: 0;
-      line-height: 0;
-      font-size: 0;
-    }
-    .nav-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .nav-name {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 16px;
-      color: var(--text);
-      letter-spacing: 0.01em;
-    }
-    .nav-actions { display: flex; align-items: center; gap: 12px; }
-    .nav-link-secondary {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      padding: 4px 0;
-      transition: color 0.15s;
-    }
-    .nav-link-secondary:hover { color: var(--evergreen); text-decoration: none; }
-
-    /* ── SHARED BUTTON SYSTEM ───────────────────────────────────── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 700;
-      padding: 12px 24px;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
-      text-decoration: none;
-      border: none;
-    }
-    .btn:hover { transform: translateY(-1px); text-decoration: none; }
-    .btn-primary {
-      background: var(--evergreen);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(46,125,94,0.3);
-    }
-    .btn-primary:hover { background: var(--evergreen-dark); box-shadow: 0 6px 20px rgba(46,125,94,0.4); }
-    .btn-sm { font-size: 12px; padding: 8px 18px; }
-    .btn-secondary {
-      background: var(--bg-card);
-      color: var(--text);
-      border: 1.5px solid var(--border-mid);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .btn-secondary:hover { border-color: var(--evergreen); color: var(--evergreen); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--evergreen);
-      border: 1.5px solid var(--evergreen-mid);
-    }
-    .btn-ghost:hover { background: var(--evergreen-light); }
-
-    .appstore-btn img {
-	height: 100px;
-	cursor: pointer;
-}
-
-    /* ── PAGE WRAPPER ───────────────────────────────────────────── */
-    .page { position: relative; z-index: 1; }
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-    .container-wide {
-      max-width: var(--max-w-wide);
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       HERO
-       The emotional anchor of the page. Large display headline,
-       warm supportive copy, and a pair of CTAs. The app icon sits
-       above the headline as a visual anchor.
-    ───────────────────────────────────────────────────────────── */
-    .hero {
-      padding: 80px 0 72px;
-      text-align: center;
-    }
-    .hero-app-icon {
-      width: 104px;
-      height: 104px;
-      border-radius: 28px;
-      margin: 0 auto 32px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.13), 0 3px 10px rgba(0,0,0,0.07);
-      overflow: hidden;
-      line-height: 0;
-      font-size: 0;
-    }
-    .hero-app-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--evergreen);
-      background: var(--evergreen-light);
-      border: 1px solid var(--evergreen-mid);
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
-    .hero-eyebrow-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--evergreen);
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(40px, 7vw, 64px);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--text);
-      letter-spacing: -0.025em;
-      margin-bottom: 20px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--evergreen);
-    }
-    .hero-sub {
-      font-size: 19px;
-      font-weight: 300;
-      color: var(--text-mid);
-      max-width: 520px;
-      margin: 0 auto 40px;
-      line-height: 1.65;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-    .hero-disclaimer {
-      font-size: 12px;
-      color: var(--text-faint);
-      margin-top: 12px;
-    }
-    .hero-disclaimer a { color: var(--text-muted); }
-    .hero-disclaimer a:hover { color: var(--evergreen); }
-
-    /* Hero screenshot strip — horizontal scroll of phone frames */
-    .hero-screenshots {
-      margin-top: 64px;
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      overflow-x: auto;
-      padding: 0 28px 20px;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .hero-screenshots::-webkit-scrollbar { display: none; }
-    .hero-screenshot {
-      flex-shrink: 0;
-      width: 200px;
-      height: 434px;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
-      line-height: 0;
-      font-size: 0;
-      /* Subtle parallax-like perspective tilt on alternating items is handled
-         with nth-child transforms below */
-    }
-    .hero-screenshot img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
-    /* Slight tilt on outer screenshots for depth */
-    .hero-screenshot:nth-child(1) { transform: rotate(-2deg) translateY(16px); }
-    .hero-screenshot:nth-child(2) { transform: rotate(-1deg) translateY(4px); }
-    .hero-screenshot:nth-child(3) { transform: translateY(0px); }
-    .hero-screenshot:nth-child(4) { transform: rotate(1deg) translateY(4px); }
-    .hero-screenshot:nth-child(5) { transform: rotate(2deg) translateY(16px); }
-
-    /* ─────────────────────────────────────────────────────────────
-       ORIGIN STORY — brief, human, emotional.
-       Not a long narrative (that's the press kit). Just enough to
-       establish why this exists and who it's for.
-    ───────────────────────────────────────────────────────────── */
-    .origin {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-    }
-    .origin-inner {
-      max-width: 640px;
-    }
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--evergreen);
-      margin-bottom: 10px;
-    }
-    .origin h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 24px;
-    }
-    .origin h2 em { font-style: italic; color: var(--evergreen); }
-    .origin-body {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--text-mid);
-    }
-    .origin-body p { margin-bottom: 18px; }
-    .origin-body p:last-child { margin-bottom: 0; }
-    .origin-pull {
-      font-family: var(--font-display);
-      font-size: clamp(19px, 2.5vw, 24px);
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.45;
-      border-left: 3px solid var(--warm-fawn);
-      padding: 8px 0 8px 24px;
-      margin: 32px 0;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       FEATURES GRID
-       Matches the press kit card style exactly. 8 features.
-    ───────────────────────────────────────────────────────────── */
-    .features {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-    }
-    .features-header {
-      margin-bottom: 40px;
-    }
-    .features-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-    .features-header h2 em { font-style: italic; color: var(--evergreen); }
-    .features-header p {
-      font-size: 16px;
-      color: var(--text-muted);
-      margin-top: 12px;
-      max-width: 520px;
-      line-height: 1.65;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .feature-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .feature-card:hover {
-      box-shadow: 0 6px 28px rgba(0,0,0,0.07);
-      transform: translateY(-2px);
-    }
-    .feature-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-    .feature-card h3 {
-      font-family: var(--font-display);
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .feature-card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       SCREENSHOTS STRIP
-       Full-width scrollable strip, wider than the text container.
-    ───────────────────────────────────────────────────────────── */
-    .screenshots-section {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .screenshots-header {
-      max-width: var(--max-w);
-      margin: 0 auto 36px;
-      padding: 0 28px;
-    }
-    .screenshots-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-    .screenshots-scroll {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      padding: 8px 28px 24px;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .screenshots-scroll::-webkit-scrollbar { display: none; }
-    .screenshot-frame {
-      flex-shrink: 0;
-      width: 180px;
-      height: 390px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.10), 0 3px 10px rgba(0,0,0,0.05);
-      border: 1px solid var(--border);
-      line-height: 0;
-      font-size: 0;
-      background: var(--bg-muted);
-    }
-    .screenshot-frame img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       PRIVACY SECTION
-       A genuine product differentiator — gets its own section rather
-       than a card. Warm background to distinguish it visually.
-    ───────────────────────────────────────────────────────────── */
-    .privacy-section {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-    }
-    .privacy-inner {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 56px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .privacy-text h2 {
-      font-family: var(--font-display);
-      font-size: clamp(26px, 3.5vw, 36px);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-    .privacy-text h2 em { font-style: italic; color: var(--evergreen); }
-    .privacy-text p {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-mid);
-      margin-bottom: 16px;
-    }
-    .privacy-text p:last-of-type { margin-bottom: 0; }
-    .privacy-facts {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .privacy-fact {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .privacy-fact-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--evergreen-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-    .privacy-fact-body h4 {
-      font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-    .privacy-fact-body p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       PRICING — same card style as the press kit.
-    ───────────────────────────────────────────────────────────── */
-    .pricing-section {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-    }
-    .pricing-header { margin-bottom: 36px; }
-    .pricing-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-    .pricing-header p {
-      font-size: 15px;
-      color: var(--text-muted);
-      max-width: 480px;
-      line-height: 1.65;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    .pricing-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-    }
-    .pricing-card.featured {
-      border-color: var(--evergreen);
-      background: var(--evergreen-light);
-    }
-    .pricing-card h3 {
-      font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-    .pricing-amount {
-      font-size: 30px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-      line-height: 1;
-    }
-    .pricing-amount span { font-size: 14px; font-weight: 400; color: var(--text-muted); }
-    .pricing-note { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
-    .pricing-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .pricing-card li {
-      font-size: 14px;
-      color: var(--text-mid);
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      line-height: 1.4;
-    }
-    .pricing-card li::before {
-      content: '✓';
-      color: var(--evergreen);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       FOUNDER STRIP — brief, human, trust-building.
-       Not the full bio (that's the press kit). Just enough.
-    ───────────────────────────────────────────────────────────── */
-    .founder-strip {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-    }
-    .founder-strip-inner {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      max-width: 640px;
-    }
-    .founder-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-      line-height: 0;
-      font-size: 0;
-    }
-    .founder-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .founder-text h3 {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .founder-text p {
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.65;
-    }
-    .founder-text p a { font-weight: 700; }
-
-    /* ─────────────────────────────────────────────────────────────
-       FINAL CTA — prominent closing section before the footer.
-    ───────────────────────────────────────────────────────────── */
-    .cta-section {
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 5vw, 46px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: var(--text);
-      margin-bottom: 16px;
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-section h2 em { font-style: italic; color: var(--evergreen); }
-    .cta-section p {
-      font-size: 16px;
-      color: var(--text-muted);
-      max-width: 440px;
-      margin: 0 auto 36px;
-      line-height: 1.65;
-    }
-    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* ─────────────────────────────────────────────────────────────
-       NOTIFY ME FORM
-       Lightweight email capture since the app isn't live yet.
-       Used in the hero and the final CTA section.
-    ───────────────────────────────────────────────────────────── */
-    .notify-form {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 440px;
-      margin: 0 auto;
-    }
-    .notify-input {
-      flex: 1;
-      min-width: 200px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      color: var(--text);
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-mid);
-      border-radius: 100px;
-      padding: 11px 20px;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    .notify-input:focus { border-color: var(--evergreen); }
-    .notify-input::placeholder { color: var(--text-faint); }
-    .notify-success {
-      display: none;
-      font-size: 14px;
-      color: var(--evergreen);
-      font-weight: 700;
-      padding: 12px 0;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────────────────────────── */
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0 56px;
-    }
-    .footer-inner {
-      max-width: var(--max-w-wide);
-      margin: 0 auto;
-      padding: 0 28px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .footer-brand-block { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .footer-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      overflow: hidden;
-      line-height: 0;
-      font-size: 0;
-    }
-    .footer-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .footer-brand-name {
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .footer-tagline {
-      font-size: 12px;
-      color: var(--text-faint);
-      margin-bottom: 16px;
-      max-width: 220px;
-      line-height: 1.5;
-    }
-    .footer-copy { font-size: 11px; color: var(--text-faint); }
-    .footer-links-col h4 {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-    .footer-links-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-links-col li a {
-      font-size: 13px;
-      color: var(--text-muted);
-      transition: color 0.15s;
-    }
-    .footer-links-col li a:hover { color: var(--evergreen); text-decoration: none; }
-
-    /* ─────────────────────────────────────────────────────────────
-       SECTION ENTRANCE ANIMATION
-       Same fadeUp as the press kit — sections animate in as they
-       scroll into view.
-    ───────────────────────────────────────────────────────────── */
-    .animate-section {
-      animation: fadeUp 0.5s ease both;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────────────────────────── */
-    @media (max-width: 720px) {
-      .privacy-inner {
-        grid-template-columns: 1fr;
-        padding: 36px 28px;
-        gap: 32px;
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Keepsake",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS 26 or later",
+    "description": "Keepsake is an iPhone app for preserving children's artwork, handwritten cards, letters, and meaningful physical objects as digital memories, with private iCloud storage, 3D viewing, and AR.",
+    "url": "https://chaoticgoodcreations.co/keepsake/",
+    "downloadUrl": "https://apps.apple.com/app/keepsake-hold-memories/id6760719322",
+    "image": "https://chaoticgoodcreations.co/assets/images/keepsake/KeepsakeOG.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Chaotic Good Creations",
+      "url": "https://chaoticgoodcreations.co/"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium Monthly",
+        "price": "3.99",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium Annual",
+        "price": "19.99",
+        "priceCurrency": "USD"
       }
-      .hero { padding: 56px 0 48px; }
-      .founder-strip-inner { flex-direction: column; gap: 20px; }
-      .footer-inner { flex-direction: column; gap: 28px; }
-      .hero-screenshot:nth-child(1),
-      .hero-screenshot:nth-child(5) { display: none; }
-      .hero-screenshot:nth-child(2),
-      .hero-screenshot:nth-child(4) { transform: none; opacity: 0.7; }
-      .hero-screenshot:nth-child(3) { transform: none; }
-    }
-    @media (max-width: 480px) {
-      .site-nav-inner { padding: 10px 20px; }
-      .nav-link-secondary { display: none; }
-      .container, .container-wide { padding: 0 20px; }
-      .screenshots-scroll { padding: 8px 20px 20px; }
-      .hero-screenshots { padding: 0 20px 20px; }
-    }
-  </style>
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
-<!-- ── NAV ───────────────────────────────────────────────────────── -->
-<nav class="site-nav" aria-label="Site navigation">
-  <div class="site-nav-inner">
-    <a href="/keepsake" class="nav-identity">
-      <div class="nav-icon">
-        <img src="/assets/images/keepsake/AppIcon.png" alt="" aria-hidden="true" />
-      </div>
-      <span class="nav-name">Keepsake</span>
-    </a>
-    <div class="nav-actions">
-      <a href="/keepsake/presskit.html" class="nav-link-secondary">Press Kit</a>
-    </div>
-  </div>
-</nav>
+<!-- Shared Keepsake Header -->
+<div id="keepsake-header"></div>
 
 <!-- ── HERO ──────────────────────────────────────────────────────── -->
 <div class="page">
@@ -1174,61 +470,12 @@
   </div>
 </section>
 
-<!-- ── FOOTER ────────────────────────────────────────────────────── -->
-<footer class="footer">
-  <div class="footer-inner">
-
-    <div>
-      <div class="footer-brand-block">
-        <div class="footer-icon">
-          <img src="/assets/images/keepsake/AppIcon.png" alt="" aria-hidden="true" />
-        </div>
-        <span class="footer-brand-name">Keepsake</span>
-      </div>
-      <p class="footer-tagline">
-        A product by Chaotic Good Creations, New Zealand.
-      </p>
-      <p class="footer-copy">
-        &copy; <span id="year"></span> Chaotic Good Creations.<br />
-        All rights reserved.
-      </p>
-    </div>
-
-    <div class="footer-links-col">
-      <h4>App</h4>
-      <ul>
-        <!-- SWAP: Update when App Store link is live -->
-        <li><a href="#">App Store</a></li>
-        <li><a href="mailto:hello@chaoticgoodcreations.co?subject=Keepsake%20TestFlight">Join TestFlight</a></li>
-        <li><a href="/keepsake/presskit.html">Press Kit</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-links-col">
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="https://chaoticgoodcreations.co/privacy/keepsake-privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
-        <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-links-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:hello@chaoticgoodcreations.co">hello@chaoticgoodcreations.co</a></li>
-        <li><a href="https://www.chaoticgoodcreations.co" target="_blank" rel="noopener">Studio Website</a></li>
-        <li><a href="https://www.threads.com/@tabingtons" target="_blank" rel="noopener">Threads</a></li>
-      </ul>
-    </div>
-
-  </div>
-</footer>
+<!-- Shared Keepsake Footer -->
+<div id="keepsake-footer"></div>
 
 </div><!-- /.page -->
 
 <script>
-  /* ── Year ────────────────────────────────────────────────────── */
-  document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ── Scroll-to notify ───────────────────────────────────────── */
   function scrollToNotify() {
@@ -1253,6 +500,8 @@
     observer.observe(el);
   });
 </script>
+
+<script src="/assets/js/keepsake-components.js"></script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 <!--
   Sitemap for Chaotic Good Creations
   This sitemap helps search engines discover and index all pages on the website
-  Last updated: November 2025
+  Last updated: August 2026
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -43,6 +43,62 @@
     <lastmod>2025-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+    <!-- Keepsake app page -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Keepsake Journal -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Keepsake Journal: Children's artwork -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/what-to-do-with-childrens-artwork.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Keepsake Journal: Why children's artwork matters -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/why-childrens-artwork-matters.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Keepsake Journal: Revisiting memories -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/why-revisiting-memories-matters.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Keepsake Journal: Family memories and privacy -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/family-memories-privacy.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Keepsake press kit -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/presskit.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Services page - Key conversion page -->
@@ -101,6 +157,14 @@
   <url>
     <loc>https://chaoticgoodcreations.co/privacy/chaotic-good-creations-privacy.html</loc>
     <lastmod>2025-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+    <!-- Keepsake privacy policy -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/privacy/keepsake-privacy</loc>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

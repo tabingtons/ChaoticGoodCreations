@@ -1,0 +1,287 @@
+/* ==========================================================
+   KEEPSAKE SHARED COMPONENTS
+   Header and footer used across the Keepsake site
+   ========================================================== */
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+#keepsake-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.ks-site-nav {
+  background: rgba(250, 248, 245, 0.92);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+
+.ks-site-nav-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+
+  padding: 12px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+
+.ks-nav-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-family: var(--font-display, "Playfair Display", Georgia, serif);
+  font-weight: 600;
+
+  color: var(--text, #1a1a1a);
+
+  text-decoration: none;
+}
+
+
+.ks-nav-brand:hover {
+  text-decoration: none;
+}
+
+
+.ks-nav-brand img {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 9px;
+}
+
+
+.ks-nav-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+
+.ks-nav-link {
+  position: relative;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  color: var(--text-muted, #6e6e6e);
+
+  text-decoration: none;
+}
+
+
+.ks-nav-link:hover {
+  color: var(--evergreen, #2e7d5e);
+  text-decoration: none;
+}
+
+
+.ks-nav-link.is-active {
+  color: var(--evergreen, #2e7d5e);
+}
+
+
+.ks-nav-link.is-active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -8px;
+
+  height: 2px;
+
+  background: var(--evergreen, #2e7d5e);
+
+  border-radius: 100px;
+}
+
+
+.ks-nav-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding: 8px 18px;
+
+  border-radius: 100px;
+
+  background: var(--evergreen, #2e7d5e);
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.ks-nav-download:hover {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.ks-footer {
+  position: relative;
+  z-index: 1;
+
+  padding: 56px 0 48px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+
+.ks-footer-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+
+  padding: 0 28px;
+
+  text-align: center;
+}
+
+
+.ks-footer-brand {
+  margin-bottom: 26px;
+}
+
+
+.ks-footer-brand-name {
+  display: inline-block;
+
+  margin-bottom: 6px;
+
+  font-family: var(--font-display, "Playfair Display", Georgia, serif);
+  font-size: 20px;
+  font-weight: 600;
+
+  color: var(--text, #1a1a1a);
+
+  text-decoration: none;
+}
+
+
+.ks-footer-brand-name:hover {
+  text-decoration: none;
+}
+
+
+.ks-footer-brand p {
+  color: var(--text-muted, #6e6e6e);
+
+  font-size: 14px;
+}
+
+
+.ks-footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px 24px;
+
+  margin-bottom: 28px;
+}
+
+
+.ks-footer-links a {
+  color: var(--text-muted, #6e6e6e);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+
+.ks-footer-links a:hover {
+  color: var(--evergreen, #2e7d5e);
+}
+
+
+.ks-footer-credit {
+  color: var(--text-faint, #999);
+
+  font-size: 12px;
+}
+
+
+.ks-footer-credit a {
+  color: inherit;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+  .ks-site-nav-inner {
+    padding: 10px 20px;
+  }
+
+
+  .ks-nav-actions {
+    gap: 14px;
+  }
+
+
+  .ks-nav-brand img {
+    width: 32px;
+    height: 32px;
+  }
+
+
+  .ks-nav-download {
+    min-height: 36px;
+
+    padding: 7px 14px;
+  }
+
+
+  .ks-footer-inner {
+    padding: 0 20px;
+  }
+
+}
