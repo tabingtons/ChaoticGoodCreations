@@ -1,0 +1,27 @@
+{
+  "name": "chaoticgoodcreations",
+  "version": "1.0.0",
+  "description": "Source code for the Chaotic Good Creations website.",
+  "main": "fetch-ratings.js",
+  "scripts": {
+  "build:telemetry": "esbuild assets/js/src/keepsake-telemetry.js --bundle --minify --format=iife --outfile=assets/js/keepsake-telemetry.bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabingtons/ChaoticGoodCreations.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tabingtons/ChaoticGoodCreations/issues"
+  },
+  "homepage": "https://github.com/tabingtons/ChaoticGoodCreations#readme",
+  "dependencies": {
+    "@telemetrydeck/sdk": "^2.0.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
