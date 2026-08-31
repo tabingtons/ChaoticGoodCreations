@@ -50,6 +50,10 @@ function getPageSource() {
     return "presskit";
   }
 
+  if (path === "/friends/" || path.startsWith("/friends/")) {
+    return "friends";
+  }
+
   if (path === "/keepsake/" || path.startsWith("/keepsake/")) {
     return "homepage";
   }
@@ -101,6 +105,17 @@ async function trackAppStoreClick(link) {
 // ------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll("a[data-friend]").forEach(link => {
+    link.addEventListener("click", () => {
+      td.signal("Website.friend.click", {
+        friend: link.dataset.friend,
+        destination: link.dataset.destination || "unknown",
+        source: getPageSource(),
+        path: window.location.pathname
+      });
+    });
+  });
 
   document
     .querySelectorAll('a[href*="apps.apple.com"]')

@@ -1,0 +1,26 @@
+.friends-page { width: min(100% - 2rem, 72rem); margin: 0 auto; padding: clamp(3rem, 8vw, 7rem) 0 var(--space-xl); }
+.friends-hero { max-width: 56rem; margin: 0 auto clamp(3rem, 8vw, 6rem); text-align: center; }
+.friends-hero h1 { margin: var(--space-sm) 0 var(--space-md); }
+.friends-hero__eyebrow, .friend-card__developer { font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); letter-spacing: 0.08em; text-transform: uppercase; }
+.friends-hero__eyebrow { display: inline-block; margin: 0; padding: 0.45rem 0.8rem; background: var(--color-blue); transform: rotate(-1deg); }
+.friends-hero__intro { max-width: 48rem; margin: 0 auto; font-size: var(--font-size-sm); text-shadow: var(--glow-sm); }
+.friends-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); align-items: stretch; }
+.friend-card { position: relative; display: flex; flex-direction: column; min-width: 0; padding: clamp(1.25rem, 3vw, 2rem); border: 3px solid var(--color-text-primary); border-radius: var(--radius-lg); box-shadow: 8px 8px 0 var(--color-text-primary); transition: transform var(--transition-base), box-shadow var(--transition-base); }
+.friend-card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--color-text-primary); }
+.friend-card--yellow { background: var(--color-yellow); }
+.friend-card--pink { background: #ff8fc6; }
+.friend-card--blue { background: #91def7; }
+.friend-card--purple { background: #d4a7f4; }
+.friend-card__icon { width: 5.5rem; height: 5.5rem; object-fit: cover; border: 3px solid var(--color-text-primary); border-radius: 22%; box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.9); }
+.friend-card__body { display: flex; flex: 1; flex-direction: column; }
+.friend-card__developer { margin: var(--space-md) 0 0; }
+.friend-card h2 { margin: 0.35rem 0 var(--space-sm); font-size: clamp(1.8rem, 3.5vw, 2.5rem); text-shadow: none; }
+.friend-card p:not(.friend-card__developer) { margin: 0 0 var(--space-md); font-size: 1rem; line-height: 1.7; }
+.friend-card__links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: auto; }
+.friend-card__link { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.7rem 0.9rem; border: 2px solid var(--color-text-primary); background: var(--color-text-primary); color: var(--color-white); font-size: 0.9rem; font-weight: var(--font-weight-semibold); line-height: 1; }
+.friend-card__link:hover, .friend-card__link:focus-visible { background: var(--color-red); color: var(--color-white); }
+.friend-card__link--secondary { background: var(--color-white); color: var(--color-text-primary); }
+.friend-card__link:focus-visible { outline: 3px solid var(--color-white); outline-offset: 3px; }
+@media (max-width: 960px) { .friends-grid { grid-template-columns: 1fr; } .friend-card { flex-direction: row; gap: var(--space-md); } .friend-card__developer { margin-top: 0; } }
+@media (max-width: 600px) { .friends-page { width: min(100% - 1.5rem, 72rem); padding-top: var(--space-lg); } .friends-hero { margin-bottom: var(--space-lg); } .friend-card { flex-direction: column; box-shadow: 6px 6px 0 var(--color-text-primary); } .friend-card:hover { transform: none; box-shadow: 6px 6px 0 var(--color-text-primary); } .friend-card__developer { margin-top: var(--space-sm); } }
+@media (prefers-reduced-motion: reduce) { .friend-card { transition: none; } .friend-card:hover { transform: none; } }
