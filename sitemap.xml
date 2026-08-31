@@ -64,9 +64,17 @@
   <!-- Keepsake Journal -->
   <url>
     <loc>https://chaoticgoodcreations.co/keepsake/journal/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Keepsake Journal: Organising years of children's drawings -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/best-way-to-organise-years-of-childrens-drawings/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Keepsake Journal: Preserving children's artwork without keeping every piece -->
