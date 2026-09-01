@@ -1,6 +1,7 @@
 import TelemetryDeck from "@telemetrydeck/sdk";
 
 const APP_ID = "C3D89652-51B1-44C3-9D3A-1B99E66B1E12";
+const KEEPSAKE_APP_STORE_ID = "6760719322";
 
 
 // ------------------------------------------------------------
@@ -71,6 +72,20 @@ function getArticleSlug() {
 }
 
 
+function isKeepsakeAppStoreLink(link) {
+  try {
+    const url = new URL(link.href);
+
+    return (
+      url.hostname === "apps.apple.com" &&
+      url.pathname.endsWith(`/id${KEEPSAKE_APP_STORE_ID}`)
+    );
+  } catch {
+    return false;
+  }
+}
+
+
 // ------------------------------------------------------------
 // App Store click tracking
 // ------------------------------------------------------------
@@ -117,8 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document
-    .querySelectorAll('a[href*="apps.apple.com"]')
+  Array.from(document.querySelectorAll('a[href*="apps.apple.com"]'))
+    .filter(isKeepsakeAppStoreLink)
     .forEach(link => {
 
       link.addEventListener("click", event => {
