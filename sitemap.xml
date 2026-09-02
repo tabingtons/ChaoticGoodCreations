@@ -2,7 +2,7 @@
 <!--
   Sitemap for Chaotic Good Creations
   This sitemap helps search engines discover and index all pages on the website
-  Last updated: August 2026
+  Last updated: September 2026
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -64,9 +64,17 @@
   <!-- Keepsake Journal -->
   <url>
     <loc>https://chaoticgoodcreations.co/keepsake/journal/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Keepsake Journal: Preserving handmade cards, letters and sentimental objects -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/how-to-preserve-handmade-cards-letters-sentimental-objects/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Keepsake Journal: Organising years of children's drawings -->
