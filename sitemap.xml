@@ -64,9 +64,17 @@
   <!-- Keepsake Journal -->
   <url>
     <loc>https://chaoticgoodcreations.co/keepsake/journal/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Keepsake Journal: Preserving children's artwork with Keepsake -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/how-to-preserve-childrens-artwork-with-keepsake/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Keepsake Journal: Preserving handmade cards, letters and sentimental objects -->

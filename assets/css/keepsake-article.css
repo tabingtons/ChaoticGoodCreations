@@ -178,6 +178,21 @@
   margin-bottom: 8px;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   INLINE ARTICLE IMAGES
+   ───────────────────────────────────────────────────────────── */
+
+.article-figure {
+  margin: 48px 0;
+}
+
+.article-figure img {
+  display: block;
+  width: min(100%, 420px);
+  height: auto;
+  margin: 0 auto;
+}
+
 
 /* ─────────────────────────────────────────────────────────────
    PULL QUOTES
