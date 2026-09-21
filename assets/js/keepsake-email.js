@@ -10,22 +10,31 @@
      sign-up itself, made when the visitor presses the button.
    - Only the email address is sent. It is never sent to analytics.
 
-   SWITCHED OFF BY DEFAULT. Turn ENABLED on only when all of these
-   are done: the privacy policy mentions the email list, Brevo's
-   confirmation email and thank-you page are designed, and a real
-   test sign-up has been checked from the live site.
+   PREVIEW ONLY UNTIL GO-LIVE. The form is shown when the page is
+   viewed from anywhere EXCEPT the real website, so it can be reviewed
+   locally and on preview copies, but never appears to real visitors.
+   (Brevo only accepts sign-ups posted from chaoticgoodcreations.co, so
+   a preview cannot create real subscribers either.)
+
+   To go live, set LIVE to true, and only when all of these are done:
+   the privacy policy mentions the email list (done), Brevo's confirmation
+   email and thank-you page are designed, and a real test sign-up has
+   been checked from the live site.
    ========================================================== */
 
 (function keepsakeEmailSignup() {
   "use strict";
 
-  const ENABLED = false;
+  const LIVE = false;
+
+  const PRODUCTION_HOSTS = ["chaoticgoodcreations.co", "www.chaoticgoodcreations.co"];
+  const ENABLED = LIVE || !PRODUCTION_HOSTS.includes(window.location.hostname);
 
   // Public form endpoint from Brevo (Forms > Keepsake list > share). Not a secret.
   const ENDPOINT =
     "https://1d228e13.sibforms.com/v2/serve/MUIFABMCiPK4HbwxSj8in7-do2XYM1NIqTZm4myVaSj6l2x246C1Vp1BkaAhnwrQuPUNh6jxd6-uLD9LVPn_nkr_i1RxhnM6I4Nfrn6aSOCjQ4StwlNC1YY3H9Ic9Io68zx5vO-mqfqVw9oowK6N54MGPJV7gdvNnVvN24nQdEvJZceds8o33sHL4AWXE2VFfmP8DceR8lhHMM7CKQ==";
 
-  const PRIVACY_URL = "https://chaoticgoodcreations.co/privacy/keepsake-privacy";
+  const PRIVACY_URL = "https://chaoticgoodcreations.co/privacy/keepsake-privacy#email-updates";
 
   const COPY = {
     title: "A short note, now and then.",
