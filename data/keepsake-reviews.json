@@ -1,0 +1,29 @@
+{
+  "appId": "6760719322",
+  "rating": 5,
+  "ratingCount": 5,
+  "reviews": [
+    {
+      "id": "14409020885",
+      "title": "Nice idea and pleasant app",
+      "text": "Impressed with the design and layout. Well executed idea.",
+      "date": "2026-08-09T20:28:06-07:00",
+      "region": "US"
+    },
+    {
+      "id": "14265233573",
+      "title": "Thank you!",
+      "text": "This app saves me from having to keep boxes of my kids artwork! It’s easy to use and I love that I can come back to see the story connected to each keepsake.",
+      "date": "2026-07-05T01:57:23-07:00",
+      "region": "NZ"
+    },
+    {
+      "id": "14239912354",
+      "title": "Cool app!",
+      "text": "If you want to capture moments of your life and organize it - then it is perfect app for you. And interface looks gorgeous!",
+      "date": "2026-06-29T00:53:14-07:00",
+      "region": "PH"
+    }
+  ],
+  "lastUpdated": "2026-09-21T03:47:09.483Z"
+}

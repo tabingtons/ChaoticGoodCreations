@@ -21,10 +21,13 @@ jobs:
           
       - name: Fetch app ratings
         run: node fetch-ratings.js
+
+      - name: Fetch Keepsake ratings and reviews
+        run: node fetch-keepsake-reviews.js
         
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/app-ratings.json
+          git add data/app-ratings.json data/keepsake-reviews.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update app ratings [automated]" && git push)
