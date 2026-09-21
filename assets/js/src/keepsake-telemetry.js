@@ -172,22 +172,32 @@ function sendSignal(type, extra = {}) {
 
 
 // ------------------------------------------------------------
-// App Store click tracking
+// Click tracking that waits briefly for the signal before leaving
+// the page (so same-tab navigation does not cancel it)
 // ------------------------------------------------------------
 
-async function trackAppStoreClick(link) {
+async function trackThenNavigate(link, type, extra) {
   try {
     await Promise.race([
-      sendSignal("Website.appStore.click", {
-        placement: link.dataset.placement || "unknown"
-      }),
+      sendSignal(type, extra),
       new Promise(resolve => setTimeout(resolve, 600))
     ]);
   } catch (error) {
-    console.warn("TelemetryDeck App Store click failed:", error);
+    console.warn(`TelemetryDeck ${type} failed:`, error);
   }
 
   window.location.href = link.href;
+}
+
+
+function isModifiedClick(event, link) {
+  return (
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey ||
+    link.target === "_blank"
+  );
 }
 
 
@@ -248,35 +258,34 @@ document.addEventListener("click", event => {
 
   // App Store links
   if (isKeepsakeAppStoreLink(link)) {
+    const extra = { placement: link.dataset.placement || "unknown" };
 
     // Preserve normal behaviour for modifier-clicks/new tabs
-    if (
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey ||
-      link.target === "_blank"
-    ) {
-      sendSignal("Website.appStore.click", {
-        placement: link.dataset.placement || "unknown"
-      });
-
+    if (isModifiedClick(event, link)) {
+      sendSignal("Website.appStore.click", extra);
       return;
     }
 
     event.preventDefault();
-
-    trackAppStoreClick(link);
+    trackThenNavigate(link, "Website.appStore.click", extra);
 
     return;
   }
 
   // Journal links (navigation, cards, related articles)
   if (isJournalLink(link)) {
-    sendSignal("Website.journal.click", {
+    const extra = {
       destination: journalDestination(link),
       placement: link.dataset.placement || "link"
-    });
+    };
+
+    if (isModifiedClick(event, link)) {
+      sendSignal("Website.journal.click", extra);
+      return;
+    }
+
+    event.preventDefault();
+    trackThenNavigate(link, "Website.journal.click", extra);
   }
 
 });
