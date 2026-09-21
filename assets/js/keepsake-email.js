@@ -35,6 +35,7 @@
     sending: "Sending…",
     success: "Thank you. Please check your email to confirm.",
     invalid: "Please enter a valid email address.",
+    unchecked: "Please check the box to confirm you\u2019d like to receive these.",
     error: "That didn’t work. Please try again, or write to hello@chaoticgoodcreations.co.",
     notice:
       "By subscribing you agree to receive occasional notes from Keepsake. Unsubscribe any time. " +
@@ -106,10 +107,29 @@
     trap.autocomplete = "off";
     trap.setAttribute("aria-hidden", "true");
 
+    const fieldRow = element("div", "ks-signup-field-row");
+    fieldRow.append(label, input, trap);
+
+    // Explicit, unticked consent checkbox (GDPR: consent must be an
+    // active, affirmative choice, never assumed or pre-ticked)
+    const consentId = `ks-signup-consent-${instance}`;
+    const consentRow = element("label", "ks-signup-consent");
+    consentRow.htmlFor = consentId;
+
+    const consent = element("input", "");
+    consent.type = "checkbox";
+    consent.id = consentId;
+    consent.name = "OPT_IN";
+    consent.value = "1";
+    consent.required = true;
+
+    const consentText = element("span", "", COPY.consent);
+    consentRow.append(consent, consentText);
+
     const button = element("button", "ks-signup-button", COPY.button);
     button.type = "submit";
 
-    form.append(label, input, trap, button);
+    form.append(fieldRow, consentRow, button);
 
     const status = element("p", "ks-signup-status");
     status.setAttribute("role", "status");
@@ -144,6 +164,13 @@
         return;
       }
 
+      if (!consent.checked) {
+        status.classList.add("is-error");
+        status.textContent = COPY.unchecked;
+        consent.focus();
+        return;
+      }
+
       // A filled-in trap means a bot: pretend it worked and send nothing
       if (trap.value) {
         status.classList.add("is-success");
@@ -157,7 +184,7 @@
       try {
         const data = new FormData();
         data.set("EMAIL", email);
-        data.set("OPT_IN", "1");
+        data.set("OPT_IN", "1"); // form-level guard above already requires this to be checked
         data.set("email_address_check", "");
         data.set("locale", "en");
 

@@ -711,7 +711,9 @@
 
 .ks-signup-form {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 
   max-width: 440px;
   margin: 0 auto;
@@ -719,6 +721,13 @@
 
 .ks-signup-form[hidden] {
   display: none;
+}
+
+.ks-signup-field-row {
+  display: flex;
+  gap: 10px;
+
+  width: 100%;
 }
 
 .ks-signup-input {
@@ -737,12 +746,44 @@
   border-radius: 999px;
 }
 
+.ks-signup-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  width: 100%;
+  padding: 0 4px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.ks-signup-consent input {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+
+  accent-color: var(--evergreen, #2e7d5e);
+
+  cursor: pointer;
+}
+
+.ks-signup-consent span {
+  font-size: 13px;
+  line-height: 1.55;
+
+  color: var(--text-mid, #4a4a4a);
+}
+
 .ks-signup-input:focus-visible {
   outline: 2px solid var(--evergreen, #2e7d5e);
   outline-offset: 2px;
 }
 
 .ks-signup-button {
+  width: 100%;
   padding: 13px 24px;
 
   font-family: inherit;
