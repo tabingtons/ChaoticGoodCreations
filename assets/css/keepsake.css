@@ -796,3 +796,44 @@
       .screenshots-scroll { padding: 8px 20px 20px; }
       .hero-screenshots { padding: 0 20px 20px; }
     }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION ALIGNMENT
+       Section headings, intro copy and the story section are centred.
+       Text inside cards, lists and the FAQ stays left-aligned so it
+       stays easy to read.
+    ───────────────────────────────────────────────────────────── */
+    .origin-inner {
+      margin: 0 auto;
+      text-align: center;
+    }
+    .origin-pull {
+      border-left: none;
+      padding: 8px 0;
+      position: relative;
+    }
+    .origin-pull::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      margin: 0 auto 18px;
+      background: var(--warm-fawn);
+      border-radius: 2px;
+    }
+    .features-header,
+    .screenshots-header,
+    .pricing-header {
+      text-align: center;
+    }
+    .features-header p,
+    .pricing-header p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .founder-strip-inner {
+      margin: 0 auto;
+    }
+    .origin .section-label {
+      text-align: center;
+    }

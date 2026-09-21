@@ -570,3 +570,53 @@
   }
 
 }
+
+
+/* ==========================================================
+   CENTRED SECTION HEADERS (new sections)
+   ========================================================== */
+
+.ks-journal-header,
+.ks-faq-header {
+  text-align: center;
+}
+
+.ks-journal-header p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ks-faq-list {
+  margin: 0 auto;
+}
+
+.ks-journal-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ks-journal-all {
+  margin-top: 32px;
+
+  text-align: center;
+}
+
+.ks-journal-all .btn {
+  display: inline-block;
+
+  padding: 12px 24px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+
+  .ks-journal-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
