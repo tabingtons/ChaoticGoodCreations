@@ -87,13 +87,68 @@ function isKeepsakeAppStoreLink(link) {
 
 
 // ------------------------------------------------------------
-// App Store click tracking
+// Visit attribution (how the visitor arrived)
+//
+// Stored for the browser session only, and sent as plain campaign
+// values. No personal data: UTM values that we set ourselves, and the
+// referring site's hostname only (never the full URL).
 // ------------------------------------------------------------
 
-async function trackAppStoreClick(link) {
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+
+function getAttribution() {
+  const storageKey = "keepsakeAttribution";
+
+  try {
+    const stored = sessionStorage.getItem(storageKey);
+
+    if (stored) {
+      return JSON.parse(stored);
+    }
+  } catch {
+    // Fall through and rebuild
+  }
+
+  const attribution = {};
+  const query = new URLSearchParams(window.location.search);
+
+  UTM_KEYS.forEach(key => {
+    const value = query.get(key);
+
+    if (value) {
+      attribution[key] = value.slice(0, 60);
+    }
+  });
+
+  try {
+    if (document.referrer) {
+      const referrerHost = new URL(document.referrer).hostname;
+
+      if (referrerHost && referrerHost !== window.location.hostname) {
+        attribution.referrer = referrerHost.replace(/^www\./, "");
+      }
+    }
+  } catch {
+    // Ignore malformed referrers
+  }
+
+  attribution.landing = window.location.pathname;
+
+  try {
+    sessionStorage.setItem(storageKey, JSON.stringify(attribution));
+  } catch {
+    // Session storage unavailable; the values still apply to this page
+  }
+
+  return attribution;
+}
+
+
+function baseParameters() {
   const parameters = {
     source: getPageSource(),
-    path: window.location.pathname
+    path: window.location.pathname,
+    ...getAttribution()
   };
 
   const article = getArticleSlug();
@@ -102,9 +157,30 @@ async function trackAppStoreClick(link) {
     parameters.article = article;
   }
 
+  return parameters;
+}
+
+
+function sendSignal(type, extra = {}) {
+  try {
+    return td.signal(type, { ...baseParameters(), ...extra });
+  } catch (error) {
+    console.warn(`TelemetryDeck ${type} failed:`, error);
+    return Promise.resolve();
+  }
+}
+
+
+// ------------------------------------------------------------
+// App Store click tracking
+// ------------------------------------------------------------
+
+async function trackAppStoreClick(link) {
   try {
     await Promise.race([
-      td.signal("Website.appStore.click", parameters),
+      sendSignal("Website.appStore.click", {
+        placement: link.dataset.placement || "unknown"
+      }),
       new Promise(resolve => setTimeout(resolve, 600))
     ]);
   } catch (error) {
@@ -116,52 +192,112 @@ async function trackAppStoreClick(link) {
 
 
 // ------------------------------------------------------------
-// Attach listeners
+// Click handling (delegated, so it also covers header and footer
+// content that is loaded after the page)
 // ------------------------------------------------------------
 
-document.addEventListener("DOMContentLoaded", () => {
+function journalDestination(link) {
+  try {
+    const url = new URL(link.href);
+    const match = url.pathname.match(/\/journal\/articles\/([^/]+)\/?/);
 
-  document.querySelectorAll("a[data-friend]").forEach(link => {
-    link.addEventListener("click", () => {
-      td.signal("Website.friend.click", {
-        friend: link.dataset.friend,
-        destination: link.dataset.destination || "unknown",
-        source: getPageSource(),
-        path: window.location.pathname
-      });
+    return match ? match[1] : "index";
+  } catch {
+    return "unknown";
+  }
+}
+
+
+function isJournalLink(link) {
+  try {
+    return new URL(link.href).pathname.startsWith("/keepsake/journal");
+  } catch {
+    return false;
+  }
+}
+
+
+document.addEventListener("click", event => {
+
+  const link = event.target.closest("a[href]");
+
+  if (!link) {
+    return;
+  }
+
+  // Friends of Keepsake
+  if (link.dataset.friend) {
+    td.signal("Website.friend.click", {
+      friend: link.dataset.friend,
+      destination: link.dataset.destination || "unknown",
+      source: getPageSource(),
+      path: window.location.pathname
     });
-  });
 
-  Array.from(document.querySelectorAll('a[href*="apps.apple.com"]'))
-    .filter(isKeepsakeAppStoreLink)
-    .forEach(link => {
+    return;
+  }
 
-      link.addEventListener("click", event => {
+  // Social links
+  if (link.dataset.social) {
+    sendSignal("Website.social.click", {
+      network: link.dataset.social
+    });
 
-        // Preserve normal behaviour for modifier-clicks/new tabs
-        if (
-          event.metaKey ||
-          event.ctrlKey ||
-          event.shiftKey ||
-          event.altKey ||
-          link.target === "_blank"
-        ) {
-          td.signal("Website.appStore.click", {
-            source: getPageSource(),
-            path: window.location.pathname,
-            ...(getArticleSlug()
-              ? { article: getArticleSlug() }
-              : {})
-          });
+    return;
+  }
 
-          return;
-        }
+  // App Store links
+  if (isKeepsakeAppStoreLink(link)) {
 
-        event.preventDefault();
-
-        trackAppStoreClick(link);
+    // Preserve normal behaviour for modifier-clicks/new tabs
+    if (
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      link.target === "_blank"
+    ) {
+      sendSignal("Website.appStore.click", {
+        placement: link.dataset.placement || "unknown"
       });
 
+      return;
+    }
+
+    event.preventDefault();
+
+    trackAppStoreClick(link);
+
+    return;
+  }
+
+  // Journal links (navigation, cards, related articles)
+  if (isJournalLink(link)) {
+    sendSignal("Website.journal.click", {
+      destination: journalDestination(link),
+      placement: link.dataset.placement || "link"
     });
+  }
 
 });
+
+
+// ------------------------------------------------------------
+// FAQ opens
+// ------------------------------------------------------------
+
+document.addEventListener("toggle", event => {
+
+  const item = event.target;
+
+  if (
+    item instanceof HTMLDetailsElement &&
+    item.open &&
+    item.dataset.faq
+  ) {
+    sendSignal("Website.faq.open", {
+      question: item.dataset.faq
+    });
+  }
+
+}, true);
