@@ -38,7 +38,7 @@
 
   const COPY = {
     title: "A short note, now and then.",
-    lead: "When there’s a new article, we’ll send a short version. No promotions, no streaks, no noise.",
+    lead: "About once a month, we’ll send a short note when there’s a new article in the Journal, or a very meaningful update.",
     label: "Your email",
     consent: "I’d like to receive occasional notes from Keepsake by email.",
     button: "Keep me posted",
