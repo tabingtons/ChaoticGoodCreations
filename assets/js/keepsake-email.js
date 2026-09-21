@@ -40,15 +40,16 @@
     title: "A short note, now and then.",
     lead: "When there’s a new article, we’ll send a short version. No promotions, no streaks, no noise.",
     label: "Your email",
+    consent: "I’d like to receive occasional notes from Keepsake by email.",
     button: "Keep me posted",
     sending: "Sending…",
     success: "Thank you. Please check your email to confirm.",
     invalid: "Please enter a valid email address.",
-    unchecked: "Please check the box to confirm you\u2019d like to receive these.",
+    unchecked: "Please check the box to confirm you’d like to receive these.",
     error: "That didn’t work. Please try again, or write to hello@chaoticgoodcreations.co.",
     notice:
-      "By subscribing you agree to receive occasional notes from Keepsake. Unsubscribe any time. " +
-      "We’ll never share your address. Your keepsakes are never part of this list. They stay in your own iCloud."
+      "Unsubscribe any time. We’ll never share your address. " +
+      "Your keepsakes are never part of this list. They stay in your own iCloud."
   };
 
   if (!ENABLED) {
