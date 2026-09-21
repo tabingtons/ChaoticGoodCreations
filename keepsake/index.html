@@ -129,6 +129,73 @@
   }
   </script>
 
+
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Keepsake private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Your keepsakes are stored in your own iCloud account. There is no Keepsake server that holds them, and there are no ads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to create an account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Keepsake uses your Apple ID and iCloud, so there is nothing to sign up for."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does it cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Keepsake is free for up to 5 keepsakes and 2 Memory Boxes. Premium is $3.99 a month or $19.99 a year (in USD), with local pricing shown on the App Store."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a Memory Box?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A place to gather keepsakes the way you would in a real box, and take it down to look through. A keepsake can live in more than one box."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can I do with 3D and AR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cards open, letters turn their pages, and handmade objects can be viewed from every angle. Viewing a keepsake in AR, in your own space, is part of Premium."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which devices does it work on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Keepsake is made for iPhone (iOS 26 or later). It also runs in compatibility mode on iPad, Mac and Apple Vision, and versions made for other devices are on the roadmap."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to my keepsakes if I stop paying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nothing is taken away. Everything you have saved stays in your iCloud and in the app. If you are over the free limit, you just can’t add new keepsakes, or restore deleted ones, until you subscribe again."
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
@@ -195,6 +262,17 @@
     </div>
   </div>
 
+</section>
+
+<!-- ── PROOF (App Store rating and reviews, filled from /data/keepsake-reviews.json) ── -->
+<section class="ks-proof" id="ks-proof" aria-label="What people say about Keepsake" hidden>
+  <div class="container">
+    <p class="ks-proof-rating">
+      <span class="ks-proof-stars" data-proof-stars role="img" aria-label="Rated 5 out of 5">★★★★★</span>
+      <span data-proof-summary></span>
+    </p>
+    <div class="ks-proof-quotes" data-proof-quotes></div>
+  </div>
 </section>
 
 <!-- ── ORIGIN STORY ──────────────────────────────────────────────── -->
@@ -321,6 +399,41 @@
   </div>
 </section>
 
+<!-- ── JOURNAL ───────────────────────────────────────────────────── -->
+<section class="ks-journal-strip animate-section">
+  <div class="container">
+    <div class="ks-journal-header">
+      <p class="section-label">From the Journal</p>
+      <h2>Ideas for keeping <em>what matters</em></h2>
+      <p>Short, practical articles on preserving children’s artwork, cards, letters and the small things you can’t replace.</p>
+    </div>
+    <div class="ks-journal-grid">
+
+      <a class="ks-journal-card" href="/keepsake/journal/articles/what-to-do-with-childrens-artwork/" data-placement="home-journal">
+        <h3>What To Do With Children’s Artwork When You Run Out of Space</h3>
+        <p>A practical way to decide what to keep, what to let go, and how to preserve the pieces that really matter.</p>
+        <span class="ks-journal-card-link">Read the article →</span>
+      </a>
+
+      <a class="ks-journal-card" href="/keepsake/journal/articles/how-to-preserve-childrens-artwork-with-keepsake/" data-placement="home-journal">
+        <h3>How To Preserve Children’s Artwork With Keepsake</h3>
+        <p>A simple way to capture drawings, preserve the story behind them, and build a collection you’ll want to revisit.</p>
+        <span class="ks-journal-card-link">Read the article →</span>
+      </a>
+
+      <a class="ks-journal-card" href="/keepsake/journal/articles/how-to-preserve-handmade-cards-letters-sentimental-objects/" data-placement="home-journal">
+        <h3>How To Preserve Handmade Cards, Letters and Sentimental Objects</h3>
+        <p>Simple ways to preserve the things that are too meaningful to throw away, from handwritten cards to small objects.</p>
+        <span class="ks-journal-card-link">Read the article →</span>
+      </a>
+
+    </div>
+    <p class="ks-journal-all">
+      <a href="/keepsake/journal/" data-placement="home-journal-all">Read all articles →</a>
+    </p>
+  </div>
+</section>
+
 <!-- ── PRIVACY ───────────────────────────────────────────────────── -->
 <section class="privacy-section animate-section">
   <div class="container">
@@ -432,6 +545,54 @@
   </div>
 </section>
 
+<!-- ── FAQ ───────────────────────────────────────────────────────── -->
+<section class="ks-faq animate-section" id="faq">
+  <div class="container">
+    <div class="ks-faq-header">
+      <p class="section-label">Questions</p>
+      <h2>Good to <em>know</em></h2>
+    </div>
+    <div class="ks-faq-list">
+
+      <details class="ks-faq-item" data-faq="privacy">
+        <summary>Is Keepsake private?</summary>
+        <p>Yes. Your keepsakes are stored in your own iCloud account. There is no Keepsake server that holds them, and there are no ads.</p>
+      </details>
+
+      <details class="ks-faq-item" data-faq="account">
+        <summary>Do I need to create an account?</summary>
+        <p>No. Keepsake uses your Apple ID and iCloud, so there is nothing to sign up for.</p>
+      </details>
+
+      <details class="ks-faq-item" data-faq="cost">
+        <summary>What does it cost?</summary>
+        <p>Keepsake is free for up to 5 keepsakes and 2 Memory Boxes. Premium is $3.99 a month or $19.99 a year (in USD), with local pricing shown on the App Store.</p>
+      </details>
+
+      <details class="ks-faq-item" data-faq="memory-box">
+        <summary>What is a Memory Box?</summary>
+        <p>A place to gather keepsakes the way you would in a real box, and take it down to look through. A keepsake can live in more than one box.</p>
+      </details>
+
+      <details class="ks-faq-item" data-faq="3d-ar">
+        <summary>What can I do with 3D and AR?</summary>
+        <p>Cards open, letters turn their pages, and handmade objects can be viewed from every angle. Viewing a keepsake in AR, in your own space, is part of Premium.</p>
+      </details>
+
+      <details class="ks-faq-item" data-faq="devices">
+        <summary>Which devices does it work on?</summary>
+        <p>Keepsake is made for iPhone (iOS 26 or later). It also runs in compatibility mode on iPad, Mac and Apple Vision, and versions made for other devices are on the roadmap.</p>
+      </details>
+
+      <details class="ks-faq-item" data-faq="stop-paying">
+        <summary>What happens to my keepsakes if I stop paying?</summary>
+        <p>Nothing is taken away. Everything you have saved stays in your iCloud and in the app. If you are over the free limit, you just can’t add new keepsakes, or restore deleted ones, until you subscribe again.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── FOUNDER STRIP ─────────────────────────────────────────────── -->
 <section class="founder-strip animate-section">
   <div class="container">
@@ -504,6 +665,7 @@
 </script>
 
 <script src="/assets/js/keepsake-components.js"></script>
+<script src="/assets/js/keepsake-proof.js" defer></script>
 <script src="/assets/js/keepsake-telemetry.bundle.js"></script>
 
 </body>
