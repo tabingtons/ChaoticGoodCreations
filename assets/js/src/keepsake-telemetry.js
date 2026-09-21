@@ -327,3 +327,20 @@ document.addEventListener("change", event => {
   }
 
 });
+
+
+// ------------------------------------------------------------
+// Email sign-up outcomes (placement and result only; the email
+// address is never sent to analytics)
+// ------------------------------------------------------------
+
+document.addEventListener("keepsake:email", event => {
+
+  const detail = event.detail || {};
+
+  sendSignal("Website.email.submit", {
+    placement: detail.placement || "unknown",
+    result: detail.result || "unknown"
+  });
+
+});

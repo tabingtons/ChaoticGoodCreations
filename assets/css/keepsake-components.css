@@ -663,3 +663,178 @@
   outline: 2px solid var(--evergreen, #2e7d5e);
   outline-offset: 3px;
 }
+
+
+/* ==========================================================
+   EMAIL SIGN-UP
+   ========================================================== */
+
+.ks-signup-section {
+  padding: 64px 0;
+
+  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.07));
+}
+
+.ks-signup {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 40px 32px;
+
+  text-align: center;
+
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.07));
+  border-radius: var(--radius-lg, 20px);
+}
+
+.ks-signup-title {
+  margin-bottom: 10px;
+
+  font-family: var(--font-display, "Playfair Display", Georgia, serif);
+  font-size: clamp(24px, 3.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+
+  color: var(--text, #1a1a1a);
+}
+
+.ks-signup-lead {
+  max-width: 420px;
+  margin: 0 auto 24px;
+
+  font-size: 15px;
+  line-height: 1.65;
+
+  color: var(--text-muted, #6e6e6e);
+}
+
+.ks-signup-form {
+  display: flex;
+  gap: 10px;
+
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.ks-signup-form[hidden] {
+  display: none;
+}
+
+.ks-signup-input {
+  flex: 1;
+  min-width: 0;
+
+  padding: 13px 18px;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  color: var(--text, #1a1a1a);
+
+  background: var(--bg, #faf8f5);
+  border: 1.5px solid var(--border-mid, rgba(0, 0, 0, 0.12));
+  border-radius: 999px;
+}
+
+.ks-signup-input:focus-visible {
+  outline: 2px solid var(--evergreen, #2e7d5e);
+  outline-offset: 2px;
+}
+
+.ks-signup-button {
+  padding: 13px 24px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #fff;
+
+  background: var(--evergreen, #2e7d5e);
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+}
+
+.ks-signup-button:hover:not(:disabled) {
+  background: var(--evergreen-dark, #1f5a43);
+}
+
+.ks-signup-button:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.ks-signup-button:focus-visible {
+  outline: 2px solid var(--evergreen, #2e7d5e);
+  outline-offset: 3px;
+}
+
+.ks-signup-status {
+  min-height: 1.4em;
+  margin-top: 14px;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ks-signup-status.is-success {
+  color: var(--evergreen-dark, #1f5a43);
+}
+
+.ks-signup-status.is-error {
+  color: #8a3b46;
+}
+
+.ks-signup-note {
+  max-width: 440px;
+  margin: 14px auto 0;
+
+  font-size: 12px;
+  line-height: 1.6;
+
+  color: var(--text-faint, #999);
+}
+
+.ks-signup-note a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.ks-signup-trap {
+  position: absolute;
+  left: -9999px;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+}
+
+.ks-visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 520px) {
+
+  .ks-signup {
+    padding: 32px 20px;
+  }
+
+  .ks-signup-form {
+    flex-direction: column;
+  }
+
+}
