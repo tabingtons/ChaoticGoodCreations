@@ -620,3 +620,46 @@
   }
 
 }
+
+
+/* ==========================================================
+   PRICING REGION PICKER
+   ========================================================== */
+
+.pricing-region {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 18px auto 0;
+
+  font-size: 14px;
+  color: var(--text-muted, #6e6e6e);
+}
+
+.pricing-region[hidden] {
+  display: none;
+}
+
+.pricing-region select {
+  max-width: 100%;
+
+  padding: 8px 36px 8px 14px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  color: var(--text, #1a1a1a);
+
+  background-color: var(--bg-card, #fff);
+  border: 1.5px solid var(--evergreen-mid, #c2e0d2);
+  border-radius: 999px;
+}
+
+.pricing-region select:focus-visible {
+  outline: 2px solid var(--evergreen, #2e7d5e);
+  outline-offset: 3px;
+}

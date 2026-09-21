@@ -157,7 +157,7 @@
         "name": "What does it cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Keepsake is free for up to 5 keepsakes and 2 Memory Boxes. Premium is $3.99 a month or $19.99 a year (in USD), with local pricing shown on the App Store."
+          "text": "Keepsake is free for up to 5 keepsakes and 2 Memory Boxes. Premium is $3.99 a month or $19.99 a year in USD, and the price is adjusted for your region. The pricing section above shows the price for your part of the world, and the App Store shows the final amount."
         }
       },
       {
@@ -504,13 +504,17 @@
     <div class="pricing-header">
       <p class="section-label">Pricing</p>
       <h2>Start free. <em>Upgrade when you're ready.</em></h2>
-      <p>Prices shown are in USD. Local pricing may vary and will be displayed on the App Store listing.</p>
+      <p id="pricing-note">Prices shown are in USD. Local pricing may vary and will be displayed on the App Store listing.</p>
+      <p class="pricing-region" id="pricing-region" hidden>
+        <label for="pricing-region-select">Show prices for</label>
+        <select id="pricing-region-select" name="region"></select>
+      </p>
     </div>
     <div class="pricing-grid">
 
       <div class="pricing-card">
         <h3>Free</h3>
-        <div class="pricing-amount">$0</div>
+        <div class="pricing-amount" data-price="free">$0</div>
         <div class="pricing-note">No credit card, no commitment</div>
         <ul>
           <li>5 keepsakes</li>
@@ -525,7 +529,7 @@
 
       <div class="pricing-card featured">
         <h3>Premium Monthly</h3>
-        <div class="pricing-amount">$3.99 <span>/ month</span></div>
+        <div class="pricing-amount" data-price="monthly">$3.99 <span>/ month</span></div>
         <div class="pricing-note">Cancel anytime from Settings</div>
         <ul>
           <li>Unlimited keepsakes</li>
@@ -537,8 +541,8 @@
 
       <div class="pricing-card">
         <h3>Premium Annual</h3>
-        <div class="pricing-amount">$19.99 <span>/ year</span></div>
-        <div class="pricing-note">Save ~19% vs monthly</div>
+        <div class="pricing-amount" data-price="annual">$19.99 <span>/ year</span></div>
+        <div class="pricing-note" data-price="saving">Save ~58% vs monthly</div>
         <ul>
           <li>Unlimited keepsakes</li>
           <li>Unlimited memory boxes</li>
@@ -572,7 +576,7 @@
 
       <details class="ks-faq-item" data-faq="cost">
         <summary>What does it cost?</summary>
-        <p>Keepsake is free for up to 5 keepsakes and 2 Memory Boxes. Premium is $3.99 a month or $19.99 a year (in USD), with local pricing shown on the App Store.</p>
+        <p>Keepsake is free for up to 5 keepsakes and 2 Memory Boxes. Premium is $3.99 a month or $19.99 a year in USD, and the price is adjusted for your region. The pricing section above shows the price for your part of the world, and the App Store shows the final amount.</p>
       </details>
 
       <details class="ks-faq-item" data-faq="memory-box">
@@ -672,6 +676,7 @@
 
 <script src="/assets/js/keepsake-components.js"></script>
 <script src="/assets/js/keepsake-proof.js" defer></script>
+<script src="/assets/js/keepsake-pricing.js" defer></script>
 <script src="/assets/js/keepsake-telemetry.bundle.js"></script>
 
 </body>

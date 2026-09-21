@@ -310,3 +310,20 @@ document.addEventListener("toggle", event => {
   }
 
 }, true);
+
+
+// ------------------------------------------------------------
+// Pricing region changes (which regions visitors look at)
+// ------------------------------------------------------------
+
+document.addEventListener("change", event => {
+
+  const select = event.target;
+
+  if (select && select.id === "pricing-region-select") {
+    sendSignal("Website.pricing.region", {
+      region: select.value
+    });
+  }
+
+});
