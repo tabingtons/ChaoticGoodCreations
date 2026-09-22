@@ -21,8 +21,22 @@ const https = require('https');
 
 const APP_ID = '6760719322';
 
-// Storefronts to check: current top download territories plus other large English-speaking ones.
-const REGIONS = ['us', 'nz', 'gb', 'au', 'ca', 'de', 'ph', 'in', 'za', 'my', 'ie', 'sg'];
+// Storefronts to check: every App Store territory, not just the top download countries.
+// A curated shortlist missed real 5-star reviews from Romania (2026-09-23) — reviews can
+// land in any storefront, so the safest correct behaviour is to check all of them.
+const REGIONS = [
+  'ae', 'ag', 'ai', 'al', 'am', 'ao', 'ar', 'at', 'au', 'az', 'ba', 'bb', 'bd', 'be', 'bf', 'bg',
+  'bh', 'bj', 'bm', 'bn', 'bo', 'br', 'bs', 'bt', 'bw', 'by', 'bz', 'ca', 'cd', 'cg', 'ch', 'ci',
+  'cl', 'cn', 'co', 'cr', 'cv', 'cy', 'cz', 'de', 'dk', 'dm', 'do', 'dz', 'ec', 'ee', 'eg', 'es',
+  'fi', 'fj', 'fm', 'fr', 'ga', 'gb', 'gd', 'ge', 'gh', 'gm', 'gr', 'gt', 'gw', 'gy', 'hk', 'hn',
+  'hr', 'hu', 'id', 'ie', 'il', 'in', 'iq', 'is', 'it', 'jm', 'jo', 'jp', 'ke', 'kg', 'kh', 'kn',
+  'kr', 'kw', 'ky', 'kz', 'la', 'lb', 'lc', 'lk', 'lr', 'lt', 'lu', 'lv', 'ly', 'ma', 'md', 'me',
+  'mg', 'mk', 'ml', 'mm', 'mn', 'mo', 'mr', 'ms', 'mt', 'mu', 'mv', 'mw', 'mx', 'my', 'mz', 'na',
+  'ne', 'ng', 'ni', 'nl', 'no', 'np', 'nz', 'om', 'pa', 'pe', 'pg', 'ph', 'pk', 'pl', 'pt', 'pw',
+  'py', 'qa', 'ro', 'rs', 'ru', 'rw', 'sa', 'sb', 'sc', 'se', 'sg', 'si', 'sk', 'sl', 'sn', 'sr',
+  'sv', 'sz', 'tc', 'td', 'th', 'tj', 'tm', 'tn', 'tr', 'tt', 'tw', 'tz', 'ua', 'ug', 'us', 'uy',
+  'uz', 'vc', 've', 'vg', 'vn', 'vu', 'ye', 'za', 'zm', 'zw'
+];
 
 const MIN_LENGTH = 20;
 const MAX_LENGTH = 300;

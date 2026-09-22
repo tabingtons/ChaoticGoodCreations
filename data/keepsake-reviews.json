@@ -1,7 +1,15 @@
 {
   "appId": "6760719322",
   "rating": 5,
-  "ratingCount": 5,
-  "reviews": [],
-  "lastUpdated": "2026-09-22T07:13:00.827Z"
+  "ratingCount": 6,
+  "reviews": [
+    {
+      "id": "14239912354",
+      "title": "Cool app!",
+      "text": "If you want to capture moments of your life and organize it - then it is perfect app for you. And interface looks gorgeous!",
+      "date": "2026-06-29T00:53:14-07:00",
+      "region": "PH"
+    }
+  ],
+  "lastUpdated": "2026-09-22T18:52:41.014Z"
 }
