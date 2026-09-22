@@ -334,10 +334,9 @@
 .ks-proof-quote blockquote {
   margin: 0 0 12px;
 
-  font-family: var(--font-display, "Playfair Display", Georgia, serif);
-  font-size: 16px;
-  font-style: italic;
-  line-height: 1.55;
+  font-family: var(--font-body, "Lato", -apple-system, sans-serif);
+  font-size: 15px;
+  line-height: 1.6;
 
   color: var(--text, #1a1a1a);
 }
