@@ -4,11 +4,11 @@
   "ratingCount": 6,
   "reviews": [
     {
-      "id": "00000192-f863-da03-5ad8-35d500000000",
-      "title": "Nice idea and pleasant app",
-      "text": "Impressed with the design and layout. Well executed idea.",
-      "date": "2026-08-09T20:28:06-07:00",
-      "region": "USA"
+      "id": "00000192-f863-da03-50c3-c5df00000000",
+      "title": "So easy to start using",
+      "text": "I downloaded it, opened it, and was adding memories right away. No sign up, no ads, nothing in the way. You just add a card or a drawing, drop it in a box, and it is saved…going back to look at old ones feels calm and nice. Five stars. ✅",
+      "date": "2026-06-29T00:51:55-07:00",
+      "region": "ROU"
     },
     {
       "id": "00000192-f863-da03-5246-30a500000000",
@@ -18,19 +18,19 @@
       "region": "NZL"
     },
     {
+      "id": "00000192-f863-da03-5ad8-35d500000000",
+      "title": "Nice idea and pleasant app",
+      "text": "Impressed with the design and layout. Well executed idea.",
+      "date": "2026-08-09T20:28:06-07:00",
+      "region": "USA"
+    },
+    {
       "id": "00000192-f863-da03-50c3-d1a200000000",
       "title": "Cool app!",
       "text": "If you want to capture moments of your life and organize it - then it is perfect app for you. And interface looks gorgeous!",
       "date": "2026-06-29T00:53:14-07:00",
       "region": "PHL"
-    },
-    {
-      "id": "00000192-f863-da03-50c3-c5df00000000",
-      "title": "So easy to start using",
-      "text": "I downloaded it, opened it, and was adding memories right away. No sign up, no ads, nothing in the way. You just add a card or a drawing, drop it in a box, and it is saved…going back to look at old ones feels calm and nice. Five stars. ✅",
-      "date": "2026-06-29T00:51:55-07:00",
-      "region": "ROU"
     }
   ],
-  "lastUpdated": "2026-09-22T21:22:32.251Z"
+  "lastUpdated": "2026-09-22T21:34:23.535Z"
 }
