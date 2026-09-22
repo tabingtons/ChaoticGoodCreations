@@ -132,8 +132,6 @@ body::before {
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid var(--border);
 }
 
 .site-nav-inner {
@@ -282,8 +280,6 @@ body::before {
 .featured-section {
 
   padding: 80px 0;
-
-  border-top: 1px solid var(--border);
 }
 
 .featured-link {
@@ -351,8 +347,6 @@ body::before {
 .articles-section {
 
   padding: 80px 0;
-
-  border-top: 1px solid var(--border);
 }
 
 
@@ -553,8 +547,6 @@ body::before {
 
   padding: 90px 0;
 
-  border-top: 1px solid var(--border);
-
   text-align: center;
 }
 
@@ -612,8 +604,6 @@ body::before {
 .footer {
 
   padding: 40px 0 60px;
-
-  border-top: 1px solid var(--border);
 
   text-align: center;
 

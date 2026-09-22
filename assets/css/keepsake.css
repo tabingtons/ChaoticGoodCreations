@@ -69,7 +69,6 @@
       background: rgba(250,248,245,0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
     }
     .site-nav-inner {
       max-width: var(--max-w-wide);
@@ -299,7 +298,6 @@
     ───────────────────────────────────────────────────────────── */
     .origin {
       padding: 80px 0;
-      border-top: 1px solid var(--border);
     }
     .origin-inner {
       max-width: 640px;
@@ -346,7 +344,6 @@
     ───────────────────────────────────────────────────────────── */
     .features {
       padding: 80px 0;
-      border-top: 1px solid var(--border);
     }
     .features-header {
       margin-bottom: 40px;
@@ -412,7 +409,6 @@
     ───────────────────────────────────────────────────────────── */
     .screenshots-section {
       padding: 80px 0;
-      border-top: 1px solid var(--border);
       overflow: hidden;
     }
     .screenshots-header {
@@ -464,7 +460,6 @@
     ───────────────────────────────────────────────────────────── */
     .privacy-section {
       padding: 80px 0;
-      border-top: 1px solid var(--border);
     }
     .privacy-inner {
       background: var(--bg-card);
@@ -532,7 +527,6 @@
     ───────────────────────────────────────────────────────────── */
     .pricing-section {
       padding: 80px 0;
-      border-top: 1px solid var(--border);
     }
     .pricing-header { margin-bottom: 36px; }
     .pricing-header h2 {
@@ -603,7 +597,6 @@
     ───────────────────────────────────────────────────────────── */
     .founder-strip {
       padding: 80px 0;
-      border-top: 1px solid var(--border);
     }
     .founder-strip-inner {
       display: flex;
@@ -640,7 +633,6 @@
     ───────────────────────────────────────────────────────────── */
     .cta-section {
       padding: 80px 0;
-      border-top: 1px solid var(--border);
       text-align: center;
     }
     .cta-section h2 {
@@ -705,7 +697,6 @@
        FOOTER
     ───────────────────────────────────────────────────────────── */
     .footer {
-      border-top: 1px solid var(--border);
       padding: 40px 0 56px;
     }
     .footer-inner {

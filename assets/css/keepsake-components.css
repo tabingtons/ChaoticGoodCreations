@@ -19,8 +19,6 @@
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 
@@ -164,8 +162,6 @@
   z-index: 1;
 
   padding: 56px 0 48px;
-
-  border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 
@@ -362,8 +358,6 @@
 
 .ks-journal-strip {
   padding: 80px 0;
-
-  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.07));
 }
 
 .ks-journal-header {
@@ -468,8 +462,6 @@
 
 .ks-faq {
   padding: 80px 0;
-
-  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.07));
 }
 
 .ks-faq-header {
@@ -671,8 +663,6 @@
 
 .ks-signup-section {
   padding: 64px 0;
-
-  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.07));
 }
 
 .ks-signup {

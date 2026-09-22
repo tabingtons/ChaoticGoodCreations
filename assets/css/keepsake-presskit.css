@@ -64,7 +64,6 @@
       background: rgba(250,248,245,0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
     }
     .site-nav-inner {
       max-width: var(--max-w);
@@ -130,8 +129,6 @@
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid var(--border);
 }
 
 .presskit-nav-inner {
@@ -303,7 +300,6 @@
     /* ── SECTION STRUCTURE ──────────────────────────────────────── */
     .section {
       padding: 72px 0;
-      border-top: 1px solid var(--border);
       animation: fadeUp 0.5s ease both;
     }
     @keyframes fadeUp {
@@ -698,7 +694,7 @@
     .contact-response { font-size: 12px; color: var(--text-faint); margin-top: 12px; }
 
     /* ── FOOTER ─────────────────────────────────────────────────── */
-    .footer { border-top: 1px solid var(--border); padding: 40px 0 56px; text-align: center; }
+    .footer { padding: 40px 0 56px; text-align: center; }
     .footer-brand { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 12px; }
     .footer-brand span { color: var(--evergreen); }
     .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
