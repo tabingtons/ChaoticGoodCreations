@@ -6,19 +6,23 @@ on:
     - cron: '0 2 * * *'
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   update-ratings:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
+
       - name: Fetch app ratings
         run: node fetch-ratings.js
 
@@ -27,11 +31,13 @@ jobs:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: node fetch-keepsake-reviews.js
-        
+
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/app-ratings.json data/keepsake-reviews.json
+          git add data/app-ratings.json data/keepsake-reviews.json data/keepsake-review-seen-ids.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update app ratings [automated]" && git push)

@@ -25,8 +25,16 @@
 // What it never publishes: reviewer names/nicknames or any account details.
 //
 // Moderation: data/keepsake-review-overrides.json can hide a review by id
-// ("hideIds") or block reviews containing certain words ("blockedTerms").
-// Reviews are also filtered by length so only readable quotes are shown.
+// ("hideIds"), block reviews containing certain words ("blockedTerms"), or
+// pin specific reviews to the front in a chosen order ("pinnedIds") — the
+// rest fill in by recency. Reviews are also filtered by length so only
+// readable quotes are shown.
+//
+// New-review notification: every quotable review's id is remembered in
+// data/keepsake-review-seen-ids.json. When a run finds one that isn't in
+// that file yet, it opens (or comments on) a GitHub issue labelled
+// "keepsake-reviews" so a new review never needs to be found by chance —
+// no pin decision is required, it's just a nudge to go look.
 
 const fs = require('fs');
 const https = require('https');
@@ -59,6 +67,8 @@ const MAX_REVIEWS = 6;
 
 const OUTPUT_PATH = './data/keepsake-reviews.json';
 const OVERRIDES_PATH = './data/keepsake-review-overrides.json';
+const SEEN_IDS_PATH = './data/keepsake-review-seen-ids.json';
+const NOTIFY_LABEL = 'keepsake-reviews';
 
 function getJSON(url, headers) {
   return new Promise((resolve, reject) => {
@@ -76,6 +86,35 @@ function getJSON(url, headers) {
     });
     request.setTimeout(15000, () => request.destroy(new Error('Timed out')));
     request.on('error', reject);
+  });
+}
+
+function postJSON(url, headers, body) {
+  return new Promise((resolve, reject) => {
+    const payload = JSON.stringify(body);
+    const request = https.request(url, {
+      method: 'POST',
+      headers: {
+        'User-Agent': 'chaoticgoodcreations-site',
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload),
+        ...headers
+      }
+    }, (res) => {
+      let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => {
+        if (res.statusCode < 200 || res.statusCode >= 300) {
+          reject(new Error(`HTTP ${res.statusCode}: ${data.slice(0, 300)}`));
+          return;
+        }
+        try { resolve(data ? JSON.parse(data) : {}); } catch (err) { reject(err); }
+      });
+    });
+    request.setTimeout(15000, () => request.destroy(new Error('Timed out')));
+    request.on('error', reject);
+    request.write(payload);
+    request.end();
   });
 }
 
@@ -168,10 +207,64 @@ function loadOverrides() {
     const overrides = JSON.parse(fs.readFileSync(OVERRIDES_PATH, 'utf8'));
     return {
       hideIds: overrides.hideIds || [],
-      blockedTerms: (overrides.blockedTerms || []).map((t) => t.toLowerCase())
+      blockedTerms: (overrides.blockedTerms || []).map((t) => t.toLowerCase()),
+      pinnedIds: overrides.pinnedIds || []
     };
   } catch {
-    return { hideIds: [], blockedTerms: [] };
+    return { hideIds: [], blockedTerms: [], pinnedIds: [] };
+  }
+}
+
+function loadSeenIds() {
+  try {
+    const ids = JSON.parse(fs.readFileSync(SEEN_IDS_PATH, 'utf8'));
+    return new Set(Array.isArray(ids) ? ids : []);
+  } catch {
+    return new Set();
+  }
+}
+
+// Opens a GitHub issue (or comments on the existing open one) listing
+// review(s) the daily fetch hasn't seen before, using the Actions job's own
+// built-in token — no extra secret needed. Silently does nothing if that
+// token isn't available (e.g. a local run) or the call fails, since a
+// missed notification should never break the data the site actually uses.
+async function notifyNewReviews(newReviews) {
+  const token = process.env.GITHUB_TOKEN;
+  const repo = process.env.GITHUB_REPOSITORY;
+  if (!token || !repo) {
+    console.log(`${newReviews.length} new review(s) found, but no GITHUB_TOKEN/GITHUB_REPOSITORY — skipping the notification.`);
+    return;
+  }
+
+  const authHeaders = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' };
+  const list = newReviews
+    .map((r) => `- **${r.title || '(no title)'}** (${r.region || 'unknown region'}, ${r.date ? r.date.slice(0, 10) : 'unknown date'})\n  > ${r.text}\n  \`id: ${r.id}\``)
+    .join('\n\n');
+  const howTo = 'To feature one of these first on the site, add its `id` to `pinnedIds` in `data/keepsake-review-overrides.json`, in the order you want them shown. To hide one instead, add its `id` to `hideIds` in the same file. No action needed if you\'re happy leaving it to show up by recency.';
+
+  try {
+    const existing = await getJSON(
+      `https://api.github.com/repos/${repo}/issues?state=open&labels=${encodeURIComponent(NOTIFY_LABEL)}&per_page=5`,
+      authHeaders
+    );
+    const openIssue = Array.isArray(existing) ? existing.find((i) => !i.pull_request) : null;
+
+    if (openIssue) {
+      await postJSON(`https://api.github.com/repos/${repo}/issues/${openIssue.number}/comments`, authHeaders, {
+        body: `More new 5-star review(s):\n\n${list}\n\n${howTo}`
+      });
+      console.log(`Added a comment to existing issue #${openIssue.number}.`);
+    } else {
+      const created = await postJSON(`https://api.github.com/repos/${repo}/issues`, authHeaders, {
+        title: newReviews.length === 1 ? 'New 5-star review to consider pinning' : `${newReviews.length} new 5-star reviews to consider pinning`,
+        body: `The daily review fetch found new 5-star review(s) not seen before:\n\n${list}\n\n${howTo}\n\nClose this issue once you've decided — pinning, hiding or leaving it are all fine.`,
+        labels: [NOTIFY_LABEL]
+      });
+      console.log(`Opened issue #${created.number}.`);
+    }
+  } catch (err) {
+    console.error(`Could not create/update the review-notification issue: ${err.message}`);
   }
 }
 
@@ -218,14 +311,37 @@ async function main() {
     reviews = await fetchAllReviewsFromPublicFeed();
   }
 
-  const seen = new Set();
-  const quotes = reviews
+  // Eligible: 5-star, readable length, de-duplicated, newest first. This is
+  // the full candidate set regardless of hide/pin choices, so "new since
+  // last run" is judged on what Apple actually returned, not on what we
+  // chose to show.
+  const dedupe = new Set();
+  const eligible = reviews
     .filter((r) => r.rating === 5)
     .filter((r) => r.text.length >= MIN_LENGTH && r.text.length <= MAX_LENGTH)
+    .filter((r) => (dedupe.has(r.id) ? false : dedupe.add(r.id)))
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const previouslySeen = loadSeenIds();
+  const newReviews = eligible.filter((r) => !previouslySeen.has(r.id));
+  if (newReviews.length > 0) {
+    console.log(`${newReviews.length} new quotable review(s) since the last run.`);
+    await notifyNewReviews(newReviews);
+  }
+  fs.mkdirSync('./data', { recursive: true });
+  fs.writeFileSync(SEEN_IDS_PATH, JSON.stringify(eligible.map((r) => r.id), null, 2) + '\n');
+
+  const visible = eligible
     .filter((r) => !overrides.hideIds.includes(r.id))
-    .filter((r) => !overrides.blockedTerms.some((term) => (r.title + ' ' + r.text).toLowerCase().includes(term)))
-    .filter((r) => (seen.has(r.id) ? false : seen.add(r.id)))
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .filter((r) => !overrides.blockedTerms.some((term) => (r.title + ' ' + r.text).toLowerCase().includes(term)));
+
+  // Pinned reviews (in the order given) come first, then the rest by recency.
+  const byId = new Map(visible.map((r) => [r.id, r]));
+  const pinned = overrides.pinnedIds.map((id) => byId.get(id)).filter(Boolean);
+  const pinnedIdSet = new Set(pinned.map((r) => r.id));
+  const rest = visible.filter((r) => !pinnedIdSet.has(r.id));
+
+  const quotes = [...pinned, ...rest]
     .slice(0, MAX_REVIEWS)
     .map(({ id, title, text, date, region }) => ({ id, title, text, date, region }));
 
