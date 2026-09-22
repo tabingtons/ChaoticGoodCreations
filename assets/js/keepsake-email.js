@@ -10,22 +10,14 @@
      sign-up itself, made when the visitor presses the button.
    - Only the email address is sent. It is never sent to analytics.
 
-   PREVIEW ONLY UNTIL GO-LIVE. The form is shown when the page is
-   viewed from anywhere EXCEPT the real website, so it can be reviewed
-   locally and on preview copies, but never appears to real visitors.
-   (Brevo only accepts sign-ups posted from chaoticgoodcreations.co, so
-   a preview cannot create real subscribers either.)
-
-   To go live, set LIVE to true, and only when all of these are done:
-   the privacy policy mentions the email list (done), Brevo's confirmation
-   email and thank-you page are designed, and a real test sign-up has
-   been checked from the live site.
+   LIVE as of 2026-09-22. The form shows on every page with a
+   [data-email-signup] placeholder, including the real website.
    ========================================================== */
 
 (function keepsakeEmailSignup() {
   "use strict";
 
-  const LIVE = false;
+  const LIVE = true;
 
   const PRODUCTION_HOSTS = ["chaoticgoodcreations.co", "www.chaoticgoodcreations.co"];
   const ENABLED = LIVE || !PRODUCTION_HOSTS.includes(window.location.hostname);
