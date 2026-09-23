@@ -1,0 +1,60 @@
+name: Monthly Price Check
+
+on:
+  schedule:
+    # Run at 3 AM UTC on the 1st of each month
+    - cron: '0 3 1 * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install the asc CLI
+        run: |
+          if ! command -v brew &> /dev/null; then
+            NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            echo "/home/linuxbrew/.linuxbrew/bin" >> "$GITHUB_PATH"
+            export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+          fi
+          brew install asc
+
+      # export-prices.js only reads pricing data (never writes to App Store
+      # Connect) and, in --check mode, only reports whether
+      # data/keepsake-prices.json is stale — it does not write the file.
+      - name: Check App Store prices
+        id: price_check
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_PRICING_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_PRICING_ISSUER_ID }}
+          ASC_PRIVATE_KEY: ${{ secrets.ASC_PRICING_PRIVATE_KEY }}
+          ASC_BYPASS_KEYCHAIN: '1'
+        run: |
+          set +e
+          node scripts/export-prices.js --check > /tmp/price-check-output.txt 2>&1
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          set -e
+          cat /tmp/price-check-output.txt
+
+      - name: Notify on price change
+        if: steps.price_check.outputs.exit_code == '1'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/notify-price-change.js /tmp/price-check-output.txt
+
+      - name: Fail the job if the price check errored
+        if: steps.price_check.outputs.exit_code == '2'
+        run: exit 1
