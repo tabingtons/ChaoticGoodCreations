@@ -13,6 +13,8 @@
     "/keepsake/journal/articles/family-memories-privacy/index": "/keepsake/journal/articles/family-memories-privacy/",
     "/keepsake/journal/articles/family-memories-privacy/index.html": "/keepsake/journal/articles/family-memories-privacy/",
     "/keepsake/journal/articles/what-to-do-with-childrens-artwork.html": "/keepsake/journal/articles/what-to-do-with-childrens-artwork/",
+    "/keepsake/journal/articles/how-to-keep-kids-3d-creations/index": "/keepsake/journal/articles/how-to-keep-kids-3d-creations/",
+    "/keepsake/journal/articles/how-to-keep-kids-3d-creations/index.html": "/keepsake/journal/articles/how-to-keep-kids-3d-creations/",
     "/keepsake/journal/articles/what-to-do-with-childrens-artwork/index": "/keepsake/journal/articles/what-to-do-with-childrens-artwork/",
     "/keepsake/journal/articles/what-to-do-with-childrens-artwork/index.html": "/keepsake/journal/articles/what-to-do-with-childrens-artwork/",
     "/keepsake/journal/articles/why-childrens-artwork-matters.html": "/keepsake/journal/articles/why-childrens-artwork-matters/",
