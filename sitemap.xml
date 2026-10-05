@@ -109,6 +109,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Keepsake Journal: How to keep kids' 3D creations -->
+  <url>
+    <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/how-to-keep-kids-3d-creations/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Keepsake Journal: Why children's artwork matters -->
   <url>
     <loc>https://chaoticgoodcreations.co/keepsake/journal/articles/why-childrens-artwork-matters/</loc>
