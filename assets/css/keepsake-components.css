@@ -314,6 +314,37 @@
   letter-spacing: 0.08em;
 }
 
+.ks-proof-press {
+  margin: 20px auto 0;
+
+  text-align: center;
+}
+
+.ks-proof-press blockquote {
+  margin: 0 0 6px;
+
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+
+  color: var(--text, #1a1a1a);
+}
+
+.ks-proof-press figcaption {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ks-proof-press figcaption::before {
+  content: "— ";
+}
+
+.ks-proof-press a {
+  color: var(--text-mid, #4a4a4a);
+}
+
 .ks-proof-quotes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
