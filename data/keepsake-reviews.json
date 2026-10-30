@@ -1,7 +1,7 @@
 {
   "appId": "6760719322",
   "rating": 5,
-  "ratingCount": 6,
+  "ratingCount": 7,
   "reviews": [
     {
       "id": "00000192-f863-da03-50c3-c5df00000000",
@@ -25,6 +25,13 @@
       "region": "USA"
     },
     {
+      "id": "00000192-f863-da03-6d71-5c7900000000",
+      "title": "Nice minimal",
+      "text": "Nice digital diary that helps you remember daily happiness",
+      "date": "2026-10-28T02:57:05-07:00",
+      "region": "USA"
+    },
+    {
       "id": "00000192-f863-da03-50c3-d1a200000000",
       "title": "Cool app!",
       "text": "If you want to capture moments of your life and organize it - then it is perfect app for you. And interface looks gorgeous!",
@@ -32,5 +39,5 @@
       "region": "PHL"
     }
   ],
-  "lastUpdated": "2026-10-29T07:57:17.912Z"
+  "lastUpdated": "2026-10-30T07:59:42.748Z"
 }
