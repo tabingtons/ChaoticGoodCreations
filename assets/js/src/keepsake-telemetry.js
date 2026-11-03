@@ -258,7 +258,10 @@ document.addEventListener("click", event => {
 
   // App Store links
   if (isKeepsakeAppStoreLink(link)) {
-    const extra = { placement: link.dataset.placement || "unknown" };
+    const extra = {
+      placement: link.dataset.placement || "unknown",
+      ct: new URL(link.href).searchParams.get("ct") || "none"
+    };
 
     // Preserve normal behaviour for modifier-clicks/new tabs
     if (isModifiedClick(event, link)) {
